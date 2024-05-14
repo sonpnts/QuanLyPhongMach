@@ -32,7 +32,7 @@ namespace GUI_QLPM
         {
             PhieukhambenhBUS pkb = new PhieukhambenhBUS();
             hdBus = new HoadonBUS();
-            ngayhd.Text = DateTime.UtcNow.Date.ToString(); // Sửa lỗi ở đây
+            ngayhd.Text = DateTime.UtcNow.Date.ToString();
             tkham = hdBus.tienkham();
             tienkham.Text = tkham.ToString();
             load_combobox();
