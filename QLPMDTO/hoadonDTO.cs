@@ -8,14 +8,22 @@ namespace QLPMDTO
 {
     public class HoadonDTO
     {
-        private string maHd;
-        private DateTime ngayHd;
-        private string maPkb;
+        private int maHoaDon;
+        private DateTime ngayLapHoaDon;
+		private float tienThuoc;
+        private float tienKham;
         private float tongTien;
+        private int maPKB;
+		private int maToaThuoc;
 
-        public string MaPkb { get => maPkb; set => maPkb = value; }
-        public string MaHd { get => maHd; set => maHd = value; }
-        public DateTime NgayHd { get => ngayHd; set => ngayHd = value; }
+
+
+        public int MaPKB { get => maPKB; set => maPKB = value; }
+		public int MaToaThuoc { get => maToaThuoc; set => maToaThuoc = value; }
+        public int MaHoaDon { get => maHoaDon; set => maHoaDon = value; }
+        public DateTime NgayLapHoaDon { get => ngayLapHoaDon; set => ngayLapHoaDon = value; }
+		public float TienThuoc { get => tienThuoc; set => tienThuoc = value; }
+        public float TienKham { get => tienKham; set => tienKham = value; }
         public float TongTien { get => tongTien; set => tongTien = value; }
     }
 }

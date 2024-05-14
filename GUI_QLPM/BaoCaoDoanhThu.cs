@@ -49,15 +49,15 @@ namespace GUI_QLPM
             foreach (HoadonDTO hd in listhoadon)
             {
                 string ngkham;
-                ngkham = String.Format("{0:M/d/yyyy}", hd.NgayHd);
+                ngkham = String.Format("{0:M/d/yyyy}", hd.NgayLapHoaDon);
                 tongdoanhthu += float.Parse(hdBus.doanhthu(ngkham).ToString());
             }
             foreach (HoadonDTO hd in listhoadon)
             {
                 DataRow row = table.NewRow();
-                row["Ngày Lập Hóa Đơn"] = hd.NgayHd.ToString();
+                row["Ngày Lập Hóa Đơn"] = hd.NgayLapHoaDon.ToString();
                 string ngkham;
-                ngkham = String.Format("{0:M/d/yyyy}", hd.NgayHd);
+                ngkham = String.Format("{0:M/d/yyyy}", hd.NgayLapHoaDon);
                 row["Số Bệnh Nhân"] = int.Parse(hdBus.sobenhnhan(ngkham).ToString());
                 row["Doanh Thu"] = float.Parse(hdBus.doanhthu(ngkham).ToString());
                 row["Ty Le"] = Math.Round(((double)float.Parse(hdBus.doanhthu(ngkham).ToString()) / (double)tongdoanhthu) * 100, 2).ToString() + "%";

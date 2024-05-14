@@ -21,8 +21,8 @@ namespace QLPMDAL
         public bool them(ThuocDTO th)
         {
             string query = string.Empty;
-            query += "INSERT INTO [tblTHUOC] ([maThuoc], [tenThuoc], [DVT],[Dongia],[CachDung])";
-            query += "VALUES (@maThuoc,@tenThuoc,@DVT,@Dongia,@CachDung)";
+            query += "INSERT INTO [Thuoc] ([tenThuoc],[DonVi],[Dongia],[CachDung])";
+            query += "VALUES (@tenThuoc,@donVi,@Dongia,@CachDung)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -31,9 +31,8 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maThuoc", th.MaThuoc);
                     cmd.Parameters.AddWithValue("@tenThuoc", th.TenThuoc);
-                    cmd.Parameters.AddWithValue("@DVT", th.DVT);
+                    cmd.Parameters.AddWithValue("@donVi", th.DonVi);
                     cmd.Parameters.AddWithValue("@Dongia", th.DonGia);
                     cmd.Parameters.AddWithValue("@CachDung", th.CachDung);
                     try
@@ -55,8 +54,8 @@ namespace QLPMDAL
         public bool sua(ThuocDTO th, string maThuocold)
         {
             string query = string.Empty;
-            query += "update [tblTHUOC]";
-            query += "set maThuoc=@maThuoc,tenThuoc=@tenThuoc,DVT=@DVT,Dongia=@Dongia,CachDung=@CachDung where maThuoc=@maThuocold";
+            query += "update [Thuoc]";
+            query += "set maThuoc=@maThuoc,tenThuoc=@tenThuoc,DonVi=@DonVi,Dongia=@Dongia,CachDung=@CachDung where maThuoc=@maThuocold";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -68,7 +67,7 @@ namespace QLPMDAL
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@maThuoc", th.MaThuoc);
                     cmd.Parameters.AddWithValue("@tenThuoc", th.TenThuoc);
-                    cmd.Parameters.AddWithValue("@DVT", th.DVT);
+                    cmd.Parameters.AddWithValue("@DonVi", th.DonVi);
                     cmd.Parameters.AddWithValue("@Dongia", th.DonGia);
                     cmd.Parameters.AddWithValue("@CachDung", th.CachDung);
                     cmd.Parameters.AddWithValue("@maThuocold", maThuocold);
@@ -93,7 +92,7 @@ namespace QLPMDAL
         public bool xoa(ThuocDTO th)
         {
             string query = string.Empty;
-            query += "delete from [tblThuoc]";
+            query += "delete from [Thuoc]";
             query += "where maThuoc=@maThuoc";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -126,7 +125,7 @@ namespace QLPMDAL
         {
             string query = string.Empty;
             query += "SELECT * ";
-            query += "FROM [tblThuoc]";
+            query += "FROM [Thuoc]";
 
             List<ThuocDTO> lsThuoc = new List<ThuocDTO>();
 
@@ -151,10 +150,10 @@ namespace QLPMDAL
                                 ThuocDTO th = new ThuocDTO();
                                 th.MaThuoc = reader["maThuoc"].ToString();
                                 th.TenThuoc = reader["tenThuoc"].ToString();
-                                th.DVT = reader["DVT"].ToString();
+                                th.DonVi = reader["DonVi"].ToString();
                                 th.CachDung = reader["CachDung"].ToString();
-                                th.DonGia = float.Parse(reader["Dongia"].ToString());
-                                
+                                th.DonGia = float.Parse(reader["donGia"].ToString());
+
                                 lsThuoc.Add(th);
 
                             }
@@ -176,7 +175,7 @@ namespace QLPMDAL
         {
             string query = string.Empty;
             query += " SELECT * ";
-            query += " FROM [tblTHUOC]";
+            query += " FROM [Thuoc]";
             query += " WHERE ([maThuoc] LIKE CONCAT('%',@sKeyword,'%'))";
             query += " OR ([tenThuoc] LIKE CONCAT('%',@sKeyword,'%'))";
 
@@ -203,9 +202,9 @@ namespace QLPMDAL
                                 ThuocDTO th = new ThuocDTO();
                                 th.MaThuoc = reader["maThuoc"].ToString();
                                 th.TenThuoc = reader["tenThuoc"].ToString();
-                                th.DVT = reader["DVT"].ToString();
+                                th.DonVi = reader["DonVi"].ToString();
                                 th.CachDung = reader["CachDung"].ToString();
-                                th.DonGia = float.Parse(reader["Dongia"].ToString());
+                                th.DonGia = float.Parse(reader["donGia"].ToString());
 
                                 lsThuoc.Add(th);
 
@@ -228,7 +227,7 @@ namespace QLPMDAL
         {
             int mathuoc = 1;
             string query = string.Empty;
-            query += "SELECT MAX (KQ.MATHUOC) AS MM from (SELECT CONVERT(float, tblTHUOC.maThuoc) AS MATHUOC FROM tblTHUOC ) AS KQ";
+            query += "SELECT MAX (KQ.MATHUOC) AS MM from (SELECT CONVERT(float, Thuoc.maThuoc) AS MATHUOC FROM Thuoc) AS KQ";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -238,7 +237,7 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    
+
                     try
                     {
                         con.Open();
@@ -266,47 +265,49 @@ namespace QLPMDAL
         }
         public List<ThuocDTO> selectbypkb(string mapkb)
         {
-            string query = string.Empty;
-            query += "SELECT TH.maThuoc,TH.tenThuoc,TH.CachDung,TH.DVT,TH.Dongia FROM tblPKB PKB JOIN tblTOA T ON PKB.maPKB=T.maPKB JOIN tblKETHUOC KT ON T.maToa=KT.maToa JOIN tblTHUOC TH ON KT.maThuoc=TH.maThuoc WHERE PKB.maPKB=@mapkb";
-
+            string query = @"
+        SELECT TH.maThuoc, TH.tenThuoc, TH.CachDung, TH.donVi, TH.donGia 
+        FROM PhieuKhamBenh PKB 
+        JOIN ToaThuoc T ON PKB.maPKB = T.maPKB 
+        JOIN KeThuoc KT ON T.maToaThuoc = KT.maToaThuoc 
+        JOIN Thuoc TH ON KT.maThuoc = TH.maThuoc 
+        WHERE PKB.maPKB = @mapkb";
 
             List<ThuocDTO> lsThuoc = new List<ThuocDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@mapkb", mapkb);
                     try
                     {
                         con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if (reader.HasRows)
                             {
-                                ThuocDTO th = new ThuocDTO();
-                                th.MaThuoc = reader["maThuoc"].ToString();
-                                th.TenThuoc = reader["tenThuoc"].ToString();
-                                th.DVT = reader["DVT"].ToString();
-                                th.CachDung = reader["CachDung"].ToString();
-                                th.DonGia = float.Parse(reader["Dongia"].ToString());
+                                while (reader.Read())
+                                {
+                                    ThuocDTO th = new ThuocDTO
+                                    {
+                                        MaThuoc = reader["maThuoc"].ToString(),
+                                        TenThuoc = reader["tenThuoc"].ToString(),
+                                        DonVi = reader["donVi"].ToString(),
+                                        CachDung = reader["CachDung"].ToString(),
+                                        DonGia = float.Parse(reader["donGia"].ToString())
+                                    };
 
-                                lsThuoc.Add(th);
-
+                                    lsThuoc.Add(th);
+                                }
                             }
                         }
-
                         con.Close();
-                        con.Dispose();
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine($"Error: {ex.Message}");
                         con.Close();
                         return null;
                     }
@@ -314,10 +315,11 @@ namespace QLPMDAL
             }
             return lsThuoc;
         }
-        public List<ThuocDTO> baocaobymonth(string month,string year)
+
+        public List<ThuocDTO> baocaobymonth(string month, string year)
         {
             string query = string.Empty;
-            query += "SELECT TH.maThuoc, TH.tenThuoc, TH.DVT FROM tblTOA T JOIN tblKETHUOC KT ON T.maToa=KT.maToa JOIN tblTHUOC TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngKeToa)=@month and YEAR(T.ngKeToa)=@year group by TH.maThuoc,TH.tenThuoc,TH.DVT";
+            query += "SELECT TH.maThuoc, TH.tenThuoc, TH.DVT FROM ToaThuoc T JOIN tblKETHUOC KT ON T.maToa=KT.maToa JOIN Thuoc TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngayKeToa)=@month and YEAR(T.ngayKeToa)=@year group by TH.maThuoc,TH.tenThuoc,TH.DonVi";
 
 
             List<ThuocDTO> lsThuoc = new List<ThuocDTO>();
@@ -343,8 +345,8 @@ namespace QLPMDAL
                             {
                                 ThuocDTO th = new ThuocDTO();
                                 th.MaThuoc = reader["maThuoc"].ToString();
-                                th.TenThuoc = reader["tenThuoc"].ToString();              
-                                th.DVT= reader["DVT"].ToString();
+                                th.TenThuoc = reader["tenThuoc"].ToString();
+                                th.DonVi = reader["DonVi"].ToString();
                                 lsThuoc.Add(th);
 
                             }
@@ -365,7 +367,7 @@ namespace QLPMDAL
         public List<Donvi> getdonvi()
         {
             string query = string.Empty;
-            query += "SELECT * FROM tblDONVI";
+            query += "SELECT * FROM DonVi";
 
 
             List<Donvi> lsdv = new List<Donvi>();
@@ -409,7 +411,7 @@ namespace QLPMDAL
         public List<Cachdung> getcachdung()
         {
             string query = string.Empty;
-            query += "SELECT * FROM tblCACHDUNG";
+            query += "SELECT * FROM CachDung";
 
 
             List<Cachdung> lscd = new List<Cachdung>();
@@ -453,7 +455,7 @@ namespace QLPMDAL
         public bool thaydoiCD(string cdmoi, string cdcu)
         {
             string query = string.Empty;
-            query += "UPDATE [tblCACHDUNG] set cachDung=@cdmoi where cachDung=@cdcu";
+            query += "UPDATE [CachDung] set cachDung=@cdmoi where cachDung=@cdcu";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -486,7 +488,7 @@ namespace QLPMDAL
         public bool thaydoiDV(string dvmoi, string dvcu)
         {
             string query = string.Empty;
-            query += "UPDATE [tblDONVI] set donVi=@dvmoi where donVi=@dvcu";
+            query += "UPDATE [DonVi] set donVi=@dvmoi where donVi=@dvcu";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -519,7 +521,7 @@ namespace QLPMDAL
         public bool xoaDV(string dv)
         {
             string query = string.Empty;
-            query += "DELETE FROM tblDONVI WHERE donVi=@donVi";
+            query += "DELETE FROM DonVi WHERE donVi=@donVi";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -550,7 +552,7 @@ namespace QLPMDAL
         public bool xoaCD(string cd)
         {
             string query = string.Empty;
-            query += "DELETE FROM tblCACHDUNG WHERE cachDung=@cachDung";
+            query += "DELETE FROM CachDung WHERE cachDung=@cachDung";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -581,7 +583,7 @@ namespace QLPMDAL
         public bool themdv(string dv)
         {
             string query = string.Empty;
-            query += "INSERT INTO [tblDONVI] ([donVi])";
+            query += "INSERT INTO [DonVi] ([donVi])";
             query += "VALUES (@donVi)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -611,7 +613,7 @@ namespace QLPMDAL
         public bool themcd(string cd)
         {
             string query = string.Empty;
-            query += "INSERT INTO [tblCACHDUNG] ([cachDung])";
+            query += "INSERT INTO [CachDung] ([cachDung])";
             query += "VALUES (@cachDung)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {

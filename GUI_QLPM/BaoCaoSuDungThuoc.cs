@@ -57,7 +57,7 @@ namespace GUI_QLPM
 
                         DataRow row = table.NewRow();
                         row["Tên Thuốc"] = th.TenThuoc;
-                        row["Đơn Vị Tính"] = th.DVT;
+                        row["Đơn Vị Tính"] = th.DonVi;
                         row["Số Lượng"] = kt.SoLuong;
                         row["Số Lần Dùng"] = ktBus.solandungbymonth(th.MaThuoc, month, year);
                         row["Số Thứ Tự"] = stt;

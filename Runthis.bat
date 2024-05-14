@@ -1,1 +1,0 @@
-SQLCMD -S TRUONG-SON  -E -i createDBQLPM.sql

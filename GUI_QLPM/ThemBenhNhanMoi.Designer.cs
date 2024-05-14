@@ -46,7 +46,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(135, 35);
+            this.label1.Location = new System.Drawing.Point(303, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(135, 99);
+            this.label2.Location = new System.Drawing.Point(303, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 1;
@@ -64,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(135, 163);
+            this.label3.Location = new System.Drawing.Point(303, 167);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 2;
@@ -73,7 +73,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(135, 227);
+            this.label4.Location = new System.Drawing.Point(303, 231);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 16);
             this.label4.TabIndex = 3;
@@ -82,7 +82,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(135, 291);
+            this.label5.Location = new System.Drawing.Point(303, 295);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 16);
             this.label5.TabIndex = 4;
@@ -90,32 +90,33 @@
             // 
             // mabenhnhan
             // 
-            this.mabenhnhan.Location = new System.Drawing.Point(260, 29);
+            this.mabenhnhan.Location = new System.Drawing.Point(428, 33);
             this.mabenhnhan.Name = "mabenhnhan";
             this.mabenhnhan.Size = new System.Drawing.Size(241, 22);
             this.mabenhnhan.TabIndex = 5;
+            this.mabenhnhan.TabStop = false;
             // 
             // diachi
             // 
-            this.diachi.Location = new System.Drawing.Point(260, 285);
+            this.diachi.Location = new System.Drawing.Point(428, 289);
             this.diachi.Name = "diachi";
             this.diachi.Size = new System.Drawing.Size(238, 22);
-            this.diachi.TabIndex = 7;
+            this.diachi.TabIndex = 4;
             // 
             // hoten
             // 
-            this.hoten.Location = new System.Drawing.Point(260, 93);
+            this.hoten.Location = new System.Drawing.Point(428, 97);
             this.hoten.Name = "hoten";
             this.hoten.Size = new System.Drawing.Size(241, 22);
-            this.hoten.TabIndex = 9;
+            this.hoten.TabIndex = 0;
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(260, 158);
+            this.radioButton1.Location = new System.Drawing.Point(428, 162);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(57, 20);
-            this.radioButton1.TabIndex = 10;
+            this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Nam";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -123,37 +124,37 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(333, 159);
+            this.radioButton2.Location = new System.Drawing.Point(501, 163);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(45, 20);
-            this.radioButton2.TabIndex = 11;
+            this.radioButton2.TabIndex = 2;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Nữ";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // ngaysinh
             // 
-            this.ngaysinh.Location = new System.Drawing.Point(260, 220);
+            this.ngaysinh.Location = new System.Drawing.Point(428, 224);
             this.ngaysinh.Name = "ngaysinh";
             this.ngaysinh.Size = new System.Drawing.Size(241, 22);
-            this.ngaysinh.TabIndex = 12;
+            this.ngaysinh.TabIndex = 3;
             // 
             // them
             // 
-            this.them.Location = new System.Drawing.Point(192, 346);
+            this.them.Location = new System.Drawing.Point(360, 350);
             this.them.Name = "them";
             this.them.Size = new System.Drawing.Size(113, 39);
-            this.them.TabIndex = 13;
+            this.them.TabIndex = 5;
             this.them.Text = "Thêm";
             this.them.UseVisualStyleBackColor = true;
             this.them.Click += new System.EventHandler(this.them_Click);
             // 
             // quaylai
             // 
-            this.quaylai.Location = new System.Drawing.Point(385, 346);
+            this.quaylai.Location = new System.Drawing.Point(553, 350);
             this.quaylai.Name = "quaylai";
             this.quaylai.Size = new System.Drawing.Size(113, 39);
-            this.quaylai.TabIndex = 14;
+            this.quaylai.TabIndex = 6;
             this.quaylai.Text = "Quay lại";
             this.quaylai.UseVisualStyleBackColor = true;
             // 
@@ -161,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 444);
+            this.ClientSize = new System.Drawing.Size(1134, 460);
             this.Controls.Add(this.quaylai);
             this.Controls.Add(this.them);
             this.Controls.Add(this.ngaysinh);
@@ -176,7 +177,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ThemBenhNhanMoi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemBenhNhanMoi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

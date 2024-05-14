@@ -35,12 +35,12 @@ namespace QLPMBUS
         }
         public int autogenerate_mapkb()
         {
-            return pkbDAL.autogenerate_mapkb();
+            return pkbDAL.AutoGenerateMaPKB();
         }
-        public void tk()
-        {
-            pkbDAL.tk();
-        }
+        //public void tk()
+        //{
+        //    pkbDAL.tk();
+        //}
         public bool thaydoiTK(float tkmoi, float tkcu)
         {
             bool re= pkbDAL.thaydoiTK(tkmoi, tkcu);

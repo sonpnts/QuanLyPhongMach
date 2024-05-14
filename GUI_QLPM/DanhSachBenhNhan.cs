@@ -65,11 +65,11 @@ namespace GUI_QLPM
             {
                 foreach (PhieukhambenhDTO pkb in listpkb)
                 {
-                    if (bn.MaPKB == pkb.MaPkb)
+                    if (bn.MaBN == pkb.MaBenhNhan)
                     {
                         foreach (ChandoanDTO cd in listcd)
                         {
-                            if (pkb.MaPkb == cd.MaPkb)
+                            if (pkb.MaPKB == cd.MaPkb)
                             {
                                 foreach (BenhDTO be in listBenh)
                                 {

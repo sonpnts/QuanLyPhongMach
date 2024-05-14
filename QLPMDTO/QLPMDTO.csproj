@@ -46,6 +46,7 @@
     <Compile Include="benhnhanDTO.cs" />
     <Compile Include="cachdungDTO.cs" />
     <Compile Include="chandoanDTO.cs" />
+    <Compile Include="dichvuDTO.cs" />
     <Compile Include="hoadonDTO.cs" />
     <Compile Include="kethuocDTO.cs" />
     <Compile Include="phieukhambenhDTO.cs" />

@@ -21,7 +21,7 @@ namespace QLPMDAL
         public bool them(ChandoanDTO cd)
         {
             string query = string.Empty;
-            query += "INSERT INTO [tblKQCHANDOAN] ([maBenh], [maPKB]) ";
+            query += "INSERT INTO [ChuanDoan] ([maBenh], [maPKB]) ";
             query += "VALUES (@maBenh,@maPKB)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -53,7 +53,7 @@ namespace QLPMDAL
         {
             string query = string.Empty;
             query += "SELECT * ";
-            query += "FROM [tblKQCHANDOAN]";
+            query += "FROM [ChuanDoan]";
 
             List<ChandoanDTO> lscd = new List<ChandoanDTO>();
 

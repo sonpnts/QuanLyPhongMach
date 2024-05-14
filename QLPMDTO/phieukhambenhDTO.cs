@@ -8,14 +8,14 @@ namespace QLPMDTO
 {
     public class PhieukhambenhDTO
     {
-        private string maPkb;
+        private string maPKB;
         private DateTime ngayKham;
         private string trieuChung;
-        private static float tienKham;
+        private string maBenhNhan;
 
-        public string MaPkb { get => maPkb; set => maPkb = value; }
+        public string MaPKB { get => maPKB; set => maPKB = value; }
         public string TrieuChung { get => trieuChung; set => trieuChung = value; }
         public DateTime NgayKham { get => ngayKham; set => ngayKham = value; }
-        public static float TienKham { get => tienKham; set => tienKham = value; }
+        public string MaBenhNhan { get => maBenhNhan; set => maBenhNhan = value; }
     }
 }

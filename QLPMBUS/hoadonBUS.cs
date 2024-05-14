@@ -22,11 +22,12 @@ namespace QLPMBUS
         public float tienthuoc(HoadonDTO hd,string mapkb)
         {
            float re = hdDAL.tienthuoc(hd,mapkb);
-            return re;
+           return re;
         }
-        public int autogenerate_mahd()
+        public float tienkham()
         {
-            return hdDAL.autogenerate_mahd();
+            float re = hdDAL.tienkham();
+            return re;
         }
         public List<HoadonDTO> selectByMonth(string month, string year)
         {

@@ -60,7 +60,7 @@ namespace QLPMBUS
         }
         public bool thaydoiCD(string cdmoi, string cdcu)
         {
-            bool re = thDAL.thaydoiCD(cdmoi,cdcu);
+            bool re = thDAL.thaydoiCD(cdmoi, cdcu);
             return re;
         }
         public bool thaydoiDV(string dvmoi, string dvcu)

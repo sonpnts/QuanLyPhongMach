@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-using System.Data;
-using QLPMDTO;
 using System.Configuration;
+using QLPMDTO;
+
 namespace QLPMDAL
 {
     public class BenhNhanDAL
@@ -17,32 +14,32 @@ namespace QLPMDAL
         {
             connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         }
+
         public string ConnectionString { get => connectionString; set => connectionString = value; }
-        public bool them(BenhNhanDTO bn)
+
+        public bool Them(BenhNhanDTO bn)
         {
             string query = string.Empty;
-            query += "INSERT INTO [tblBENHNHAN] ([maBN], [tenBN], [GioiTinh],[NgaySinh],[DiaChi],[maPKB])";
-            query += "VALUES (@maBN,@tenBN,@GioiTinh,@NgaySinh,@DiaChi,@maPKB)";
+            query += "INSERT INTO [BenhNhan] ([tenBenhNhan], [gioiTinh], [ngaySinh], [diaChi])";
+            query += "VALUES ( @tenBenhNhan, @gioiTinh, @ngaySinh, @diaChi)";
+
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBN", bn.MaBN);
-                    cmd.Parameters.AddWithValue("@tenBN", bn.TenBN);
-                    cmd.Parameters.AddWithValue("@GioiTinh", bn.GtBN);
-                    cmd.Parameters.AddWithValue("@NgaySinh", bn.NgsinhBN);
-                    cmd.Parameters.AddWithValue("@DiaChi", bn.DiachiBN);
-                    cmd.Parameters.AddWithValue("@maPKB", bn.MaPKB);
+                    cmd.Parameters.AddWithValue("@tenBenhNhan", bn.TenBN);
+                    cmd.Parameters.AddWithValue("@gioiTinh", bn.GtBN);
+                    cmd.Parameters.AddWithValue("@ngaySinh", bn.NgsinhBN);
+                    cmd.Parameters.AddWithValue("@diaChi", bn.DiachiBN);
+
                     try
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
-                        con.Dispose();
                     }
                     catch (Exception ex)
                     {
@@ -53,121 +50,118 @@ namespace QLPMDAL
             }
             return true;
         }
-        public bool sua(BenhNhanDTO bn,string maBNold)
+
+        public bool Sua(BenhNhanDTO bn, string maBNold)
         {
             string query = string.Empty;
-            query += "update [tblBENHNHAN]";
-            query += "set maBN=@maBN,tenBN=@tenBN,NgaySinh=@NgaySinh,GioiTinh=@GioiTinh,DiaChi=@DiaChi where maBN=@maBNold";
-           
+            query += "UPDATE [BenhNhan] ";
+            query += "SET maBN=@maBN, tenBN=@tenBN, gioiTinh=@gioiTinh, ngaySinh=@ngaySinh, diaChi=@diaChi ";
+            query += "WHERE maBenhNhan=@maBNold";
+
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBN", bn.MaBN);
-                    cmd.Parameters.AddWithValue("@tenBN", bn.TenBN);
-                    cmd.Parameters.AddWithValue("@GioiTinh", bn.GtBN);
-                    cmd.Parameters.AddWithValue("@NgaySinh", bn.NgsinhBN);
-                    cmd.Parameters.AddWithValue("@DiaChi", bn.DiachiBN);
+                    cmd.Parameters.AddWithValue("@maBenhNhan", bn.MaBN);
+                    cmd.Parameters.AddWithValue("@tenBenhNhan", bn.TenBN);
+                    cmd.Parameters.AddWithValue("@gioiTinh", bn.GtBN);
+                    cmd.Parameters.AddWithValue("@ngaySinh", bn.NgsinhBN);
+                    cmd.Parameters.AddWithValue("@diaChi", bn.DiachiBN);
                     cmd.Parameters.AddWithValue("@maBNold", maBNold);
+
                     try
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
-                        con.Dispose();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         con.Close();
                         return false;
                     }
                 }
-
-                return true; 
             }
-            
+            return true;
         }
-        public bool themmapkb(BenhNhanDTO bn, string mapkb)
+
+        //public bool ThemMaPKB(BenhNhanDTO bn, string maPKB)
+        //{
+        //    string query = string.Empty;
+        //    query += "UPDATE [tblBENHNHAN] ";
+        //    query += "SET maPKB=@maPKB ";
+        //    query += "WHERE maBN=@maBN";
+
+        //    using (SqlConnection con = new SqlConnection(ConnectionString))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            cmd.Connection = con;
+        //            cmd.CommandType = System.Data.CommandType.Text;
+        //            cmd.CommandText = query;
+        //            cmd.Parameters.AddWithValue("@maBN", bn.MaBN);
+        //            cmd.Parameters.AddWithValue("@maPKB", maPKB);
+
+        //            try
+        //            {
+        //                con.Open();
+        //                cmd.ExecuteNonQuery();
+        //                con.Close();
+        //            }
+        //            catch (Exception)
+        //            {
+        //                con.Close();
+        //                return false;
+        //            }
+        //        }
+        //    }
+        //    return true;
+        //}
+
+        public bool Xoa(BenhNhanDTO bn)
         {
             string query = string.Empty;
-            query += "update [tblBENHNHAN]";
-            query += "set maPKB=@maPKB where maBN=@maBN";
+            query += "DELETE FROM [BenhNhan] ";
+            query += "WHERE maBenhNhan=@maBN";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBN", bn.MaBN);
-                    cmd.Parameters.AddWithValue("@maPKB", mapkb);
+                    cmd.Parameters.AddWithValue("@maBenhNhan", bn.MaBN);
+
                     try
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
-                        con.Dispose();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         con.Close();
                         return false;
                     }
                 }
-
-                return true;
             }
+            return true;
         }
-            public bool xoa(BenhNhanDTO bn)
-        {
-            string query = string.Empty;
-            query += "delete from [tblBENHNHAN]";
-            query += "where maBN=@maBN";
 
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBN", bn.MaBN);
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return false;
-                    }
-                }
-
-                return true;
-            }
-
-        }
-        public List<BenhNhanDTO> select()
+        public List<BenhNhanDTO> Select()
         {
             string query = string.Empty;
             query += "SELECT * ";
-            query += "FROM [tblBenhNhan]";
+            query += "FROM [BenhNhan]";
 
             List<BenhNhanDTO> lsBenhNhan = new List<BenhNhanDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
@@ -177,28 +171,24 @@ namespace QLPMDAL
                     try
                     {
                         con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
                                 BenhNhanDTO bn = new BenhNhanDTO();
-                                bn.MaBN = int.Parse(reader["maBN"].ToString());
-                                bn.TenBN = reader["tenBN"].ToString();
-                                bn.NgsinhBN = DateTime.Parse(reader["NgaySinh"].ToString());
-                                bn.GtBN = reader["GioiTinh"].ToString();
-                                bn.MaPKB = reader["maPKB"].ToString();
-                                bn.DiachiBN = reader["DiaChi"].ToString();
+                                bn.MaBN = reader["maBenhNhan"].ToString();
+                                bn.TenBN = reader["tenBenhNhan"].ToString();
+                                bn.GtBN = reader["gioiTinh"].ToString();
+                                bn.NgsinhBN = DateTime.Parse(reader["ngaySinh"].ToString());
+                                bn.DiachiBN = reader["diaChi"].ToString();
+                                //bn.MaPKB = reader["maPKB"].ToString();
                                 lsBenhNhan.Add(bn);
-                                
                             }
                         }
-
                         con.Close();
-                        con.Dispose();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         con.Close();
                         return null;
@@ -207,51 +197,47 @@ namespace QLPMDAL
             }
             return lsBenhNhan;
         }
-        public List<BenhNhanDTO> selectByKeyWord(string sKeyword)
+
+        public List<BenhNhanDTO> SelectByKeyWord(string sKeyword)
         {
             string query = string.Empty;
-            query += " SELECT * ";
-            query += " FROM [tblBENHNHAN]";
-            query += " WHERE ([maBN] LIKE CONCAT('%',@sKeyword,'%'))";
-            query += " OR ([tenBN] LIKE CONCAT('%',@sKeyword,'%'))";
-            query += " OR ([NgaySinh] LIKE CONCAT('%',@sKeyword,'%'))";
+            query += "SELECT * ";
+            query += "FROM [BenhNhan] ";
+            query += "WHERE (maBenhNhan LIKE CONCAT('%',@sKeyword,'%')) ";
+            query += "OR (tenBenhNhan LIKE CONCAT('%',@sKeyword,'%')) ";
+            query += "OR (ngaySinh LIKE CONCAT('%',@sKeyword,'%')) ";
 
             List<BenhNhanDTO> lsBenhNhan = new List<BenhNhanDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@sKeyword", sKeyword);
+
                     try
                     {
                         con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
                                 BenhNhanDTO bn = new BenhNhanDTO();
-                                bn.MaBN = int.Parse(reader["maBN"].ToString());
-                                bn.TenBN = reader["tenBN"].ToString();
-                                bn.NgsinhBN = DateTime.Parse(reader["NgaySinh"].ToString());
-                                bn.GtBN = reader["GioiTinh"].ToString();
-                                bn.MaPKB = reader["maPKB"].ToString();
-                                bn.DiachiBN = reader["DiaChi"].ToString();
+                                bn.MaBN = reader["maBenhNhan"].ToString();
+                                bn.TenBN = reader["tenBenhNhan"].ToString();
+                                bn.GtBN = reader["gioiTinh"].ToString();
+                                bn.NgsinhBN = DateTime.Parse(reader["ngaySinh"].ToString());
+                                bn.DiachiBN = reader["diaChi"].ToString();
                                 lsBenhNhan.Add(bn);
-                                
                             }
                         }
-
                         con.Close();
-                        con.Dispose();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         con.Close();
                         return null;
@@ -260,44 +246,44 @@ namespace QLPMDAL
             }
             return lsBenhNhan;
         }
-        public int autogenerate_mabn()
+
+        public int AutoGenerateMaBN()
         {
-            int mabn = 1;
+            int maBN = 1;
             string query = string.Empty;
-            query += "SELECT MAX (KQ.MABN) AS MM from (SELECT CONVERT(float, tblBENHNHAN.maBN) AS MABN FROM tblBENHNHAN ) AS KQ";
+            query += "SELECT MAX(CAST(maBenhNhan AS INT)) AS MaxMaBN FROM [BenhNhan]";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
+
                     try
                     {
                         con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
-                                mabn = int.Parse(reader["MM"].ToString()) + 1;
+                                if (reader["MaxMaBN"] != DBNull.Value)
+                                {
+                                    maBN = int.Parse(reader["MaxMaBN"].ToString()) + 1;
+                                }
                             }
                         }
-
                         con.Close();
-                        con.Dispose();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         con.Close();
-
                     }
                 }
             }
-            return mabn;
+            return maBN;
         }
     }
 }

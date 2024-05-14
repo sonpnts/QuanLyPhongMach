@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
 using QLPMDTO;
 using System.Configuration;
+using System.Data.SqlClient;
+
 namespace QLPMDAL
 {
-    public class BenhDAL
+    public class DichvuDAL
     {
         private string connectionString;
 
-        public BenhDAL()
+        public DichvuDAL()
         {
             connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         }
         public string ConnectionString { get => connectionString; set => connectionString = value; }
-        public bool them(BenhDTO be)
+        public bool them(DichvuDTO dv)
         {
             string query = string.Empty;
-            query += "INSERT INTO [Benh] ([maBenh], [tenBenh])";
-            query += "VALUES (@maBenh,@tenBenh)";
+            query += "INSERT INTO [QuyDinh] ([tenDichVu], [tienDichVu])";
+            query += "VALUES (@tenDichVu,@tienDichVu";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -31,9 +31,9 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBenh", be.MaBenh);
-                    cmd.Parameters.AddWithValue("@tenBenh", be.TenBenh);
-                    try
+                    cmd.Parameters.AddWithValue("@tenDichVu", dv.TenDichVu);
+                    cmd.Parameters.AddWithValue("@tienDichVu", dv.TienDichVu);
+                    try 
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -49,11 +49,11 @@ namespace QLPMDAL
             }
             return true;
         }
-        public bool sua(BenhDTO be, string maBenhold)
+        public bool sua(DichvuDTO dv, int maDichVuOld)
         {
             string query = string.Empty;
-            query += "update [Benh]";
-            query += "set maBenh=@maBenh,tenBenh=@tenBenh where maBenh=@maBenhold";
+            query += "update [DichVu]";
+            query += "set maDichVu=@maDichVu,tenDichVu=@tenDichVu,tienDichVu=@tienDichVu where maDichVu=@maDichVuOld";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -63,9 +63,9 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBN", be.MaBenh);
-                    cmd.Parameters.AddWithValue("@tenBN", be.TenBenh);
-                    cmd.Parameters.AddWithValue("@maBNold", maBenhold);
+                    cmd.Parameters.AddWithValue("@tenDichVu", dv.TenDichVu);
+                    cmd.Parameters.AddWithValue("@tienDichVu", dv.TienDichVu);
+                    cmd.Parameters.AddWithValue("@maDichVuOld", maDichVuOld);
                     try
                     {
                         con.Open();
@@ -82,13 +82,12 @@ namespace QLPMDAL
 
                 return true;
             }
-
         }
-        public bool xoa(BenhDTO be)
+        public bool xoa(DichvuDTO dv)
         {
             string query = string.Empty;
-            query += "delete from [Benh]";
-            query += "where maBN=@maBN";
+            query += "delete from [DichVu]";
+            query += "where maDichVu=@maDichVu";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -98,7 +97,7 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBN", be.MaBenh);
+                    cmd.Parameters.AddWithValue("@maDichVu", dv.MaDichVu);
                     try
                     {
                         con.Open();
@@ -115,15 +114,14 @@ namespace QLPMDAL
 
                 return true;
             }
-
         }
-        public List<BenhDTO> select()
+        public List<DichvuDTO> select()
         {
             string query = string.Empty;
             query += "SELECT * ";
-            query += "FROM [Benh]";
+            query += "FROM [DichVu]";
 
-            List<BenhDTO> lsBenh = new List<BenhDTO>();
+            List<DichvuDTO> lsDichVu = new List<DichvuDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -143,10 +141,12 @@ namespace QLPMDAL
                         {
                             while (reader.Read())
                             {
-                                BenhDTO be = new BenhDTO();
-                                be.MaBenh = reader["maBenh"].ToString();
-                                be.TenBenh = reader["tenBenh"].ToString();
-                                lsBenh.Add(be);
+                                DichvuDTO dv = new DichvuDTO();
+                                dv.MaDichVu = int.Parse(reader["maDichVu"].ToString());
+                                dv.TenDichVu = reader["tenDichVu"].ToString();
+                                dv.TienDichVu= float.Parse(reader["tienDichVu"].ToString());
+
+                                lsDichVu.Add(dv);
 
                             }
                         }
@@ -161,17 +161,17 @@ namespace QLPMDAL
                     }
                 }
             }
-            return lsBenh;
+            return lsDichVu;
         }
-        public List<BenhDTO> selectByKeyWord(string sKeyword)
+        public List<DichvuDTO> selectByKeyWord(string sKeyword)
         {
             string query = string.Empty;
             query += " SELECT * ";
-            query += " FROM [Benh]";
-            query += " WHERE ([maBenh] LIKE CONCAT('%',@sKeyword,'%'))";
-            query += " OR ([tenBenh] LIKE CONCAT('%',@sKeyword,'%'))";
+            query += " FROM [DichVu]";
+            query += " WHERE ([maDichVu] LIKE CONCAT('%',@sKeyword,'%'))";
+            query += " OR ([tenDichVu] LIKE CONCAT('%',@sKeyword,'%'))";
 
-            List<BenhDTO> lsBenh = new List<BenhDTO>();
+            List<DichvuDTO> lsDichVu = new List<DichvuDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -191,10 +191,12 @@ namespace QLPMDAL
                         {
                             while (reader.Read())
                             {
-                                BenhDTO be = new BenhDTO();
-                                be.MaBenh = reader["maBenh"].ToString();
-                                be.TenBenh = reader["tenBenh"].ToString();
-                                lsBenh.Add(be);
+                                DichvuDTO dv = new DichvuDTO();
+                                dv.MaDichVu = int.Parse(reader["maDichVu"].ToString());
+                                dv.TenDichVu = reader["tenDichVu"].ToString();
+                                dv.TienDichVu = float.Parse(reader["tienDichVu"].ToString());
+
+                                lsDichVu.Add(dv);
 
                             }
                         }
@@ -209,47 +211,7 @@ namespace QLPMDAL
                     }
                 }
             }
-            return lsBenh;
-        }
-        public int autogenerate_mabenh()
-        {
-            int mabenh = 1;
-            string query = string.Empty;
-            query += "SELECT MAX (KQ.MABENH) AS MM from (SELECT CONVERT(float, Benh.maBenh) AS MABENH FROM Benh ) AS KQ";
-
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    try
-                    {
-                        con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
-                        {
-                            while (reader.Read())
-                            {
-                                mabenh = int.Parse(reader["MM"].ToString()) + 1;
-                            }
-                        }
-
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-
-                    }
-                }
-            }
-            return mabenh;
+            return lsDichVu;
         }
     }
 }
-

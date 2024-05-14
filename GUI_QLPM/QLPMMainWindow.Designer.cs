@@ -70,7 +70,7 @@
             this.HeThong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Dong});
             this.HeThong.Name = "HeThong";
-            this.HeThong.Size = new System.Drawing.Size(85, 26);
+            this.HeThong.Size = new System.Drawing.Size(85, 24);
             this.HeThong.Text = "Hệ thống";
             // 
             // Dong
@@ -85,7 +85,7 @@
             this.TraCuu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TraCuuBenhNhan});
             this.TraCuu.Name = "TraCuu";
-            this.TraCuu.Size = new System.Drawing.Size(71, 26);
+            this.TraCuu.Size = new System.Drawing.Size(71, 24);
             this.TraCuu.Text = "Tra cứu";
             // 
             // TraCuuBenhNhan
@@ -104,7 +104,7 @@
             this.QuanLyThuoc,
             this.QuanLyLoaiThuoc});
             this.DanhMuc.Name = "DanhMuc";
-            this.DanhMuc.Size = new System.Drawing.Size(90, 26);
+            this.DanhMuc.Size = new System.Drawing.Size(90, 24);
             this.DanhMuc.Text = "Danh mục";
             // 
             // ThemBenhNhan
@@ -148,7 +148,7 @@
             this.DanhSachKhamBenh,
             this.DanhSachBenhNhan});
             this.DanhSach.Name = "DanhSach";
-            this.DanhSach.Size = new System.Drawing.Size(91, 26);
+            this.DanhSach.Size = new System.Drawing.Size(91, 24);
             this.DanhSach.Text = "Danh sách";
             // 
             // DanhSachKhamBenh
@@ -171,7 +171,7 @@
             this.BaoCaoDoanhThu,
             this.BaoCaoSuDungThuoc});
             this.BaoCao.Name = "BaoCao";
-            this.BaoCao.Size = new System.Drawing.Size(77, 26);
+            this.BaoCao.Size = new System.Drawing.Size(77, 24);
             this.BaoCao.Text = "Báo cáo";
             // 
             // BaoCaoDoanhThu
@@ -191,7 +191,7 @@
             // QuyDinh
             // 
             this.QuyDinh.Name = "QuyDinh";
-            this.QuyDinh.Size = new System.Drawing.Size(82, 26);
+            this.QuyDinh.Size = new System.Drawing.Size(82, 24);
             this.QuyDinh.Text = "Quy định";
             this.QuyDinh.Click += new System.EventHandler(this.QuyDinh_Click);
             // 
@@ -199,6 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1023, 450);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

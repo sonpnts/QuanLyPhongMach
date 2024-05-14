@@ -83,16 +83,16 @@ namespace GUI_QLPM
             }
             else
             {
-                PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
-                pkbBus.tk();
-                float tkmoi = float.Parse(txtTienKham.Text.ToString());
-                float tkcu = PhieukhambenhDTO.TienKham;
-                bool kq = pkbBus.thaydoiTK(tkmoi, tkcu);
-                if (kq == false)
-                {
-                    System.Windows.Forms.MessageBox.Show("thay đổi thất bại");
-                }
-                else System.Windows.Forms.MessageBox.Show("thay đổi thành công");
+                //PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
+                //pkbBus.tk();
+                //float tkmoi = float.Parse(txtTienKham.Text.ToString());
+                //float tkcu = PhieukhambenhDTO.TienKham;
+                //bool kq = pkbBus.thaydoiTK(tkmoi, tkcu);
+                //if (kq == false)
+                //{
+                //    System.Windows.Forms.MessageBox.Show("thay đổi thất bại");
+                //}
+                //else System.Windows.Forms.MessageBox.Show("thay đổi thành công");
             }
         }
 

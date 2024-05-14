@@ -24,6 +24,7 @@ namespace GUI_QLPM
         public DanhSachThuoc()
         {
             InitializeComponent();
+            load_data();
         }
         private void load()
         {
@@ -57,7 +58,7 @@ namespace GUI_QLPM
                 DataRow row = table.NewRow();
                 row["maThuoc"] = th.MaThuoc;
                 row["tenThuoc"] = th.TenThuoc;
-                row["DVT"] = th.DVT;
+                row["DVT"] = th.DonVi;
                 row["Dongia"] = th.DonGia;
                 row["CachDung"] = th.CachDung;
                 table.Rows.Add(row);
@@ -79,6 +80,13 @@ namespace GUI_QLPM
                 List<ThuocDTO> listThuoc = thBus.selectByKeyWord(sKeyword);
                 this.loadData_Vao_GridView(listThuoc);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ThemThuocMoi thm = new ThemThuocMoi();
+            thm.Show();
+            load_data();
         }
     }
 }

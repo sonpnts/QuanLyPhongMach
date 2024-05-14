@@ -99,14 +99,19 @@ namespace GUI_QLPM
                 th.TenThuoc = tenthuoc.Text;
                 th.DonGia = float.Parse(dongia.Text);
                 th.CachDung = cachdung.Text;
-                th.DVT = donvitinh.Text;
+                th.DonVi = donvitinh.Text;
 
                 thBus = new ThuocBUS();
                 bool kq = thBus.them(th);
                 if (!kq)
                     System.Windows.Forms.MessageBox.Show("Thêm Thuốc thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 else
+                {
                     System.Windows.Forms.MessageBox.Show("Thêm Thuốc thành công", "Result");
+                    this.Close();
+                   
+                }
+
             }
         }
 

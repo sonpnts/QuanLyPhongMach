@@ -20,8 +20,8 @@ namespace QLPMDAL
         public bool them(HoadonDTO hd)
         {
             string query = string.Empty;
-            query += "INSERT INTO [tblHOADON] ([maHD], [nglapHD], [maPKB],[tongTien]) ";
-            query += "VALUES (@maHD,@nglapHD,@maPKB,@tongTien)";
+            query += "INSERT INTO [HoaDon] ([ngayLapHoaDon], [tienThuoc], [tienKham], [tongTien], [maPKB], [maToaThuoc])";
+            query += "VALUES (@ngayLapHoaDon,@tienThuoc,@tienKham,@tongTien,@maPKB,@maToaThuoc";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -30,10 +30,12 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maHD", hd.MaHd);
-                    cmd.Parameters.AddWithValue("@nglapHD", hd.NgayHd);
-                    cmd.Parameters.AddWithValue("@maPKB", hd.MaPkb);
-                    cmd.Parameters.AddWithValue("@tongTien", hd.TongTien);
+                    cmd.Parameters.AddWithValue("@ngayLapHoaDon", hd.NgayLapHoaDon);
+					cmd.Parameters.AddWithValue("@tienThuoc", hd.TienThuoc);
+					cmd.Parameters.AddWithValue("@tienKham", hd.TienKham);
+					cmd.Parameters.AddWithValue("@tongTien", hd.TongTien);
+                    cmd.Parameters.AddWithValue("@maPKB", hd.MaPKB);
+                    cmd.Parameters.AddWithValue("@maToaThuoc", hd.MaToaThuoc);
                     try
                     {
                         con.Open();
@@ -50,89 +52,92 @@ namespace QLPMDAL
             }
             return true;
         }
-        public float tienthuoc(HoadonDTO hd,string mapkb)
+        public float tienthuoc(HoadonDTO hd, string maPKB)
         {
             float tien = 0;
             string query = string.Empty;
-            query += "SELECT SUM(TH.Dongia*KT.soLuong) AS TIENTHUOC";
-            query += " FROM tblPKB PKB JOIN tblTOA T ON PKB.maPKB=T.maPKB JOIN tblKETHUOC KT ON T.maToa=KT.maToa JOIN tblTHUOC TH ON KT.maThuoc=TH.maThuoc WHERE PKB.maPKB=@mapkb";
+            query += "SELECT SUM(TH.donGia * KT.soLuong) AS TIENTHUOC ";
+            query += "FROM PhieuKhamBenh PKB ";
+            query += "JOIN ToaThuoc T ON PKB.maPKB = T.maPKB ";
+            query += "JOIN KeThuoc KT ON T.maToaThuoc = KT.maToaThuoc ";
+            query += "JOIN Thuoc TH ON KT.maThuoc = TH.maThuoc ";
+            query += "WHERE PKB.maPKB = @maPKB";
+
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@mapkb", mapkb);
+                    cmd.Parameters.AddWithValue("@maPKB", maPKB);
+
                     try
                     {
                         con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
-                                tien = float.Parse(reader["TIENTHUOC"].ToString());
+                                if (reader["TIENTHUOC"] != DBNull.Value)
+                                {
+                                    tien = float.Parse(reader["TIENTHUOC"].ToString());
+                                }
                             }
                         }
-                        con.Close();
-                        con.Dispose();
                     }
                     catch (Exception ex)
                     {
+                        // Log or handle the exception
+                        throw new Exception("Error calculating medication cost: " + ex.Message);
+                    }
+                    finally
+                    {
                         con.Close();
-                        
                     }
                 }
             }
             return tien;
         }
-        public int autogenerate_mahd()
+
+
+        public float tienkham()
         {
-            int mahd = 1;
-            string query = string.Empty;
-            query += "SELECT MAX (KQ.MAHD) AS MM from (SELECT CONVERT(float, tblHOADON.maHD) AS MABN FROM tblHOADON ) AS KQ";
+            float tien = 0;
+            string query = "SELECT tienDichVu FROM DichVu WHERE tenDichVu = @tenDichVu";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
+                    cmd.Parameters.AddWithValue("@tenDichVu", "Kham benh");
+
                     try
                     {
                         con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
                         {
-                            while (reader.Read())
-                            {
-                                mahd = int.Parse(reader["MM"].ToString()) + 1;
-                            }
+                            tien = Convert.ToSingle(result);
                         }
-
                         con.Close();
-                        con.Dispose();
                     }
                     catch (Exception ex)
                     {
+                        // Handle exception (optional: log the exception)
                         con.Close();
-
                     }
                 }
             }
-            return mahd;
+            return tien;
         }
-        public float doanhthu(string ngHD)
+
+
+        public float doanhthu(string ngayLapHoaDon)
         {
             float doanhthu = 0;
             string query = string.Empty;
-            query += "SELECT sum (HD.tongTien) as doanhthu FROM tblHOADON HD WHERE HD.nglapHD=@ngHD";
+            query += "SELECT sum (HD.TongTien) as doanhthu FROM HoaDon HD WHERE HD.NgayLapHoaDon=@NgayLapHoaDon";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -141,7 +146,7 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@ngHD", ngHD);
+                    cmd.Parameters.AddWithValue("@NgayLapHoaDon", ngayLapHoaDon);
      
                     try
                     {
@@ -169,11 +174,11 @@ namespace QLPMDAL
             }
             return doanhthu;
         }
-        public int sobenhnhan(string ngHD)
+        public int sobenhnhan(string ngayLapHoaDon)
         {
             int sobn = 0;
             string query = string.Empty;
-            query += "SELECT count (HD.maHD) as sobn FROM tblHOADON HD WHERE HD.nglapHD=@ngHD";
+            query += "SELECT count (HD.maHoaDon) as sobn FROM HoaDon HD WHERE HD.NgayLapHoaDon=@NgayLapHoaDon";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -182,7 +187,7 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@ngHD", ngHD);
+                    cmd.Parameters.AddWithValue("@NgayLapHoaDon", ngayLapHoaDon);
 
                     try
                     {
@@ -213,9 +218,9 @@ namespace QLPMDAL
         public List<HoadonDTO> selectByMonth(string month,string year)
         {
             string query = string.Empty;
-            query += " SELECT nglapHD ";
-            query += " FROM [tblHOADON]";
-            query += " WHERE MONTH(nglapHD)=@month and YEAR(nglapHD)=@year group by nglapHD ";
+            query += " SELECT NgayLapHoaDon ";
+            query += " FROM [HoaDon] ";
+            query += " WHERE MONTH(NgayLapHoaDon)=@month and YEAR(NgayLapHoaDon)=@year group by NgayLapHoaDon ";
 
 
             List<HoadonDTO> lsHoadon = new List<HoadonDTO>();
@@ -240,7 +245,7 @@ namespace QLPMDAL
                             while (reader.Read())
                             {
                                 HoadonDTO hd = new HoadonDTO();
-                                hd.NgayHd = DateTime.Parse(reader["nglapHD"].ToString());
+                                hd.NgayLapHoaDon = DateTime.Parse(reader["NgayLapHoaDon"].ToString());
                                 lsHoadon.Add(hd);
 
                             }

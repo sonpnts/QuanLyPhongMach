@@ -26,6 +26,11 @@ namespace GUI_QLPM
         {
             bnBus = new BenhNhanBUS();
             mabenhnhan.Text = bnBus.autogenerate_mabn().ToString();
+            hoten.Text = "";
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            diachi.Text = "";
+            
         }
 
         private void them_Click(object sender, EventArgs e)
@@ -39,7 +44,7 @@ namespace GUI_QLPM
                 BenhNhanDTO bn = new BenhNhanDTO();
                 PhieukhambenhDTO pkb = new PhieukhambenhDTO();
                 PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
-                bn.MaBN = int.Parse(mabenhnhan.Text);
+                bn.MaBN = mabenhnhan.Text;
                 bn.TenBN = hoten.Text;
                 if (radioButton1.Checked == true)
                 {
@@ -51,14 +56,14 @@ namespace GUI_QLPM
                 }
                 bn.NgsinhBN = ngaysinh.Value;
                 bn.DiachiBN = diachi.Text;
-                bn.MaPKB = pkbBus.autogenerate_mapkb().ToString();
-                pkb.MaPkb = pkbBus.autogenerate_mapkb().ToString();
-                pkb.NgayKham = DateTime.UtcNow.Date;
-                bnBus = new BenhNhanBUS();
-                bool kq1 = pkbBus.them(pkb);
-                bool kq2 = bnBus.them(bn);
-                if (kq1 == true && kq2 == true)
+                bn.MaBN = bnBus.autogenerate_mabn().ToString();
+
+                bool kq = bnBus.them(bn);
+                if (kq == true)
+                { 
                     System.Windows.Forms.MessageBox.Show("Thêm Bệnh nhân thành công", "Result");
+                    load();
+                } 
                 else
                     System.Windows.Forms.MessageBox.Show("Thêm Bệnh nhân thất bại", "Result", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Warning);
 

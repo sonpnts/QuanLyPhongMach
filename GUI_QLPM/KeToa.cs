@@ -17,8 +17,8 @@ namespace GUI_QLPM
 {
     public partial class KeToa : Form
     {
-        
-        
+
+
         public DataTable db1 = new DataTable();
         ToathuocBUS ttBus = new ToathuocBUS();
         KethuocBUS ktBus = new KethuocBUS();
@@ -29,19 +29,19 @@ namespace GUI_QLPM
             InitializeComponent();
             load_data();
             mapkb.Text = ma;
-           
+
         }
         //dacbit
-     
+
         public void load_data()
         {
             db1.Clear();
-            db1.Columns.Add("soLuong", typeof(System.Int32));
             db1.Columns.Add("maThuoc", typeof(string));
             db1.Columns.Add("tenThuoc", typeof(string));
-            db1.Columns.Add("DVT", typeof(string));
+            db1.Columns.Add("DonVi", typeof(string));
             db1.Columns.Add("Dongia", typeof(float));
             db1.Columns.Add("CachDung", typeof(string));
+            db1.Columns.Add("soLuong", typeof(System.Int32));
             ThuocBUS thBus = new ThuocBUS();
             List<ThuocDTO> listThuoc = thBus.select();
             this.loadData_Vao_Combobox(listThuoc);
@@ -88,7 +88,7 @@ namespace GUI_QLPM
                     DataRow row = db1.NewRow();
                     row["maThuoc"] = th.MaThuoc;
                     row["tenThuoc"] = th.TenThuoc;
-                    row["DVT"] = th.DVT;
+                    row["DonVi"] = th.DonVi;
                     row["Dongia"] = th.DonGia;
                     row["CachDung"] = th.CachDung;
                     row["soLuong"] = soluong;
@@ -183,21 +183,13 @@ namespace GUI_QLPM
             tt.NgayKetoa = DateTime.UtcNow.Date;
             ttBus = new ToathuocBUS();
             bool kq = ttBus.them(tt);
-            if (kq == false)
-            {
-                System.Windows.Forms.MessageBox.Show("Kê toa thất bại", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Kê toa thành công", "Result");
-            }
-
             KethuocDTO kt = new KethuocDTO();
             for (int i = 0; i < row; i++)
             {
                 kt.MaToa = maToa.Text;
                 kt.MaThuoc = grid.Rows[i].Cells[0].Value.ToString();
-                int val;
+                int val = int.Parse(grid.Rows[i].Cells[5].Value.ToString());
+
                 bool check = int.TryParse(grid.Rows[i].Cells[5].Value.ToString(), out val);
                 if (!check)
                 {
@@ -210,6 +202,18 @@ namespace GUI_QLPM
                 ktBus = new KethuocBUS();
                 bool kq1 = ktBus.kethuoc(kt);
             }
+           
+
+            if (kq == false)
+            {
+                System.Windows.Forms.MessageBox.Show("Kê toa thất bại", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Kê toa thành công", "Result");
+            }
+
+           
 
         }
     }

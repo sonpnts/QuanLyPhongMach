@@ -24,6 +24,7 @@ namespace GUI_QLPM
         public DanhSachBenh()
         {
             InitializeComponent();
+            load_data();
         }
         private void load()
         {

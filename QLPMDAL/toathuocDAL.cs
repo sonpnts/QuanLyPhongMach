@@ -21,8 +21,8 @@ namespace QLPMDAL
         public bool them(ToathuocDTO tt)
         {
             string query = string.Empty;
-            query += "INSERT INTO [tblTOA] ([maToa], [maPKB], [ngKeToa])";
-            query += "VALUES (@maToa,@maPKB,@ngKeToa)";
+            query += "INSERT INTO [ToaThuoc] ([maPKB], [ngayKeToa])";
+            query += "VALUES (@maPKB,@ngayKeToa)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -30,11 +30,10 @@ namespace QLPMDAL
                 {
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maToa", tt.MaToa);
+                    cmd.CommandText = query; ;
                     cmd.Parameters.AddWithValue("@maPKB", tt.MaPkb);
-                    cmd.Parameters.AddWithValue("@ngKeToa", tt.NgayKetoa);
-                    
+                    cmd.Parameters.AddWithValue("@ngayKeToa", tt.NgayKetoa);
+
                     try
                     {
                         con.Open();
@@ -51,12 +50,12 @@ namespace QLPMDAL
             }
             return true;
         }
-        
+
         public int autogenerate_matoa()
         {
             int matoa = 1;
             string query = string.Empty;
-            query += "SELECT MAX (KQ.MATOA) AS MM from (SELECT CONVERT(float, tblTOA.maToa) AS MATOA FROM tblTOA ) AS KQ";
+            query += "SELECT MAX (KQ.MATOA) AS MM from (SELECT CONVERT(float, ToaThuoc.maToaThuoc) AS MATOA FROM ToaThuoc ) AS KQ";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {

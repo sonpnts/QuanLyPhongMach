@@ -71,6 +71,12 @@
     <Compile Include="DanhSachBenhNhan.Designer.cs">
       <DependentUpon>DanhSachBenhNhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhSachDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhSachDichVu.Designer.cs">
+      <DependentUpon>DanhSachDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhSachKhamBenh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     <Compile Include="ThemBenhNhanMoi.Designer.cs">
       <DependentUpon>ThemBenhNhanMoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThemDichVuMoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemDichVuMoi.Designer.cs">
+      <DependentUpon>ThemDichVuMoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemLoaiBenh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhSachBenhNhan.resx">
       <DependentUpon>DanhSachBenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhSachDichVu.resx">
+      <DependentUpon>DanhSachDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhSachKhamBenh.resx">
       <DependentUpon>DanhSachKhamBenh.cs</DependentUpon>
@@ -207,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThemBenhNhanMoi.resx">
       <DependentUpon>ThemBenhNhanMoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemDichVuMoi.resx">
+      <DependentUpon>ThemDichVuMoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThemLoaiBenh.resx">
       <DependentUpon>ThemLoaiBenh.cs</DependentUpon>

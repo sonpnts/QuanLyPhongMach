@@ -23,8 +23,8 @@ namespace QLPMDAL
         public bool kethuoc(KethuocDTO kt)
         {
             string query = string.Empty;
-            query += "INSERT INTO [tblKETHUOC] ([maToa], [maThuoc],[soLuong])";
-            query += "VALUES (@maToa,@maThuoc,@soLuong)";
+            query += "INSERT INTO [KeThuoc] ([maToaThuoc], [maThuoc],[soLuong])";
+            query += "VALUES (@maToaThuoc,@maThuoc,@soLuong)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -33,7 +33,7 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maToa", kt.MaToa);
+                    cmd.Parameters.AddWithValue("@maToaThuoc", kt.MaToa);
                     cmd.Parameters.AddWithValue("@maThuoc", kt.MaThuoc);
                     cmd.Parameters.AddWithValue("@soLuong", kt.SoLuong);
 
@@ -55,44 +55,44 @@ namespace QLPMDAL
         }
         public List<KethuocDTO> selectbypkb(string mapkb)
         {
-            string query = string.Empty;
-            query += "SELECT KT.maToa,KT.maThuoc,KT.soLuong FROM tblPKB PKB JOIN tblTOA T ON PKB.maPKB=T.maPKB JOIN tblKETHUOC KT ON T.maToa=KT.maToa JOIN tblTHUOC TH ON KT.maThuoc=TH.maThuoc WHERE PKB.maPKB=@mapkb";
-
+            string query = @"
+            SELECT KT.maToaThuoc, KT.maThuoc, KT.soLuong 
+            FROM PhieuKhamBenh PKB 
+            JOIN ToaThuoc T ON PKB.maPKB = T.maPKB 
+            JOIN KeThuoc KT ON T.maToaThuoc = KT.maToaThuoc 
+            JOIN Thuoc TH ON KT.maThuoc = TH.maThuoc 
+            WHERE PKB.maPKB = @mapkb";
 
             List<KethuocDTO> lskethuoc = new List<KethuocDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@mapkb", mapkb);
                     try
                     {
                         con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if (reader.HasRows)
                             {
-                                KethuocDTO kt = new KethuocDTO();
-                                kt.SoLuong= int.Parse(reader["soLuong"].ToString());
-                                kt.MaToa= reader["maToa"].ToString();
-                                kt.MaThuoc = reader["maThuoc"].ToString();
-                                lskethuoc.Add(kt);
-
+                                while (reader.Read())
+                                {
+                                    KethuocDTO kt = new KethuocDTO();
+                                    kt.SoLuong = int.Parse(reader["soLuong"].ToString());
+                                    kt.MaToa = reader["maToaThuoc"].ToString();
+                                    kt.MaThuoc = reader["maThuoc"].ToString();
+                                    lskethuoc.Add(kt);
+                                }
                             }
                         }
-
                         con.Close();
-                        con.Dispose();
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine($"Error: {ex.Message}");
                         con.Close();
                         return null;
                     }
@@ -100,6 +100,7 @@ namespace QLPMDAL
             }
             return lskethuoc;
         }
+
         public List<KethuocDTO> baocaobymonth(string month,string year)
         {
             string query = string.Empty;

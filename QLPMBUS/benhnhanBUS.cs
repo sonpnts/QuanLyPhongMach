@@ -20,23 +20,23 @@ namespace QLPMBUS
         }
         public bool them(BenhNhanDTO bn)
         {
-            bool re = bnDAL.them(bn);
+            bool re = bnDAL.Them(bn);
             return re;
         }
         public bool sua(BenhNhanDTO bn,string maBNold)
         {
-            bool re = bnDAL.sua(bn,maBNold);
+            bool re = bnDAL.Sua(bn,maBNold);
             return re;
         }
-        public bool themmapkb(BenhNhanDTO bn, string mapkb)
-        {
-            bool re = bnDAL.themmapkb(bn, mapkb);
-            return re;
-        }
+        //public bool themmapkb(BenhNhanDTO bn, string mapkb)
+        //{
+        //    bool re = bnDAL.themmapkb(bn, mapkb);
+        //    return re;
+        //}
 
         public bool xoa(BenhNhanDTO bn)
         {
-            bool re = bnDAL.xoa(bn);
+            bool re = bnDAL.Xoa(bn);
             return true;
         }
         //public bool timkiem(string mabn)
@@ -48,15 +48,15 @@ namespace QLPMBUS
 
         public List<BenhNhanDTO> select()
         {
-            return bnDAL.select();
+            return bnDAL.Select();
         }
         public List<BenhNhanDTO> selectByKeyWord(string sKeyword)
         {
-            return bnDAL.selectByKeyWord(sKeyword);
+            return bnDAL.SelectByKeyWord(sKeyword);
         }
         public int autogenerate_mabn()
         {
-            return bnDAL.autogenerate_mabn();
+            return bnDAL.AutoGenerateMaBN();
         }
 
     }

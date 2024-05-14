@@ -42,7 +42,7 @@ namespace GUI_QLPM
 
             if (listBenhNhan == null)
             {
-                System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB", "Result", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin bệnh nhân từ DB", "Result", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
 
             }
@@ -67,7 +67,7 @@ namespace GUI_QLPM
                 if (bn.MaBN.ToString() == mabn)
                 {
                     hoten.Text = bn.TenBN;
-                    maPKB.Text = bn.MaPKB;
+                    maPKB.Text = pkbBus.autogenerate_mapkb().ToString();
                 }
             }
 
@@ -84,7 +84,7 @@ namespace GUI_QLPM
 
             if (listBenh == null)
             {
-                System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin bệnh từ DB", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 return;
 
             }
@@ -120,13 +120,14 @@ namespace GUI_QLPM
                         cd.MaBenh = be.MaBenh;
                     }
                 }
-                pkb.MaPkb = maPKB.Text;
+                pkb.MaPKB = maPKB.Text;
                 pkb.NgayKham = DateTime.UtcNow.Date;
                 pkb.TrieuChung = trieuchung.Text;
+                pkb.MaBenhNhan = mabenhnhan.Text;
                 PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
                 ChandoanBUS cdBus = new ChandoanBUS();
+                bool kq2 = pkbBus.them(pkb);
                 bool kq1 = cdBus.them(cd);
-                bool kq2 = pkbBus.sua(pkb);
                 if (kq2 == true && kq1 == true)
                 {
                     System.Windows.Forms.MessageBox.Show("Lập phiếu thành công", "Result");
@@ -149,9 +150,9 @@ namespace GUI_QLPM
 
         public void Load_Gird()
         {
-            stt = 1;
-            bnBus = new BenhNhanBUS();
-            pkbBus = new PhieukhambenhBUS();
+            int stt = 1;
+            // bnBus = new BenhNhanBUS();
+            // pkbBus = new PhieukhambenhBUS();
             List<BenhNhanDTO> listBenhNhan = bnBus.select();
             List<PhieukhambenhDTO> listpkb = pkbBus.select();
             DataTable table = new DataTable();
@@ -160,26 +161,29 @@ namespace GUI_QLPM
             table.Columns.Add("Tên bệnh nhân", typeof(string));
             table.Columns.Add("Ngày sinh", typeof(string));
             table.Columns.Add("Địa chỉ", typeof(string));
+
+            // Tạo HashSet để lưu mã bệnh nhân đã có phiếu khám bệnh
+            HashSet<string> maBenhNhanDaCoPhieu = new HashSet<string>();
+
+            // Thêm mã bệnh nhân từ danh sách phiếu khám bệnh vào HashSet
+            foreach (PhieukhambenhDTO pkb in listpkb)
+            {
+                maBenhNhanDaCoPhieu.Add(pkb.MaBenhNhan);
+            }
+
+            // Duyệt qua danh sách bệnh nhân và chỉ thêm những bệnh nhân không có trong HashSet vào DataTable
             foreach (BenhNhanDTO bn in listBenhNhan)
             {
-                foreach (PhieukhambenhDTO pkb in listpkb)
+                if (!maBenhNhanDaCoPhieu.Contains(bn.MaBN))
                 {
-                    if (bn.MaPKB == pkb.MaPkb)
-                    {
-                        if (pkb.TrieuChung == "")
-                        {
-                            Console.WriteLine("có dữ liệu");
-                            DataRow row = table.NewRow();
-                            row["Số thứ tự"] = stt;
-                            row["Mã bệnh nhân"] = bn.MaBN;
-                            row["Tên bệnh nhân"] = bn.TenBN;
-                            row["Ngày sinh"] = bn.NgsinhBN;
-                            row["Địa chỉ"] = bn.DiachiBN;
-                            table.Rows.Add(row);
-                            stt += 1;
-                        }
-
-                    }
+                    DataRow row = table.NewRow();
+                    row["Số thứ tự"] = stt;
+                    row["Mã bệnh nhân"] = bn.MaBN;
+                    row["Tên bệnh nhân"] = bn.TenBN;
+                    row["Ngày sinh"] = bn.NgsinhBN;
+                    row["Địa chỉ"] = bn.DiachiBN;
+                    table.Rows.Add(row);
+                    stt += 1;
                 }
             }
             gird.DataSource = table.DefaultView;
