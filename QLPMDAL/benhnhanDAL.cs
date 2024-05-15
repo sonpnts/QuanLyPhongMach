@@ -88,39 +88,7 @@ namespace QLPMDAL
             return true;
         }
 
-        //public bool ThemMaPKB(BenhNhanDTO bn, string maPKB)
-        //{
-        //    string query = string.Empty;
-        //    query += "UPDATE [tblBENHNHAN] ";
-        //    query += "SET maPKB=@maPKB ";
-        //    query += "WHERE maBN=@maBN";
-
-        //    using (SqlConnection con = new SqlConnection(ConnectionString))
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand())
-        //        {
-        //            cmd.Connection = con;
-        //            cmd.CommandType = System.Data.CommandType.Text;
-        //            cmd.CommandText = query;
-        //            cmd.Parameters.AddWithValue("@maBN", bn.MaBN);
-        //            cmd.Parameters.AddWithValue("@maPKB", maPKB);
-
-        //            try
-        //            {
-        //                con.Open();
-        //                cmd.ExecuteNonQuery();
-        //                con.Close();
-        //            }
-        //            catch (Exception)
-        //            {
-        //                con.Close();
-        //                return false;
-        //            }
-        //        }
-        //    }
-        //    return true;
-        //}
-
+       
         public bool Xoa(BenhNhanDTO bn)
         {
             string query = string.Empty;

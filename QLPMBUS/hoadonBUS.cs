@@ -49,5 +49,11 @@ namespace QLPMBUS
         {
             return hdDAL.autogenerate_mahd();
         }
+
+        public float doanhthuMonth(string month, string year)
+        {
+            return hdDAL.doanhthuMonth(month, year);
+        }
+
     }
 }

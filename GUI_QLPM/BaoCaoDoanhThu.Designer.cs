@@ -28,34 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.thang = new System.Windows.Forms.ComboBox();
-            this.nam = new System.Windows.Forms.ComboBox();
-            this.Xem = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.grid = new System.Windows.Forms.DataGridView();
+            this.Xem = new System.Windows.Forms.Button();
+            this.nam = new System.Windows.Forms.ComboBox();
+            this.thang = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
-            // thang
+            // chart2
             // 
-            this.thang.FormattingEnabled = true;
-            this.thang.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.thang.Location = new System.Drawing.Point(256, 63);
-            this.thang.Name = "thang";
-            this.thang.Size = new System.Drawing.Size(121, 24);
-            this.thang.TabIndex = 0;
-            this.thang.Text = "Tháng";
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart2.Legends.Add(legend1);
+            this.chart2.Location = new System.Drawing.Point(0, 23);
+            this.chart2.Name = "chart2";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart2.Series.Add(series1);
+            this.chart2.Size = new System.Drawing.Size(846, 496);
+            this.chart2.TabIndex = 11;
+            this.chart2.Text = "chart2";
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(970, 179);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(521, 325);
+            this.chart1.TabIndex = 10;
+            this.chart1.Text = "chart1";
+            // 
+            // grid
+            // 
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grid.Location = new System.Drawing.Point(0, 546);
+            this.grid.Name = "grid";
+            this.grid.RowHeadersWidth = 51;
+            this.grid.RowTemplate.Height = 24;
+            this.grid.Size = new System.Drawing.Size(1630, 337);
+            this.grid.TabIndex = 9;
+            // 
+            // Xem
+            // 
+            this.Xem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Xem.Location = new System.Drawing.Point(1171, 79);
+            this.Xem.Name = "Xem";
+            this.Xem.Size = new System.Drawing.Size(129, 45);
+            this.Xem.TabIndex = 8;
+            this.Xem.Text = "XEM";
+            this.Xem.UseVisualStyleBackColor = false;
+            this.Xem.Click += new System.EventHandler(this.Xem_Click);
             // 
             // nam
             // 
@@ -75,45 +117,50 @@
             "2035",
             "",
             ""});
-            this.nam.Location = new System.Drawing.Point(423, 63);
+            this.nam.Location = new System.Drawing.Point(1258, 30);
             this.nam.Name = "nam";
             this.nam.Size = new System.Drawing.Size(121, 24);
-            this.nam.TabIndex = 1;
+            this.nam.TabIndex = 7;
             this.nam.Text = "Năm";
             // 
-            // Xem
+            // thang
             // 
-            this.Xem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Xem.Location = new System.Drawing.Point(336, 112);
-            this.Xem.Name = "Xem";
-            this.Xem.Size = new System.Drawing.Size(129, 45);
-            this.Xem.TabIndex = 2;
-            this.Xem.Text = "XEM";
-            this.Xem.UseVisualStyleBackColor = false;
-            this.Xem.Click += new System.EventHandler(this.Xem_Click);
-            // 
-            // grid
-            // 
-            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grid.Location = new System.Drawing.Point(0, 185);
-            this.grid.Name = "grid";
-            this.grid.RowHeadersWidth = 51;
-            this.grid.RowTemplate.Height = 24;
-            this.grid.Size = new System.Drawing.Size(800, 265);
-            this.grid.TabIndex = 3;
+            this.thang.FormattingEnabled = true;
+            this.thang.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.thang.Location = new System.Drawing.Point(1091, 30);
+            this.thang.Name = "thang";
+            this.thang.Size = new System.Drawing.Size(121, 24);
+            this.thang.TabIndex = 6;
+            this.thang.Text = "Tháng";
             // 
             // BaoCaoDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1630, 883);
+            this.Controls.Add(this.chart2);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.Xem);
             this.Controls.Add(this.nam);
             this.Controls.Add(this.thang);
             this.Name = "BaoCaoDoanhThu";
             this.Text = "BaoCaoDoanhThu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
 
@@ -121,9 +168,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox thang;
-        private System.Windows.Forms.ComboBox nam;
-        private System.Windows.Forms.Button Xem;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataGridView grid;
+        private System.Windows.Forms.Button Xem;
+        private System.Windows.Forms.ComboBox nam;
+        private System.Windows.Forms.ComboBox thang;
     }
 }

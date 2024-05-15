@@ -50,6 +50,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboDichVu = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,6 +144,7 @@
             this.mapkb.Name = "mapkb";
             this.mapkb.Size = new System.Drawing.Size(121, 24);
             this.mapkb.TabIndex = 33;
+            this.mapkb.SelectedIndexChanged += new System.EventHandler(this.mapkb_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -241,6 +244,24 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Mã phiếu khám bệnh :";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(706, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(167, 16);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Lựa chọn loại dịch vụ khám";
+            // 
+            // comboDichVu
+            // 
+            this.comboDichVu.FormattingEnabled = true;
+            this.comboDichVu.Location = new System.Drawing.Point(892, 67);
+            this.comboDichVu.Name = "comboDichVu";
+            this.comboDichVu.Size = new System.Drawing.Size(121, 24);
+            this.comboDichVu.TabIndex = 33;
+            this.comboDichVu.SelectedIndexChanged += new System.EventHandler(this.comboDichVu_SelectedIndexChanged);
+            // 
             // LapHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -256,6 +277,7 @@
             this.Controls.Add(this.grid);
             this.Controls.Add(this.ngayhd);
             this.Controls.Add(this.tenbn);
+            this.Controls.Add(this.comboDichVu);
             this.Controls.Add(this.mapkb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -266,6 +288,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "LapHoaDon";
@@ -300,5 +323,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboDichVu;
     }
 }

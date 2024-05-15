@@ -354,5 +354,48 @@ namespace QLPMDAL
             }
             return mahd;
         }
+        public float doanhthuMonth(string month, string year)
+        {
+            float doanhthu = 0;
+            string query = string.Empty;
+            query += "SELECT sum (HD.TongTien) as doanhthuthang FROM HoaDon HD WHERE MONTH(HD.NgayLapHoaDon)=@month AND YEAR(HD.NgayLapHoaDon)=@year";
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+                    cmd.Parameters.AddWithValue("@month", month);
+                    cmd.Parameters.AddWithValue("@year", year);
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                doanhthu = float.Parse(reader["doanhthuthang"].ToString());
+
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+                        return 0;
+                    }
+                }
+            }
+            return doanhthu;
+        }
+
     }
 }

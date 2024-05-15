@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Globalization;
 
 namespace GUI_QLPM
 {
@@ -28,8 +30,56 @@ namespace GUI_QLPM
             string month = thang.Text.ToString();
             string year = nam.Text.ToString();
             hdBus = new HoadonBUS();
-            List<HoadonDTO> listHoadon = hdBus.selectByMonth(month, year);
-            this.loadData_Vao_GridView(listHoadon);
+            List<HoadonDTO> listHoadonMonth = hdBus.selectByMonth(month, year);
+            this.loadData_Vao_GridView(listHoadonMonth);
+
+            Dictionary<string, float> dataByMonth = new Dictionary<string, float>();
+            for (int mon = 1; mon <= 12; mon++)
+            {
+                string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(mon);
+                float revenue = hdBus.doanhthuMonth(mon.ToString(), year);
+                if (revenue > 0)
+                {
+                    dataByMonth.Add(monthName, revenue);
+                }
+            }
+
+            chart1.Series.Clear();
+            chart1.ChartAreas.Clear();
+            ChartArea chartArea = chart1.ChartAreas.Add("chartArea");
+            Series series = chart1.Series.Add("Doanh thu năm " + year);
+            series.ChartType = SeriesChartType.Column;
+
+            foreach (var item in dataByMonth)
+            {
+                series.Points.AddXY(item.Key, item.Value);
+            }
+
+
+
+            Dictionary<string, float> dataByDate = new Dictionary<string, float>();
+            for (int day = 1; day <= DateTime.DaysInMonth(int.Parse(year), int.Parse(month)); day++)
+            {
+                string ngayLapHD = new DateTime(int.Parse(year), int.Parse(month), day).ToString("yyyy-MM-dd");
+                float doanhThu = float.Parse(hdBus.doanhthu(ngayLapHD).ToString());
+
+                if (doanhThu > 0)
+                {
+                    dataByDate.Add(ngayLapHD, doanhThu);
+                }
+            }
+
+            chart2.Series.Clear();
+            chart2.ChartAreas.Clear();
+            ChartArea chartArea2 = chart2.ChartAreas.Add("chartArea");
+            Series series2 = chart2.Series.Add("Doanh thu tháng " + month);
+            series2.ChartType = SeriesChartType.Column;
+
+            foreach (var item in dataByDate)
+            {
+                series2.Points.AddXY(item.Key, item.Value);
+            }
+
         }
         private void loadData_Vao_GridView(List<HoadonDTO> listhoadon)
         {
@@ -68,6 +118,7 @@ namespace GUI_QLPM
 
             grid.DataSource = table.DefaultView;
         }
+      
 
         private void Xem_Click(object sender, EventArgs e)
         {
