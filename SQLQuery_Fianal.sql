@@ -125,7 +125,7 @@ CREATE TABLE Roles(
 CREATE TABLE TaiKhoan(
     userName nvarchar(50) NOT NULL,
 	passWord nvarchar(50) NOT NULL,
-    hoTen nvarchar(50) NOT NULL,
+    name nvarchar(50) NOT NULL,
 	maRole int,
     CONSTRAINT pk_TaiKhoan PRIMARY KEY CLUSTERED (username ASC) ON [PRIMARY],
 	CONSTRAINT fk_Roles_TaiKhoan FOREIGN KEY (maRole) REFERENCES Roles (maRole)
@@ -139,7 +139,7 @@ INSERT INTO Roles (tenRole) VALUES
 ('Quan Tri Vien')
 
 
-INSERT INTO TaiKhoan (userName, passWord, hoTen, maRole) VALUES
+INSERT INTO TaiKhoan (userName, passWord, name, maRole) VALUES
 ('bacsi','123456','Bac Si Cuong',1),
 ('thungan','123456','Thu Ngan Son',2),
 ('qtv','123456','QTV Phong',3)
@@ -292,5 +292,5 @@ INSERT INTO HoaDon (ngayLapHoaDon, tienThuoc, tienKham, tongTien, maPKB) VALUES
 ('2024-05-03', 75000, 300000, 375000, 3),
 ('2024-05-04', 125000, 300000, 425000, 4),
 ('2024-05-05', 150000, 300000, 450000, 5),
-('2024-05-06', 25000, 300000, 325000, 6),
+('2024-05-06', 25000, 300000, 325000, 6);
 
