@@ -41,11 +41,11 @@
             // 
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grid.Location = new System.Drawing.Point(0, 206);
+            this.grid.Location = new System.Drawing.Point(0, 173);
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
-            this.grid.Size = new System.Drawing.Size(800, 244);
+            this.grid.Size = new System.Drawing.Size(800, 430);
             this.grid.TabIndex = 23;
             // 
             // button3
@@ -56,6 +56,7 @@
             this.button3.TabIndex = 22;
             this.button3.Text = "Quay lại";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -75,6 +76,7 @@
             this.TimKiem.TabIndex = 20;
             this.TimKiem.Text = "Tìm kiếm";
             this.TimKiem.UseVisualStyleBackColor = true;
+            this.TimKiem.Click += new System.EventHandler(this.TimKiem_Click);
             // 
             // maDichVu
             // 
@@ -100,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 603);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -109,6 +111,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DanhSachDichVu";
             this.Text = "DanhSachDichVu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

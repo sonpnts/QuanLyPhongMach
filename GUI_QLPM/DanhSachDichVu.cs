@@ -43,15 +43,15 @@ namespace GUI_QLPM
             }
 
             DataTable table = new DataTable();
-            table.Columns.Add("maDichVu", typeof(string));
-            table.Columns.Add("tenDichVu", typeof(string));
-            table.Columns.Add("tienDichVu", typeof(string));
+            table.Columns.Add("Mã dịch vụ", typeof(string));
+            table.Columns.Add("Tên dịch vụ", typeof(string));
+            table.Columns.Add("Tiền dịch vụ", typeof(string));
             foreach (DichvuDTO dv in listDichVu)
             {
                 DataRow row = table.NewRow();
-                row["maDichVu"] = dv.MaDichVu;
-                row["tenDichVu"] = dv.TenDichVu;
-                row["tienDichVu"] = dv.TienDichVu;
+                row["Mã dịch vụ"] = dv.MaDichVu;
+                row["Tên dịch vụ"] = dv.TenDichVu;
+                row["Tiền dịch vụ"] = dv.TienDichVu;
                 table.Rows.Add(row);
             }
             grid.DataSource = table.DefaultView;
@@ -78,6 +78,11 @@ namespace GUI_QLPM
             ThemDichVuMoi themdvm = new ThemDichVuMoi();
             themdvm.ShowDialog();
             load_data();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

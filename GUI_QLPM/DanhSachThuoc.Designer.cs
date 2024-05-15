@@ -41,11 +41,11 @@
             // 
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grid.Location = new System.Drawing.Point(0, 206);
+            this.grid.Location = new System.Drawing.Point(0, 255);
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
-            this.grid.Size = new System.Drawing.Size(800, 244);
+            this.grid.Size = new System.Drawing.Size(824, 570);
             this.grid.TabIndex = 11;
             // 
             // button3
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(824, 825);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -110,6 +110,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DanhSachThuoc";
             this.Text = "DanhSachThuoc";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

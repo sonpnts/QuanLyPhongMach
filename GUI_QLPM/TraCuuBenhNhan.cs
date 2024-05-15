@@ -47,21 +47,21 @@ namespace GUI_QLPM
             }
 
             DataTable table = new DataTable();
-            table.Columns.Add("maBN", typeof(int));
-            table.Columns.Add("tenBN", typeof(string));
-            table.Columns.Add("NgaySinh", typeof(string));
-            table.Columns.Add("DiaChi", typeof(string));
-            table.Columns.Add("GioiTinh", typeof(string));
-            table.Columns.Add("maPKB", typeof(string));
+            table.Columns.Add("Mã bệnh nhân", typeof(int));
+            table.Columns.Add("Tên bệnh nhân", typeof(string));
+            table.Columns.Add("Ngày sinh", typeof(string));
+            table.Columns.Add("Địa chỉ", typeof(string));
+            table.Columns.Add("Giới tính", typeof(string));
+            
             foreach (BenhNhanDTO bn in listBenhNhan)
             {
                 DataRow row = table.NewRow();
-                row["maBN"] = int.Parse(bn.MaBN.ToString());
-                row["tenBN"] = bn.TenBN;
-                row["NgaySinh"] = bn.NgsinhBN;
-                row["DiaChi"] = bn.DiachiBN;
-                row["GioiTinh"] = bn.GtBN;
-                //row["maPKB"] = ;
+                row["Mã bệnh nhân"] = int.Parse(bn.MaBN.ToString());
+                row["Tên bệnh nhân"] = bn.TenBN;
+                row["Ngày sinh"] = DateTime.Parse(bn.NgsinhBN.ToString()).ToString("dd/MM/yyyy");
+                row["Địa chỉ"] = bn.DiachiBN;
+                row["Giới tính"] = bn.GtBN;
+              
                 table.Rows.Add(row);
             }
             gird.DataSource = table.DefaultView;
@@ -86,6 +86,14 @@ namespace GUI_QLPM
         private void quaylai_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void thembenhnhan_Click(object sender, EventArgs e)
+        {
+            ThemBenhNhanMoi tbn = new ThemBenhNhanMoi();
+            tbn.StartPosition = FormStartPosition.CenterParent;
+            tbn.MdiParent = this;
+            tbn.Show();
         }
     }
 }
