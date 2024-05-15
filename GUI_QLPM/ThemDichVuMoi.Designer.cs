@@ -67,6 +67,7 @@
             this.Them.TabIndex = 24;
             this.Them.Text = "Thêm";
             this.Them.UseVisualStyleBackColor = true;
+            this.Them.Click += new System.EventHandler(this.Them_Click);
             // 
             // label4
             // 

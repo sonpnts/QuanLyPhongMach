@@ -105,10 +105,10 @@ namespace GUI_QLPM
 
         private void QuyDinh_Click(object sender, EventArgs e)
         {
-            ThayDoiQuyDinh tdqd = new ThayDoiQuyDinh();
-            tdqd.StartPosition = FormStartPosition.CenterParent;
-            tdqd.MdiParent = this;
-            tdqd.Show();
+            DanhSachDichVu dsdv = new DanhSachDichVu();
+            dsdv.StartPosition = FormStartPosition.CenterParent;
+            dsdv.MdiParent = this;
+            dsdv.Show();
         }
     }
 }

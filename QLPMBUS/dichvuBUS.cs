@@ -38,5 +38,9 @@ namespace QLPMBUS
         {
             return dvDAL.selectByKeyWord(sKeyword);
         }
+        public int autogenerate_madv()
+        {
+            return dvDAL.autogenerate_madv();
+        }
     }
 }

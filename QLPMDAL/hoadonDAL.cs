@@ -99,6 +99,57 @@ namespace QLPMDAL
             return tien;
         }
 
+        public List<HoadonDTO> select()
+        {
+            string query = string.Empty;
+            query += "SELECT * ";
+            query += "FROM [HoaDon]";
+
+            List<HoadonDTO> lsHoaDon = new List<HoadonDTO>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                HoadonDTO hd = new HoadonDTO();
+                                hd.MaHoaDon = int.Parse(reader["maHoaDon"].ToString());
+                                hd.NgayLapHoaDon = DateTime.Parse(reader["NgayLapHoaDon"].ToString());
+                                hd.TienThuoc = float.Parse(reader["tienThuoc"].ToString());
+                                hd.TongTien = float.Parse(reader["tongTien"].ToString());
+                                hd.TienKham = float.Parse(reader["tienKham"].ToString());
+                                hd.MaPKB = reader["maPKB"].ToString();
+
+                                lsHoaDon.Add(hd);
+
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+                        return null;
+                    }
+                }
+            }
+            return lsHoaDon;
+        }
 
         public float tienkham()
         {
@@ -262,6 +313,46 @@ namespace QLPMDAL
                 }
             }
             return lsHoadon;
+        }
+        public int autogenerate_mahd()
+        {
+            int mahd = 1;
+            string query = string.Empty;
+            query += "SELECT MAX (KQ.MAHoaDon) AS MM from (SELECT CONVERT(float, HoaDon.maHoaDon) AS MAHoaDon FROM HoaDon) AS KQ";
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                mahd = int.Parse(reader["MM"].ToString()) + 1;
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+
+                    }
+                }
+            }
+            return mahd;
         }
     }
 }

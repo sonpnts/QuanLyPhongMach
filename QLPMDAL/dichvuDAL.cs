@@ -21,8 +21,8 @@ namespace QLPMDAL
         public bool them(DichvuDTO dv)
         {
             string query = string.Empty;
-            query += "INSERT INTO [QuyDinh] ([tenDichVu], [tienDichVu])";
-            query += "VALUES (@tenDichVu,@tienDichVu";
+            query += "INSERT INTO [DichVu] ([tenDichVu], [tienDichVu])";
+            query += "VALUES (@tenDichVu,@tienDichVu)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -212,6 +212,47 @@ namespace QLPMDAL
                 }
             }
             return lsDichVu;
+        }
+
+        public int autogenerate_madv()
+        {
+            int mathuoc = 1;
+            string query = string.Empty;
+            query += "SELECT MAX (KQ.MADICHVU) AS MM from (SELECT CONVERT(float, DichVu.maDichVu) AS MADICHVU FROM DichVu) AS KQ";
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                mathuoc = int.Parse(reader["MM"].ToString()) + 1;
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+
+                    }
+                }
+            }
+            return mathuoc;
         }
     }
 }

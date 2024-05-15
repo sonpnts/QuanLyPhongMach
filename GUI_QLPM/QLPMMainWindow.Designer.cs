@@ -191,8 +191,8 @@
             // QuyDinh
             // 
             this.QuyDinh.Name = "QuyDinh";
-            this.QuyDinh.Size = new System.Drawing.Size(82, 24);
-            this.QuyDinh.Text = "Quy định";
+            this.QuyDinh.Size = new System.Drawing.Size(142, 24);
+            this.QuyDinh.Text = "Danh sách dịch vụ";
             this.QuyDinh.Click += new System.EventHandler(this.QuyDinh_Click);
             // 
             // QLPMMainWindow

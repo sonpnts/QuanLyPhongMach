@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace GUI_QLPM
 {
     public partial class BaoCaoSuDungThuoc : Form
-    { 
+    {
         ThuocBUS thBus = new ThuocBUS();
         KethuocBUS ktBus = new KethuocBUS();
         public int stt;

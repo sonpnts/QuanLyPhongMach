@@ -13,12 +13,12 @@ namespace QLPMDTO
 		private float tienThuoc;
         private float tienKham;
         private float tongTien;
-        private int maPKB;
+        private string maPKB;
 		
 
 
 
-        public int MaPKB { get => maPKB; set => maPKB = value; }
+        public string MaPKB { get => maPKB; set => maPKB = value; }
 		
         public int MaHoaDon { get => maHoaDon; set => maHoaDon = value; }
         public DateTime NgayLapHoaDon { get => ngayLapHoaDon; set => ngayLapHoaDon = value; }

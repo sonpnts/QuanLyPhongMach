@@ -23,6 +23,7 @@ namespace GUI_QLPM
         private void load()
         {
             DichvuBUS dvBus = new DichvuBUS();
+            maDichVu.Text=dvBus.autogenerate_madv().ToString();
         }
 
         private void Them_Click(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace GUI_QLPM
             else
             {
                 DichvuDTO dv = new DichvuDTO();
-                dv.MaDichVu = int.Parse(maDichVu.Text);
+                
                 dv.TenDichVu = tenDichVu.Text;
                 dv.TienDichVu = float.Parse(tienDichVu.Text);
 
@@ -59,7 +60,11 @@ namespace GUI_QLPM
                 if (!kq)
                     System.Windows.Forms.MessageBox.Show("Thêm Dịch vụ thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 else
+                {
                     System.Windows.Forms.MessageBox.Show("Thêm Dịch vụ thành công", "Result");
+                    this.Close();  
+                }
+
             }
         }
     }

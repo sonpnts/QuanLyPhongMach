@@ -19,7 +19,7 @@ namespace QLPMDAL
             connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         }
         public string ConnectionString { get => connectionString; set => connectionString = value; }
-        
+
         public bool kethuoc(KethuocDTO kt)
         {
             string query = string.Empty;
@@ -101,10 +101,10 @@ namespace QLPMDAL
             return lskethuoc;
         }
 
-        public List<KethuocDTO> baocaobymonth(string month,string year)
+        public List<KethuocDTO> baocaobymonth(string month, string year)
         {
             string query = string.Empty;
-            query += "SELECT TH.maThuoc, TH.tenThuoc, sum (KT.soLuong) as soLuong FROM tblTOA T JOIN tblKETHUOC KT ON T.maToa=KT.maToa JOIN tblTHUOC TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngKeToa)=@month and year(T.ngKeToa)=@year group by TH.maThuoc,TH.tenThuoc";
+            query += "SELECT TH.maThuoc, TH.tenThuoc, sum (KT.soLuong) as soLuong FROM ToaThuoc T JOIN KeThuoc KT ON T.maToaThuoc=KT.maToaThuoc JOIN Thuoc TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngayKeToa)=@month and year(T.ngayKeToa)=@year group by TH.maThuoc,TH.tenThuoc";
 
 
             List<KethuocDTO> lskethuoc = new List<KethuocDTO>();

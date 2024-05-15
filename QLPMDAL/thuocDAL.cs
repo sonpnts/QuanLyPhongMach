@@ -319,7 +319,7 @@ namespace QLPMDAL
         public List<ThuocDTO> baocaobymonth(string month, string year)
         {
             string query = string.Empty;
-            query += "SELECT TH.maThuoc, TH.tenThuoc, TH.DVT FROM ToaThuoc T JOIN tblKETHUOC KT ON T.maToa=KT.maToa JOIN Thuoc TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngayKeToa)=@month and YEAR(T.ngayKeToa)=@year group by TH.maThuoc,TH.tenThuoc,TH.DonVi";
+            query += "SELECT TH.maThuoc, TH.tenThuoc, TH.donVi FROM ToaThuoc T JOIN KeThuoc KT ON T.maToaThuoc=KT.maToaThuoc JOIN Thuoc TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngayKeToa)=@month and YEAR(T.ngayKeToa)=@year group by TH.maThuoc,TH.tenThuoc,TH.DonVi";
 
 
             List<ThuocDTO> lsThuoc = new List<ThuocDTO>();

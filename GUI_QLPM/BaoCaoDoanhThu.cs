@@ -45,7 +45,7 @@ namespace GUI_QLPM
             table.Columns.Add("Số Bệnh Nhân", typeof(int));
             table.Columns.Add("Doanh Thu", typeof(float));
             table.Columns.Add("Số Thứ Tự", typeof(int));
-            table.Columns.Add("Trạng Thái", typeof(string));
+            table.Columns.Add("Tỷ Lệ", typeof(string));
             foreach (HoadonDTO hd in listhoadon)
             {
                 string ngkham;
@@ -60,7 +60,7 @@ namespace GUI_QLPM
                 ngkham = String.Format("{0:M/d/yyyy}", hd.NgayLapHoaDon);
                 row["Số Bệnh Nhân"] = int.Parse(hdBus.sobenhnhan(ngkham).ToString());
                 row["Doanh Thu"] = float.Parse(hdBus.doanhthu(ngkham).ToString());
-                row["Ty Le"] = Math.Round(((double)float.Parse(hdBus.doanhthu(ngkham).ToString()) / (double)tongdoanhthu) * 100, 2).ToString() + "%";
+                row["Tỷ Lệ"] = Math.Round(((double)float.Parse(hdBus.doanhthu(ngkham).ToString()) / (double)tongdoanhthu) * 100, 2).ToString() + "%";
                 row["Số Thứ Tự"] = stt;
                 table.Rows.Add(row);
                 stt += 1;

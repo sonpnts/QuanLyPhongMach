@@ -115,76 +115,151 @@ CREATE TABLE HoaDon(
 ) ON [PRIMARY]
 
 
--- Insert data into BenhNhan
-INSERT INTO BenhNhan (tenBenhNhan, ngaySinh, diaChi, gioiTinh)
-VALUES 
-('Nguyen Van A', '1985-05-01', '123 Le Loi, Hanoi', 'Nam'),
-('Tran Thi B', '1990-07-15', '456 Nguyen Trai, Ho Chi Minh', 'Nu'),
-('Le Van C', '1975-10-20', '789 Tran Hung Dao, Da Nang', 'Nam');
+INSERT INTO BenhNhan (tenBenhNhan, ngaySinh, diaChi, gioiTinh) VALUES
+(N'Nguyễn Văn A', '1980-01-01', N'Hà Nội', N'Nam'),
+(N'Trần Thị B', '1985-02-15', N'Sài Gòn', N'Nữ'),
+(N'Lê Văn C', '1990-03-20', N'Đà Nẵng', N'Nam'),
+(N'Phạm Thị D', '1992-04-10', N'Cần Thơ', N'Nữ'),
+(N'Hoàng Văn E', '1975-05-30', N'Hải Phòng', N'Nam'),
+(N'Vũ Thị F', '1988-06-25', N'Quảng Ninh', N'Nữ'),
+(N'Bùi Văn G', '1995-07-07', N'Nghệ An', N'Nam'),
+(N'Đỗ Thị H', '1993-08-08', N'Hà Tĩnh', N'Nữ'),
+(N'Phan Văn I', '1981-09-09', N'Huế', N'Nam'),
+(N'Ngô Thị J', '1986-10-10', N'Vĩnh Phúc', N'Nữ'),
+(N'Nguyễn Văn K', '1982-11-11', N'Bắc Ninh', N'Nam'),
+(N'Trần Thị L', '1987-12-12', N'Hà Nam', N'Nữ'),
+(N'Lê Văn M', '1991-01-13', N'Thái Bình', N'Nam'),
+(N'Phạm Thị N', '1994-02-14', N'Nam Định', N'Nữ'),
+(N'Hoàng Văn O', '1978-03-15', N'Tuyên Quang', N'Nam'),
+(N'Vũ Thị P', '1989-04-16', N'Lào Cai', N'Nữ'),
+(N'Bùi Văn Q', '1996-05-17', N'Lạng Sơn', N'Nam'),
+(N'Đỗ Thị R', '1997-06-18', N'Cao Bằng', N'Nữ'),
+(N'Phan Văn S', '1983-07-19', N'Bắc Giang', N'Nam'),
+(N'Ngô Thị T', '1998-08-20', N'Hà Giang', N'Nữ');
 
--- Insert data into PhieuKhamBenh
-INSERT INTO PhieuKhamBenh (ngayKham, trieuChung, maBenhNhan)
-VALUES 
-('2024-05-10', 'Sot, ho', 1),
-('2024-05-11', 'Dau dau, met moi', 2),
-('2024-05-12', 'Dau bung', 3);
 
--- Insert data into Benh
-INSERT INTO Benh (tenBenh)
-VALUES 
-('Cam cum'),
-('Dau dau'),
-('Dau bung');
+INSERT INTO PhieuKhamBenh (ngayKham, trieuChung, maBenhNhan) VALUES
+('2024-01-01', N'Sốt cao', 1),
+('2024-01-02', N'Ho', 2),
+('2024-01-03', N'Đau bụng', 3),
+('2024-01-04', N'Đau đầu', 4),
+('2024-01-05', N'Khó thở', 5),
+('2024-01-06', N'Nôn mửa', 6),
+('2024-01-07', N'Tiêu chảy', 7),
+('2024-01-08', N'Chóng mặt', 8),
+('2024-01-09', N'Mệt mỏi', 9),
+('2024-01-10', N'Phát ban', 10);
 
--- Insert data into ChuanDoan
-INSERT INTO ChuanDoan (maBenh, maPKB)
-VALUES 
+
+INSERT INTO Benh (tenBenh) VALUES
+(N'Cảm cúm'),
+(N'Sốt xuất huyết'),
+(N'Tiểu đường'),
+(N'Tăng huyết áp'),
+(N'Viêm phổi'),
+(N'Viêm gan B'),
+(N'Sỏi thận'),
+(N'Viêm họng'),
+(N'Dị ứng'),
+(N'Viêm dạ dày');
+
+
+INSERT INTO ChuanDoan (maBenh, maPKB) VALUES
 (1, 1),
 (2, 2),
-(3, 3);
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
 
--- Insert data into DonVi
-INSERT INTO DonVi (donVi)
-VALUES 
-('Vien'),
-('Chai'),
-('Goi');
 
--- Insert data into CachDung
-INSERT INTO CachDung (cachDung)
-VALUES 
-('Uong'),
-('Tiem'),
-('Boi');
+INSERT INTO DonVi (donVi) VALUES
+(N'Viên'),
+(N'Chai'),
+(N'Ống'),
+(N'Gói'),
+(N'Túi'),
+(N'Hộp'),
+(N'Lọ'),
+(N'Thỏi'),
+(N'Viên nang'),
+(N'Dạng lỏng');
 
--- Insert data into Thuoc
-INSERT INTO Thuoc (tenThuoc, donGia, cachDung, donVi)
-VALUES 
-('Paracetamol', 5000, 'Uong', 'Vien'),
-('Vitamin C', 3000, 'Uong', 'Vien'),
-('Oresol', 7000, 'Uong', 'Goi');
 
--- Insert data into ToaThuoc
-INSERT INTO ToaThuoc (ngayKeToa, maPKB)
-VALUES 
-('2024-05-10', 1),
-('2024-05-11', 2),
-('2024-05-12', 3);
+INSERT INTO CachDung (cachDung) VALUES
+(N'Uống sau ăn'),
+(N'Uống trước ăn'),
+(N'Uống khi đói'),
+(N'Uống buổi sáng'),
+(N'Uống buổi tối'),
+(N'Tiêm'),
+(N'Bôi ngoài da'),
+(N'Ngậm'),
+(N'Nhai'),
+(N'Hít');
 
--- Insert data into KeThuoc
-INSERT INTO KeThuoc (maThuoc, maToaThuoc, soLuong)
-VALUES 
+
+INSERT INTO Thuoc (tenThuoc, donGia, cachDung, donVi) VALUES
+(N'Paracetamol', 5000, N'Uống sau ăn', N'Viên'),
+(N'Amoxicillin', 10000, N'Uống trước ăn', N'Viên'),
+(N'Vitamin C', 2000, N'Uống khi đói', N'Viên'),
+(N'Ibuprofen', 8000, N'Uống buổi sáng', N'Viên'),
+(N'Aspirin', 7000, N'Uống buổi tối', N'Viên'),
+(N'Cephalexin', 12000, N'Tiêm', N'Ống'),
+(N'Diclofenac', 6000, N'Bôi ngoài da', N'Chai'),
+(N'Ranitidine', 9000, N'Ngậm', N'Viên'),
+(N'Ceftriaxone', 15000, N'Nhai', N'Viên nang'),
+(N'Dexamethasone', 11000, N'Hít', N'Dạng lỏng');
+
+
+INSERT INTO ToaThuoc (ngayKeToa, maPKB) VALUES
+('2024-01-01', 1),
+('2024-01-02', 2),
+('2024-01-03', 3),
+('2024-01-04', 4),
+('2024-01-05', 5),
+('2024-01-06', 6),
+('2024-01-07', 7),
+('2024-01-08', 8),
+('2024-01-09', 9),
+('2024-01-10', 10);
+
+
+INSERT INTO KeThuoc (maThuoc, maToaThuoc, soLuong) VALUES
 (1, 1, 10),
-(2, 1, 5),
-(3, 2, 20);
+(2, 2, 20),
+(3, 3, 15),
+(4, 4, 25),
+(5, 5, 30),
+(6, 6, 5),
+(7, 7, 10),
+(8, 8, 15),
+(9, 9, 20),
+(10, 10, 25);
 
--- Insert data into DichVu
-INSERT INTO DichVu (tenDichVu, tienDichVu)
-VALUES 
-('Kham benh', 50000),
-('Xet nghiem', 200000),
-('Chup X-quang', 150000);
+
+INSERT INTO DichVu (tenDichVu, tienDichVu) VALUES
+(N'Kham benh', 500000),
+(N'Chụp X-quang', 300000),
+(N'Siêu âm', 200000),
+(N'Chụp CT', 1000000),
+(N'Nội soi', 800000),
+(N'Điện tim', 150000),
+(N'Khám tổng quát', 250000),
+(N'Tiêm phòng', 100000),
+(N'Thử máu', 200000),
+(N'Kiểm tra sức khỏe', 350000);
 
 
-
+INSERT INTO HoaDon (ngayLapHoaDon, tienThuoc, tienKham, tongTien, maPKB) VALUES
+('2024-05-01', 50000, 300000, 350000, 1),
+('2024-05-02', 100000, 300000, 400000, 2),
+('2024-05-03', 75000, 300000, 375000, 3),
+('2024-05-04', 125000, 300000, 425000, 4),
+('2024-05-05', 150000, 300000, 450000, 5),
+('2024-05-06', 25000, 300000, 325000, 6),
 

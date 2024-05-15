@@ -19,6 +19,7 @@ namespace GUI_QLPM
         ThuocBUS thBus = new ThuocBUS();
         KethuocBUS ktBus = new KethuocBUS();
         PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
+        
         public float tkham ;
         public float tt;
         
@@ -35,13 +36,15 @@ namespace GUI_QLPM
             ngayhd.Text = DateTime.UtcNow.Date.ToString();
             tkham = hdBus.tienkham();
             tienkham.Text = tkham.ToString();
+            mahd.Text=hdBus.autogenerate_mahd().ToString();
             load_combobox();
         }
         public void load_combobox()
         {
             BenhNhanBUS bnBus = new BenhNhanBUS();
             List<PhieukhambenhDTO> listpkb = pkbBus.select();
-            this.loadData_Vao_Combobox(listpkb);
+            List<HoadonDTO> listhd = hdBus.select();
+            this.loadData_Vao_Combobox(listpkb, listhd);
         }
         public void load_TenBN()
         {
@@ -51,7 +54,7 @@ namespace GUI_QLPM
             this.loadData_TenBN(listBenhnhan, listpkb);
 
         }
-        private void loadData_Vao_Combobox(List<PhieukhambenhDTO> listpkb)
+        private void loadData_Vao_Combobox(List<PhieukhambenhDTO> listpkb, List<HoadonDTO> listhd)
         {
 
             if (listpkb == null)
@@ -61,7 +64,17 @@ namespace GUI_QLPM
             }
             foreach (PhieukhambenhDTO pkb in listpkb)
             {
-                if (pkb.MaPKB != null)
+                bool exists = false;
+                foreach (HoadonDTO hd in listhd)
+                {
+                    if (hd.MaPKB == pkb.MaPKB)
+                    {
+                        exists = true;
+                        break; // Nếu tìm thấy khớp, thoát khỏi vòng lặp
+                    }
+                }
+
+                if (!exists)
                 {
                     mapkb.Items.Add(pkb.MaPKB);
                 }
@@ -121,7 +134,7 @@ namespace GUI_QLPM
             HoadonDTO hd = new HoadonDTO();
             
             hd.TongTien = tt;
-            hd.MaPKB = int.Parse(mapkb.Text);
+            hd.MaPKB = mapkb.Text;
             hd.NgayLapHoaDon = DateTime.UtcNow.Date;
             hd.TienKham= tkham;
             hd.TienThuoc = hdBus.tienthuoc(hd, mapkb.Text);
@@ -130,7 +143,10 @@ namespace GUI_QLPM
             if (kq == false)
                 System.Windows.Forms.MessageBox.Show("Lưu hóa đơn thất bại. Vui lòng kiểm tra lại dũ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             else
+            {
                 System.Windows.Forms.MessageBox.Show("Lưu hóa đơn thành công", "Result");
+                load();
+            }
         }
         public void load_data(string mapkb)
         {

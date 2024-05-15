@@ -21,6 +21,7 @@ namespace GUI_QLPM
         public DanhSachDichVu()
         {
             InitializeComponent();
+            load_data();
         }
         private void load()
         {
@@ -70,6 +71,13 @@ namespace GUI_QLPM
                 List<DichvuDTO> listDichVu = dvBus.selectByKeyWord(sKeyword);
                 this.loadData_Vao_GridView(listDichVu);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ThemDichVuMoi themdvm = new ThemDichVuMoi();
+            themdvm.ShowDialog();
+            load_data();
         }
     }
 }
