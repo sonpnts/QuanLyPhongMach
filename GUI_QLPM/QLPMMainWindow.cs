@@ -15,10 +15,37 @@ namespace GUI_QLPM
 {
     public partial class QLPMMainWindow : Form
     {
-        public QLPMMainWindow()
+        taiKhoanBUS tkBus = new taiKhoanBUS();
+        taiKhoanDTO tk = new taiKhoanDTO();
+        loaiTaiKhoanBUS loaitkBUS = new loaiTaiKhoanBUS();
+        loaiTaiKhoanDTO loaitk = new loaiTaiKhoanDTO();
+        public QLPMMainWindow(int loaitkhoan)
         {
+            List<taiKhoanDTO> listTK = tkBus.select();
+            List<loaiTaiKhoanDTO> listLoaiTK = loaitkBUS.select();
             InitializeComponent();
             load_data();
+            
+            foreach(loaiTaiKhoanDTO loaiTaiKhoan in listLoaiTK)
+            {
+                if (loaiTaiKhoan.MaRole == loaitkhoan)
+                {
+                    loaiTK.Text = loaiTaiKhoan.TenLoaiTaiKhoan;
+                }
+            }
+            if(loaitkhoan==1)
+            {
+                taikhoan.Enabled = false;
+                QuyDinh.Enabled = false;
+                BaoCao.Enabled = false;
+            }
+            else if (loaitkhoan==2) 
+            {
+                taikhoan.Enabled = false;
+                QuyDinh.Enabled = false;
+                BaoCao.Enabled = false;
+                HeThong.Enabled = false;
+            }
         }
 
         private void Dong_Click(object sender, EventArgs e)
@@ -182,6 +209,8 @@ namespace GUI_QLPM
         private void quaylai_Click(object sender, EventArgs e)
         {
             this.Close();
+            Login lg = new Login();
+            lg.Show();
         }
 
         private void thembenhnhan_Click(object sender, EventArgs e)
@@ -190,6 +219,12 @@ namespace GUI_QLPM
             tbn.StartPosition = FormStartPosition.CenterParent;
             tbn.MdiParent = this;
             tbn.Show();
+        }
+
+        private void taikhoan_Click(object sender, EventArgs e)
+        {
+            DanhSachTaiKhoan tk = new DanhSachTaiKhoan();
+            tk.Show();
         }
     }
 }

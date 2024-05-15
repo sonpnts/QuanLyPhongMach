@@ -16,7 +16,7 @@ namespace GUI_QLPM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QLPMMainWindow());
+            Application.Run(new Login());
         }
     }
 }

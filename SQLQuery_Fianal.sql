@@ -114,6 +114,37 @@ CREATE TABLE HoaDon(
 	CONSTRAINT fk_PhieuKhamBenh_HoaDon FOREIGN KEY (maPKB) REFERENCES PhieuKhamBenh (maPKB),
 ) ON [PRIMARY]
 
+-- TẠO BẢNG ROLE
+CREATE TABLE Roles(
+    maRole int IDENTITY,
+    tenRole nvarchar(50) NOT NULL,
+	CONSTRAINT pk_Roles PRIMARY KEY CLUSTERED (maRole ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+-- TẠO BẢNG USER
+CREATE TABLE TaiKhoan(
+    userName nvarchar(50) NOT NULL,
+	passWord nvarchar(50) NOT NULL,
+    hoTen nvarchar(50) NOT NULL,
+	maRole int,
+    CONSTRAINT pk_TaiKhoan PRIMARY KEY CLUSTERED (username ASC) ON [PRIMARY],
+	CONSTRAINT fk_Roles_TaiKhoan FOREIGN KEY (maRole) REFERENCES Roles (maRole)
+) ON [PRIMARY]
+
+
+
+INSERT INTO Roles (tenRole) VALUES
+('Bac Si'),
+('Thu Ngan'),
+('Quan Tri Vien')
+
+
+INSERT INTO TaiKhoan (userName, passWord, hoTen, maRole) VALUES
+('bacsi','123456','Bac Si Cuong',1),
+('thungan','123456','Thu Ngan Son',2),
+('qtv','123456','QTV Phong',3)
+
+
 
 INSERT INTO BenhNhan (tenBenhNhan, ngaySinh, diaChi, gioiTinh) VALUES
 (N'Nguyễn Văn A', '1980-01-01', N'Hà Nội', N'Nam'),

@@ -49,8 +49,10 @@
     <Compile Include="dichvuDTO.cs" />
     <Compile Include="hoadonDTO.cs" />
     <Compile Include="kethuocDTO.cs" />
+    <Compile Include="loaiTaiKhoanDTO.cs" />
     <Compile Include="phieukhambenhDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="taiKhoanDTO.cs" />
     <Compile Include="thuocDTO.cs" />
     <Compile Include="toathuocDTO.cs" />
   </ItemGroup>

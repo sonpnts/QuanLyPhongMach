@@ -84,6 +84,12 @@
     <Compile Include="DanhSachKhamBenh.Designer.cs">
       <DependentUpon>DanhSachKhamBenh.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhSachTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhSachTaiKhoan.Designer.cs">
+      <DependentUpon>DanhSachTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhSachThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     </Compile>
     <Compile Include="LapHoaDon.Designer.cs">
       <DependentUpon>LapHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,6 +200,9 @@
     <EmbeddedResource Include="DanhSachKhamBenh.resx">
       <DependentUpon>DanhSachKhamBenh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhSachTaiKhoan.resx">
+      <DependentUpon>DanhSachTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhSachThuoc.resx">
       <DependentUpon>DanhSachThuoc.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LapHoaDon.resx">
       <DependentUpon>LapHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

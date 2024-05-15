@@ -16,7 +16,7 @@ namespace GUI_QLPM
 {
     public partial class DanhSachThuoc : Form
     {
-        public DataTable db1 = new DataTable("tblTHUOC");
+        public DataTable db1 = new DataTable("Thuoc");
         ThuocBUS thBus= new ThuocBUS();
         ThuocDTO th = new ThuocDTO();
         private string temp;

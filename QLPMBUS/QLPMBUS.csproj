@@ -48,8 +48,10 @@
     <Compile Include="dichvuBUS.cs" />
     <Compile Include="hoadonBUS.cs" />
     <Compile Include="kethuocBUS.cs" />
+    <Compile Include="loaiTaiKhoanBUS.cs" />
     <Compile Include="phieukhambenhBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="taiKhoanBUS.cs" />
     <Compile Include="thuocBUS.cs" />
     <Compile Include="toathuocBUS.cs" />
   </ItemGroup>

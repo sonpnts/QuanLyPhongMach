@@ -43,12 +43,14 @@
             this.BaoCaoDoanhThu = new System.Windows.Forms.ToolStripMenuItem();
             this.BaoCaoSuDungThuoc = new System.Windows.Forms.ToolStripMenuItem();
             this.QuyDinh = new System.Windows.Forms.ToolStripMenuItem();
+            this.taikhoan = new System.Windows.Forms.ToolStripMenuItem();
             this.nhaptukhoa = new System.Windows.Forms.TextBox();
             this.thembenhnhan = new System.Windows.Forms.Button();
-            this.quaylai = new System.Windows.Forms.Button();
             this.timkiem = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.gird = new System.Windows.Forms.DataGridView();
+            this.loaiTK = new System.Windows.Forms.TextBox();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gird)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +63,8 @@
             this.DanhMuc,
             this.DanhSach,
             this.BaoCao,
-            this.QuyDinh});
+            this.QuyDinh,
+            this.taikhoan});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1047, 28);
@@ -175,6 +178,13 @@
             this.QuyDinh.Text = "Danh sách dịch vụ";
             this.QuyDinh.Click += new System.EventHandler(this.QuyDinh_Click);
             // 
+            // taikhoan
+            // 
+            this.taikhoan.Name = "taikhoan";
+            this.taikhoan.Size = new System.Drawing.Size(85, 24);
+            this.taikhoan.Text = "Tài khoản";
+            this.taikhoan.Click += new System.EventHandler(this.taikhoan_Click);
+            // 
             // nhaptukhoa
             // 
             this.nhaptukhoa.Location = new System.Drawing.Point(164, 74);
@@ -193,17 +203,6 @@
             this.thembenhnhan.Text = "Thêm bệnh nhân";
             this.thembenhnhan.UseVisualStyleBackColor = false;
             this.thembenhnhan.Click += new System.EventHandler(this.ThemBenhNhan_Click);
-            // 
-            // quaylai
-            // 
-            this.quaylai.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.quaylai.Location = new System.Drawing.Point(784, 62);
-            this.quaylai.Name = "quaylai";
-            this.quaylai.Size = new System.Drawing.Size(108, 40);
-            this.quaylai.TabIndex = 7;
-            this.quaylai.Text = "Quay lại";
-            this.quaylai.UseVisualStyleBackColor = false;
-            this.quaylai.Click += new System.EventHandler(this.quaylai_Click);
             // 
             // timkiem
             // 
@@ -238,6 +237,25 @@
             this.gird.Size = new System.Drawing.Size(1047, 661);
             this.gird.TabIndex = 9;
             // 
+            // loaiTK
+            // 
+            this.loaiTK.Location = new System.Drawing.Point(801, 28);
+            this.loaiTK.Multiline = true;
+            this.loaiTK.Name = "loaiTK";
+            this.loaiTK.Size = new System.Drawing.Size(234, 28);
+            this.loaiTK.TabIndex = 8;
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnDangXuat.Location = new System.Drawing.Point(927, 65);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(108, 40);
+            this.btnDangXuat.TabIndex = 7;
+            this.btnDangXuat.Text = "Đăng Xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.quaylai_Click);
+            // 
             // QLPMMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,9 +263,10 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1047, 801);
             this.Controls.Add(this.gird);
+            this.Controls.Add(this.loaiTK);
             this.Controls.Add(this.nhaptukhoa);
             this.Controls.Add(this.thembenhnhan);
-            this.Controls.Add(this.quaylai);
+            this.Controls.Add(this.btnDangXuat);
             this.Controls.Add(this.timkiem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -282,9 +301,11 @@
         private System.Windows.Forms.ToolStripMenuItem QuyDinh;
         private System.Windows.Forms.TextBox nhaptukhoa;
         private System.Windows.Forms.Button thembenhnhan;
-        private System.Windows.Forms.Button quaylai;
         private System.Windows.Forms.Button timkiem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView gird;
+        private System.Windows.Forms.ToolStripMenuItem taikhoan;
+        private System.Windows.Forms.TextBox loaiTK;
+        private System.Windows.Forms.Button btnDangXuat;
     }
 }

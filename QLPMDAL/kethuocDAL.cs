@@ -152,7 +152,7 @@ namespace QLPMDAL
         {
             int SLD = 0;
             string query = string.Empty;
-            query += "SELECT  count (KT.maToa) as SLD FROM tblTOA T JOIN tblKETHUOC KT ON T.maToa=KT.maToa JOIN tblTHUOC TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngKeToa)=@month and year(T.ngKeToa)=@year and TH.maThuoc=@mathuoc";
+            query += "SELECT  count (KT.maToaThuoc) as SLD FROM ToaThuoc T JOIN KeThuoc KT ON T.maToaThuoc=KT.maToaThuoc JOIN Thuoc TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngayKeToa)=@month and year(T.ngayKeToa)=@year and TH.maThuoc=@mathuoc";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
