@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemBenhNhanMoi));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,83 +40,92 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.ngaysinh = new System.Windows.Forms.DateTimePicker();
-            this.them = new System.Windows.Forms.Button();
-            this.quaylai = new System.Windows.Forms.Button();
+            this.btn_Them = new System.Windows.Forms.Button();
+            this.btnQuayLai = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(303, 39);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(125, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 16);
+            this.label1.Size = new System.Drawing.Size(149, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã bệnh nhân :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(303, 103);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(125, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Họ và tên :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(303, 167);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(125, 151);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 16);
+            this.label3.Size = new System.Drawing.Size(93, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Giới tính :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(303, 231);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(125, 208);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 16);
+            this.label4.Size = new System.Drawing.Size(110, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Ngày sinh :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(303, 295);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(125, 265);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 16);
+            this.label5.Size = new System.Drawing.Size(82, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "Địa chỉ :";
             // 
             // mabenhnhan
             // 
-            this.mabenhnhan.Location = new System.Drawing.Point(428, 33);
+            this.mabenhnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mabenhnhan.Location = new System.Drawing.Point(302, 32);
             this.mabenhnhan.Name = "mabenhnhan";
-            this.mabenhnhan.Size = new System.Drawing.Size(241, 22);
+            this.mabenhnhan.Size = new System.Drawing.Size(371, 30);
             this.mabenhnhan.TabIndex = 5;
             this.mabenhnhan.TabStop = false;
             // 
             // diachi
             // 
-            this.diachi.Location = new System.Drawing.Point(428, 289);
+            this.diachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diachi.Location = new System.Drawing.Point(302, 260);
             this.diachi.Name = "diachi";
-            this.diachi.Size = new System.Drawing.Size(238, 22);
+            this.diachi.Size = new System.Drawing.Size(371, 30);
             this.diachi.TabIndex = 4;
             // 
             // hoten
             // 
-            this.hoten.Location = new System.Drawing.Point(428, 97);
+            this.hoten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hoten.Location = new System.Drawing.Point(302, 89);
             this.hoten.Name = "hoten";
-            this.hoten.Size = new System.Drawing.Size(241, 22);
+            this.hoten.Size = new System.Drawing.Size(371, 30);
             this.hoten.TabIndex = 0;
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(428, 162);
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(302, 147);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(57, 20);
+            this.radioButton1.Size = new System.Drawing.Size(74, 29);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Nam";
@@ -124,9 +134,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(501, 163);
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(401, 147);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(45, 20);
+            this.radioButton2.Size = new System.Drawing.Size(58, 29);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Nữ";
@@ -134,37 +145,45 @@
             // 
             // ngaysinh
             // 
-            this.ngaysinh.Location = new System.Drawing.Point(428, 224);
+            this.ngaysinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ngaysinh.Location = new System.Drawing.Point(302, 203);
             this.ngaysinh.Name = "ngaysinh";
-            this.ngaysinh.Size = new System.Drawing.Size(241, 22);
+            this.ngaysinh.Size = new System.Drawing.Size(371, 30);
             this.ngaysinh.TabIndex = 3;
             // 
-            // them
+            // btn_Them
             // 
-            this.them.Location = new System.Drawing.Point(360, 350);
-            this.them.Name = "them";
-            this.them.Size = new System.Drawing.Size(113, 39);
-            this.them.TabIndex = 5;
-            this.them.Text = "Thêm";
-            this.them.UseVisualStyleBackColor = true;
-            this.them.Click += new System.EventHandler(this.them_Click);
+            this.btn_Them.BackColor = System.Drawing.Color.RosyBrown;
+            this.btn_Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Them.ForeColor = System.Drawing.Color.Black;
+            this.btn_Them.Location = new System.Drawing.Point(214, 323);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.Size = new System.Drawing.Size(151, 52);
+            this.btn_Them.TabIndex = 5;
+            this.btn_Them.Text = "Thêm";
+            this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.them_Click);
             // 
-            // quaylai
+            // btnQuayLai
             // 
-            this.quaylai.Location = new System.Drawing.Point(553, 350);
-            this.quaylai.Name = "quaylai";
-            this.quaylai.Size = new System.Drawing.Size(113, 39);
-            this.quaylai.TabIndex = 6;
-            this.quaylai.Text = "Quay lại";
-            this.quaylai.UseVisualStyleBackColor = true;
+            this.btnQuayLai.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnQuayLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai.Location = new System.Drawing.Point(433, 323);
+            this.btnQuayLai.Name = "btnQuayLai";
+            this.btnQuayLai.Size = new System.Drawing.Size(151, 52);
+            this.btnQuayLai.TabIndex = 6;
+            this.btnQuayLai.Text = "Quay lại";
+            this.btnQuayLai.UseVisualStyleBackColor = false;
+            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
             // ThemBenhNhanMoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 460);
-            this.Controls.Add(this.quaylai);
-            this.Controls.Add(this.them);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(799, 419);
+            this.Controls.Add(this.btnQuayLai);
+            this.Controls.Add(this.btn_Them);
             this.Controls.Add(this.ngaysinh);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -176,10 +195,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ThemBenhNhanMoi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ThemBenhNhanMoi";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "Thêm bệnh nhân mới";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,7 +218,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.DateTimePicker ngaysinh;
-        private System.Windows.Forms.Button them;
-        private System.Windows.Forms.Button quaylai;
+        private System.Windows.Forms.Button btn_Them;
+        private System.Windows.Forms.Button btnQuayLai;
     }
 }

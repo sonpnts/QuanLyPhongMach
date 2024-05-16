@@ -20,11 +20,14 @@ namespace GUI_QLPM
         BenhNhanBUS bnBus = new BenhNhanBUS();
         BenhNhanDTO bn = new BenhNhanDTO();
         private string temp;
+
         public TraCuuBenhNhan()
         {
             InitializeComponent();
             load_data();
+            gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+    
         private void load()
         {
             db1.Clear();
@@ -52,7 +55,8 @@ namespace GUI_QLPM
             table.Columns.Add("Ngày sinh", typeof(string));
             table.Columns.Add("Địa chỉ", typeof(string));
             table.Columns.Add("Giới tính", typeof(string));
-            
+
+           
             foreach (BenhNhanDTO bn in listBenhNhan)
             {
                 DataRow row = table.NewRow();
@@ -88,12 +92,5 @@ namespace GUI_QLPM
             this.Close();
         }
 
-        private void thembenhnhan_Click(object sender, EventArgs e)
-        {
-            ThemBenhNhanMoi tbn = new ThemBenhNhanMoi();
-            tbn.StartPosition = FormStartPosition.CenterParent;
-            tbn.MdiParent = this;
-            tbn.Show();
-        }
     }
 }

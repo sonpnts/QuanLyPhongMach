@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemLoaiBenh));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.maBenh = new System.Windows.Forms.TextBox();
@@ -37,59 +38,72 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 66);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(88, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 16);
+            this.label1.Size = new System.Drawing.Size(135, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã loại bệnh :";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 117);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(88, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 16);
+            this.label2.Size = new System.Drawing.Size(142, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên loại bệnh :";
             // 
             // maBenh
             // 
-            this.maBenh.Location = new System.Drawing.Point(180, 60);
+            this.maBenh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maBenh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maBenh.Location = new System.Drawing.Point(238, 54);
             this.maBenh.Name = "maBenh";
-            this.maBenh.Size = new System.Drawing.Size(262, 22);
+            this.maBenh.Size = new System.Drawing.Size(262, 30);
             this.maBenh.TabIndex = 2;
             // 
             // tenBenh
             // 
-            this.tenBenh.Location = new System.Drawing.Point(180, 114);
+            this.tenBenh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tenBenh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenBenh.Location = new System.Drawing.Point(238, 105);
             this.tenBenh.Name = "tenBenh";
-            this.tenBenh.Size = new System.Drawing.Size(262, 22);
+            this.tenBenh.Size = new System.Drawing.Size(262, 30);
             this.tenBenh.TabIndex = 5;
             // 
             // Thêm
             // 
-            this.Thêm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Thêm.Location = new System.Drawing.Point(218, 176);
+            this.Thêm.BackColor = System.Drawing.Color.RosyBrown;
+            this.Thêm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Thêm.ForeColor = System.Drawing.Color.Transparent;
+            this.Thêm.Location = new System.Drawing.Point(208, 171);
             this.Thêm.Name = "Thêm";
-            this.Thêm.Size = new System.Drawing.Size(170, 37);
+            this.Thêm.Size = new System.Drawing.Size(170, 51);
             this.Thêm.TabIndex = 6;
             this.Thêm.Text = "Thêm";
-            this.Thêm.UseVisualStyleBackColor = true;
-            this.Thêm.Click += new System.EventHandler(this.Thêm_Click);
+            this.Thêm.UseVisualStyleBackColor = false;
+            this.Thêm.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // ThemLoaiBenh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(587, 255);
             this.Controls.Add(this.Thêm);
             this.Controls.Add(this.tenBenh);
             this.Controls.Add(this.maBenh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ThemLoaiBenh";
-            this.Text = "ThemLoaiBenh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Thêm loại bệnh";
             this.ResumeLayout(false);
             this.PerformLayout();
 

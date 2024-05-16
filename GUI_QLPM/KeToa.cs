@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI_QLPM
 {
@@ -28,6 +29,7 @@ namespace GUI_QLPM
         {
             InitializeComponent();
             load_data();
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             mapkb.Text = ma;
 
         }
@@ -36,7 +38,7 @@ namespace GUI_QLPM
         public void load_data()
         {
             db1.Clear();
-            db1.Columns.Add("maThuoc", typeof(string));
+            db1.Columns.Add("Mã thuốc", typeof(string));
             db1.Columns.Add("tenThuoc", typeof(string));
             db1.Columns.Add("DonVi", typeof(string));
             db1.Columns.Add("Dongia", typeof(float));
@@ -86,7 +88,7 @@ namespace GUI_QLPM
                 if (th.TenThuoc == TenThuoc.Text)
                 {
                     DataRow row = db1.NewRow();
-                    row["maThuoc"] = th.MaThuoc;
+                    row["Mã thuốc"] = th.MaThuoc;
                     row["tenThuoc"] = th.TenThuoc;
                     row["DonVi"] = th.DonVi;
                     row["Dongia"] = th.DonGia;

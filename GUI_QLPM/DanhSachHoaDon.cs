@@ -1,5 +1,5 @@
-﻿
-using System.Windows;
+﻿using QLPMBUS;
+using QLPMDTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,27 +9,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QLPMBUS;
-using QLPMDTO;
 
 namespace GUI_QLPM
 {
-    public partial class DanhSachBenhNhan : Form
+    public partial class DanhSachHoaDon : Form
     {
-
         BenhNhanBUS bnBus = new BenhNhanBUS();
-        PhieukhambenhBUS pkbBus= new PhieukhambenhBUS();
+        PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
         BenhBUS beBus = new BenhBUS();
         ChandoanBUS cdBus = new ChandoanBUS();
+        HoadonBUS hdBus = new HoadonBUS();
+        taiKhoanBUS tkBus = new taiKhoanBUS();
         private int stt;
-
-        public DanhSachBenhNhan()
+        public DanhSachHoaDon()
         {
             InitializeComponent();
             load_data();
             gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
 
         public void load_data()
         {
@@ -42,11 +39,13 @@ namespace GUI_QLPM
             List<BenhDTO> listBenh = beBus.select();
             List<PhieukhambenhDTO> listpkb = pkbBus.select();
             List<ChandoanDTO> listcd = cdBus.select();
-            this.loadData_Vao_GridView(listBenhNhan, listBenh, listpkb, listcd);
+            List<HoadonDTO> listhd = hdBus.select();
+            List<taiKhoanDTO> listTK = tkBus.select();
+            this.loadData_Vao_GridView(listBenhNhan, listBenh, listpkb, listcd, listhd, listTK);
 
         }
 
-        private void loadData_Vao_GridView(List<BenhNhanDTO> listBenhNhan, List<BenhDTO> listBenh, List<PhieukhambenhDTO> listpkb, List<ChandoanDTO> listcd)
+        private void loadData_Vao_GridView(List<BenhNhanDTO> listBenhNhan, List<BenhDTO> listBenh, List<PhieukhambenhDTO> listpkb, List<ChandoanDTO> listcd, List<HoadonDTO> listhd, List<taiKhoanDTO> listTK)
         {
 
             if (listBenhNhan == null || listpkb == null || listBenh == null || listcd == null)
@@ -60,8 +59,10 @@ namespace GUI_QLPM
             table.Columns.Add("Số thứ tự", typeof(int));
             table.Columns.Add("Tên bệnh nhân", typeof(string));
             table.Columns.Add("Ngày khám", typeof(string));
-            table.Columns.Add("Triệu chứng", typeof(string));
-            table.Columns.Add("Tên bệnh", typeof(string));
+            table.Columns.Add("Tiền khám", typeof(string));
+            table.Columns.Add("Tiền thuốc", typeof(string));
+            table.Columns.Add("Tổng tiền", typeof(string));
+            table.Columns.Add("Nhân viên thu ngân", typeof(string));
             foreach (BenhNhanDTO bn in listBenhNhan)
             {
                 foreach (PhieukhambenhDTO pkb in listpkb)
@@ -72,16 +73,26 @@ namespace GUI_QLPM
                         {
                             if (pkb.MaPKB == cd.MaPkb)
                             {
-                                foreach (BenhDTO be in listBenh)
+                                foreach (HoadonDTO hd in listhd)
                                 {
-                                    if (cd.MaBenh == be.MaBenh)
+                                    if (hd.MaPKB == pkb.MaPKB)
                                     {
                                         DataRow row = table.NewRow();
                                         row["Số thứ tự"] = stt;
                                         row["Tên bệnh nhân"] = bn.TenBN;
                                         row["Ngày khám"] = DateTime.Parse(pkb.NgayKham.ToString()).ToString("dd/MM/yyyy");
-                                        row["Triệu chứng"] = pkb.TrieuChung;
-                                        row["Tên bệnh"] = be.TenBenh;
+                                        row["Tiền khám"] = hd.TienKham.ToString();
+                                        row["Tiền thuốc"] = hd.TienThuoc.ToString();
+                                        row["Tổng tiền"] = hd.TongTien.ToString();
+                                        foreach(taiKhoanDTO tk in listTK)
+                                        {
+                                            if (tk.MaTK == int.Parse(hd.MaNVTN.ToString()))
+                                            {
+                                                row["Nhân viên thu ngân"] = tk.Name;
+
+                                            }
+
+                                        }
                                         table.Rows.Add(row);
                                         stt += 1;
                                     }
@@ -91,7 +102,8 @@ namespace GUI_QLPM
                     }
                 }
             }
-           gird.DataSource = table.DefaultView;
+            gird.DataSource = table.DefaultView;
         }
-    }
+    
+}
 }

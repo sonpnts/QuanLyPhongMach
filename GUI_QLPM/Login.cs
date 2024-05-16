@@ -42,7 +42,6 @@ namespace GUI_QLPM
                         TENTK = tk.MaLoai;
                     }
 
-
                 }
             }
             if (check)
@@ -51,8 +50,19 @@ namespace GUI_QLPM
                 QLPMMainWindow main = new QLPMMainWindow(TENTK);
                 main.Show();
             }
+            else
+            {
+                MessageBox.Show("Sai mật khẩu hoặc tài khoản", "Cảnh báo", MessageBoxButtons.OK);
+                username.Text = "";
+                matkhau.Text = "";
+                username.Focus();
+            }
         
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

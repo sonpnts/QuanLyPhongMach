@@ -69,5 +69,10 @@ namespace GUI_QLPM
 
             }
         }
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

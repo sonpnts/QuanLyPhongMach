@@ -18,6 +18,7 @@ namespace GUI_QLPM
         {
             InitializeComponent();
             load_data();
+            gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         public DataTable db1 = new DataTable("TaiKhoan");

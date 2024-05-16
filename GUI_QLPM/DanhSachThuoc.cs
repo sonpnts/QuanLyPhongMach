@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI_QLPM
 {
@@ -25,6 +26,7 @@ namespace GUI_QLPM
         {
             InitializeComponent();
             load_data();
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void load()
         {

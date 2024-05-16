@@ -20,8 +20,8 @@ namespace QLPMDAL
         public bool them(HoadonDTO hd)
         {
             string query = string.Empty;
-            query += "INSERT INTO [HoaDon] ([ngayLapHoaDon], [tienThuoc], [tienKham], [tongTien], [maPKB])";
-            query += "VALUES (@ngayLapHoaDon,@tienThuoc,@tienKham,@tongTien,@maPKB)";
+            query += "INSERT INTO [HoaDon] ([ngayLapHoaDon], [tienThuoc], [tienKham], [tongTien], [maPKB],[maTaiKhoan])";
+            query += "VALUES (@ngayLapHoaDon,@tienThuoc,@tienKham,@tongTien,@maPKB, @maTaiKhoan)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -35,6 +35,7 @@ namespace QLPMDAL
 					cmd.Parameters.AddWithValue("@tienKham", hd.TienKham);
 					cmd.Parameters.AddWithValue("@tongTien", hd.TongTien);
                     cmd.Parameters.AddWithValue("@maPKB", hd.MaPKB);
+                    cmd.Parameters.AddWithValue("@maTaiKhoan", hd.MaNVTN);
                     
                     try
                     {
@@ -132,6 +133,7 @@ namespace QLPMDAL
                                 hd.TongTien = float.Parse(reader["tongTien"].ToString());
                                 hd.TienKham = float.Parse(reader["tienKham"].ToString());
                                 hd.MaPKB = reader["maPKB"].ToString();
+                                hd.MaNVTN = reader["maTaiKhoan"].ToString();
 
                                 lsHoaDon.Add(hd);
 

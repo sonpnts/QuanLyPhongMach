@@ -14,7 +14,7 @@ namespace QLPMDTO
         private float tienKham;
         private float tongTien;
         private string maPKB;
-		
+		private string maNVTN;
 
 
 
@@ -25,5 +25,6 @@ namespace QLPMDTO
 		public float TienThuoc { get => tienThuoc; set => tienThuoc = value; }
         public float TienKham { get => tienKham; set => tienKham = value; }
         public float TongTien { get => tongTien; set => tongTien = value; }
+        public string MaNVTN { get => maNVTN; set => maNVTN = value; }
     }
 }

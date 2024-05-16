@@ -21,6 +21,7 @@ namespace GUI_QLPM
         public BaoCaoSuDungThuoc()
         {
             InitializeComponent();
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         public void load_data()
         {

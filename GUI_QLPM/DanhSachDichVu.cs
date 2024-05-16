@@ -22,6 +22,7 @@ namespace GUI_QLPM
         {
             InitializeComponent();
             load_data();
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void load()
         {

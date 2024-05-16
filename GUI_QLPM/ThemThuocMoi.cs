@@ -114,6 +114,5 @@ namespace GUI_QLPM
 
             }
         }
-
     }
 }

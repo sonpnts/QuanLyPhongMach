@@ -152,7 +152,7 @@ namespace QLPMDAL
                                 tk.Password = reader["passWord"].ToString();
                                 tk.Username = reader["userName"].ToString();
                                 tk.MaLoai = int.Parse(reader["maRole"].ToString());
-
+                                tk.MaTK = int.Parse(reader["maTaiKhoan"].ToString());
 
                                 
 

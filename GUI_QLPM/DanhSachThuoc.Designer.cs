@@ -45,7 +45,7 @@
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
-            this.grid.Size = new System.Drawing.Size(824, 570);
+            this.grid.Size = new System.Drawing.Size(887, 570);
             this.grid.TabIndex = 11;
             // 
             // button3
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 825);
+            this.ClientSize = new System.Drawing.Size(887, 825);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

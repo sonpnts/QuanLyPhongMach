@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemThuocMoi));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,101 +44,125 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 34);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(61, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 16);
+            this.label1.Size = new System.Drawing.Size(104, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã thuốc :";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 98);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(61, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(111, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên thuốc :";
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 162);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(61, 175);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 16);
+            this.label3.Size = new System.Drawing.Size(114, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Đơn vị tính :";
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 226);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(61, 240);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 16);
+            this.label4.Size = new System.Drawing.Size(90, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Đơn giá :";
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 290);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(61, 305);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 16);
+            this.label5.Size = new System.Drawing.Size(119, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "Cách dùng :";
             // 
             // Them
             // 
-            this.Them.Location = new System.Drawing.Point(115, 344);
+            this.Them.BackColor = System.Drawing.Color.RosyBrown;
+            this.Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Them.ForeColor = System.Drawing.Color.Transparent;
+            this.Them.Location = new System.Drawing.Point(154, 393);
             this.Them.Name = "Them";
             this.Them.Size = new System.Drawing.Size(168, 44);
             this.Them.TabIndex = 5;
             this.Them.Text = "Thêm";
-            this.Them.UseVisualStyleBackColor = true;
+            this.Them.UseVisualStyleBackColor = false;
             this.Them.Click += new System.EventHandler(this.Them_Click);
             // 
             // mathuoc
             // 
-            this.mathuoc.Location = new System.Drawing.Point(157, 31);
+            this.mathuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mathuoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mathuoc.Location = new System.Drawing.Point(188, 40);
             this.mathuoc.Name = "mathuoc";
-            this.mathuoc.Size = new System.Drawing.Size(177, 22);
+            this.mathuoc.Size = new System.Drawing.Size(244, 30);
             this.mathuoc.TabIndex = 6;
             // 
             // dongia
             // 
-            this.dongia.Location = new System.Drawing.Point(157, 223);
+            this.dongia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dongia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dongia.Location = new System.Drawing.Point(188, 235);
             this.dongia.Name = "dongia";
-            this.dongia.Size = new System.Drawing.Size(177, 22);
+            this.dongia.Size = new System.Drawing.Size(244, 30);
             this.dongia.TabIndex = 7;
             // 
             // tenthuoc
             // 
-            this.tenthuoc.Location = new System.Drawing.Point(157, 95);
+            this.tenthuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tenthuoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tenthuoc.Location = new System.Drawing.Point(188, 105);
             this.tenthuoc.Name = "tenthuoc";
-            this.tenthuoc.Size = new System.Drawing.Size(177, 22);
+            this.tenthuoc.Size = new System.Drawing.Size(244, 30);
             this.tenthuoc.TabIndex = 8;
             // 
             // donvitinh
             // 
+            this.donvitinh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.donvitinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.donvitinh.FormattingEnabled = true;
-            this.donvitinh.Location = new System.Drawing.Point(157, 157);
+            this.donvitinh.Location = new System.Drawing.Point(188, 167);
             this.donvitinh.Name = "donvitinh";
-            this.donvitinh.Size = new System.Drawing.Size(177, 24);
+            this.donvitinh.Size = new System.Drawing.Size(244, 33);
             this.donvitinh.TabIndex = 10;
             // 
             // cachdung
             // 
+            this.cachdung.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cachdung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cachdung.FormattingEnabled = true;
-            this.cachdung.Location = new System.Drawing.Point(157, 285);
+            this.cachdung.Location = new System.Drawing.Point(188, 297);
             this.cachdung.Name = "cachdung";
-            this.cachdung.Size = new System.Drawing.Size(177, 24);
+            this.cachdung.Size = new System.Drawing.Size(244, 33);
             this.cachdung.TabIndex = 11;
             // 
             // ThemThuocMoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 425);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(492, 472);
             this.Controls.Add(this.cachdung);
             this.Controls.Add(this.donvitinh);
             this.Controls.Add(this.tenthuoc);
@@ -149,8 +174,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ThemThuocMoi";
-            this.Text = "ThemThuocMoi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Thêm thuốc mới";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,6 +28,7 @@ namespace GUI_QLPM
             load_combobox_mabn();
             load_combobox_benh();
             ngayKham.Text = DateTime.Now.ToString();
+            gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Load_Gird();
         }
         public void load_combobox_mabn()
@@ -180,7 +181,7 @@ namespace GUI_QLPM
                     row["Số thứ tự"] = stt;
                     row["Mã bệnh nhân"] = bn.MaBN;
                     row["Tên bệnh nhân"] = bn.TenBN;
-                    row["Ngày sinh"] = bn.NgsinhBN;
+                    row["Ngày sinh"] = DateTime.Parse(bn.NgsinhBN.ToString()).ToString("dd/MM/yyyy"); ;
                     row["Địa chỉ"] = bn.DiachiBN;
                     table.Rows.Add(row);
                     stt += 1;

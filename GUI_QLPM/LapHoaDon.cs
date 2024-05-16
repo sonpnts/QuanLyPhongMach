@@ -33,6 +33,7 @@ namespace GUI_QLPM
         {
             InitializeComponent();
             load();
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         public void load()
         {
@@ -205,12 +206,12 @@ namespace GUI_QLPM
             }
 
             DataTable table = new DataTable();
+            table.Columns.Add("STT", typeof(int));
             table.Columns.Add("Tên thuốc", typeof(string));
             table.Columns.Add("Đơn vị tính", typeof(string));
             table.Columns.Add("Đơn giá", typeof(string));
             table.Columns.Add("Số lượng", typeof(string));
             table.Columns.Add("Thành tiền", typeof(string));
-            table.Columns.Add("STT", typeof(int));
             foreach (ThuocDTO th in listThuoc)
             {
                 foreach (KethuocDTO kt in listkethuoc)

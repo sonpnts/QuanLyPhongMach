@@ -23,6 +23,7 @@ namespace GUI_QLPM
         public BaoCaoDoanhThu()
         {
             InitializeComponent();
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         public void load_data()
         {
@@ -91,23 +92,21 @@ namespace GUI_QLPM
             }
             float tongdoanhthu = 0;
             DataTable table = new DataTable();
+            table.Columns.Add("Số Thứ Tự", typeof(int));
             table.Columns.Add("Ngày Lập Hóa Đơn", typeof(string));
             table.Columns.Add("Số Bệnh Nhân", typeof(int));
             table.Columns.Add("Doanh Thu", typeof(float));
-            table.Columns.Add("Số Thứ Tự", typeof(int));
             table.Columns.Add("Tỷ Lệ", typeof(string));
             foreach (HoadonDTO hd in listhoadon)
             {
-                string ngkham;
-                ngkham = String.Format("{0:M/d/yyyy}", hd.NgayLapHoaDon);
+                string ngkham = DateTime.Parse(hd.NgayLapHoaDon.ToString()).ToString("dd/MM/yyyy");
                 tongdoanhthu += float.Parse(hdBus.doanhthu(ngkham).ToString());
             }
             foreach (HoadonDTO hd in listhoadon)
             {
                 DataRow row = table.NewRow();
-                row["Ngày Lập Hóa Đơn"] = hd.NgayLapHoaDon.ToString();
-                string ngkham;
-                ngkham = String.Format("{0:M/d/yyyy}", hd.NgayLapHoaDon);
+                string ngkham = DateTime.Parse(hd.NgayLapHoaDon.ToString()).ToString("dd/MM/yyyy");
+                row["Ngày Lập Hóa Đơn"] = DateTime.Parse(ngkham.ToString()).ToString("dd/MM/yyyy");
                 row["Số Bệnh Nhân"] = int.Parse(hdBus.sobenhnhan(ngkham).ToString());
                 row["Doanh Thu"] = float.Parse(hdBus.doanhthu(ngkham).ToString());
                 row["Tỷ Lệ"] = Math.Round(((double)float.Parse(hdBus.doanhthu(ngkham).ToString()) / (double)tongdoanhthu) * 100, 2).ToString() + "%";

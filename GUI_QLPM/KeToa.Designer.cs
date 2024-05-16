@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KeToa));
             this.KeThuoc = new System.Windows.Forms.Button();
             this.grid = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,17 +45,21 @@
             // 
             // KeThuoc
             // 
-            this.KeThuoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.KeThuoc.BackColor = System.Drawing.Color.RosyBrown;
+            this.KeThuoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeThuoc.ForeColor = System.Drawing.Color.Transparent;
             this.KeThuoc.Location = new System.Drawing.Point(314, 169);
             this.KeThuoc.Name = "KeThuoc";
-            this.KeThuoc.Size = new System.Drawing.Size(115, 50);
+            this.KeThuoc.Size = new System.Drawing.Size(156, 51);
             this.KeThuoc.TabIndex = 0;
             this.KeThuoc.Text = "Kê Thuốc";
-            this.KeThuoc.UseVisualStyleBackColor = true;
+            this.KeThuoc.UseVisualStyleBackColor = false;
             this.KeThuoc.Click += new System.EventHandler(this.KeThuoc_Click);
             // 
             // grid
             // 
+            this.grid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grid.Location = new System.Drawing.Point(0, 245);
@@ -67,48 +72,53 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(95, 59);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(39, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.Size = new System.Drawing.Size(91, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mã Toa :";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(346, 58);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(346, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 20);
+            this.label2.Size = new System.Drawing.Size(219, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = " Mã Phiếu Khám Bệnh :";
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(98, 117);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(39, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.Size = new System.Drawing.Size(79, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Thuốc :";
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(346, 117);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(355, 110);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 20);
+            this.label4.Size = new System.Drawing.Size(101, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "Số lượng :";
             // 
             // AddThuoc_SoLuong
             // 
+            this.AddThuoc_SoLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AddThuoc_SoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddThuoc_SoLuong.Location = new System.Drawing.Point(590, 100);
+            this.AddThuoc_SoLuong.Location = new System.Drawing.Point(674, 97);
             this.AddThuoc_SoLuong.Name = "AddThuoc_SoLuong";
             this.AddThuoc_SoLuong.Size = new System.Drawing.Size(37, 44);
             this.AddThuoc_SoLuong.TabIndex = 6;
@@ -118,41 +128,46 @@
             // 
             // maToa
             // 
-            this.maToa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maToa.Location = new System.Drawing.Point(176, 52);
+            this.maToa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maToa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maToa.Location = new System.Drawing.Point(136, 51);
             this.maToa.Name = "maToa";
-            this.maToa.Size = new System.Drawing.Size(154, 27);
+            this.maToa.Size = new System.Drawing.Size(185, 30);
             this.maToa.TabIndex = 7;
             // 
             // mapkb
             // 
-            this.mapkb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mapkb.Location = new System.Drawing.Point(547, 51);
+            this.mapkb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mapkb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapkb.Location = new System.Drawing.Point(590, 49);
             this.mapkb.Name = "mapkb";
-            this.mapkb.Size = new System.Drawing.Size(160, 27);
+            this.mapkb.Size = new System.Drawing.Size(160, 30);
             this.mapkb.TabIndex = 9;
             // 
             // soLuong
             // 
-            this.soLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soLuong.Location = new System.Drawing.Point(436, 110);
+            this.soLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.soLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.soLuong.Location = new System.Drawing.Point(483, 105);
             this.soLuong.Name = "soLuong";
-            this.soLuong.Size = new System.Drawing.Size(137, 27);
+            this.soLuong.Size = new System.Drawing.Size(176, 30);
             this.soLuong.TabIndex = 10;
             // 
             // TenThuoc
             // 
-            this.TenThuoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TenThuoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TenThuoc.FormattingEnabled = true;
-            this.TenThuoc.Location = new System.Drawing.Point(176, 109);
+            this.TenThuoc.Location = new System.Drawing.Point(136, 102);
             this.TenThuoc.Name = "TenThuoc";
-            this.TenThuoc.Size = new System.Drawing.Size(134, 28);
+            this.TenThuoc.Size = new System.Drawing.Size(185, 33);
             this.TenThuoc.TabIndex = 11;
             // 
             // KeToa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TenThuoc);
             this.Controls.Add(this.soLuong);
@@ -165,8 +180,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.KeThuoc);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KeToa";
-            this.Text = "KeToa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kê toa";
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

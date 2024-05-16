@@ -78,11 +78,11 @@
     <Compile Include="DanhSachDichVu.Designer.cs">
       <DependentUpon>DanhSachDichVu.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhSachKhamBenh.cs">
+    <Compile Include="DanhSachHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhSachKhamBenh.Designer.cs">
-      <DependentUpon>DanhSachKhamBenh.cs</DependentUpon>
+    <Compile Include="DanhSachHoaDon.Designer.cs">
+      <DependentUpon>DanhSachHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhSachTaiKhoan.cs">
       <SubType>Form</SubType>
@@ -122,12 +122,6 @@
     <Compile Include="QLPMMainWindow.Designer.cs">
       <DependentUpon>QLPMMainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThanhDoiThongTinBenhNhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThanhDoiThongTinBenhNhan.Designer.cs">
-      <DependentUpon>ThanhDoiThongTinBenhNhan.cs</DependentUpon>
-    </Compile>
     <Compile Include="ThayDoiLoaiBenh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +133,12 @@
     </Compile>
     <Compile Include="ThayDoiQuyDinh.Designer.cs">
       <DependentUpon>ThayDoiQuyDinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThayDoiThongTinBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThayDoiThongTinBenhNhan.Designer.cs">
+      <DependentUpon>ThayDoiThongTinBenhNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="ThayDoiThongTinThuoc.cs">
       <SubType>Form</SubType>
@@ -197,8 +197,8 @@
     <EmbeddedResource Include="DanhSachDichVu.resx">
       <DependentUpon>DanhSachDichVu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhSachKhamBenh.resx">
-      <DependentUpon>DanhSachKhamBenh.cs</DependentUpon>
+    <EmbeddedResource Include="DanhSachHoaDon.resx">
+      <DependentUpon>DanhSachHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhSachTaiKhoan.resx">
       <DependentUpon>DanhSachTaiKhoan.cs</DependentUpon>
@@ -227,14 +227,14 @@
     <EmbeddedResource Include="QLPMMainWindow.resx">
       <DependentUpon>QLPMMainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThanhDoiThongTinBenhNhan.resx">
-      <DependentUpon>ThanhDoiThongTinBenhNhan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ThayDoiLoaiBenh.resx">
       <DependentUpon>ThayDoiLoaiBenh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThayDoiQuyDinh.resx">
       <DependentUpon>ThayDoiQuyDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThayDoiThongTinBenhNhan.resx">
+      <DependentUpon>ThayDoiThongTinBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThayDoiThongTinThuoc.resx">
       <DependentUpon>ThayDoiThongTinThuoc.cs</DependentUpon>
