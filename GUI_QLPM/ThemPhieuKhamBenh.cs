@@ -82,7 +82,7 @@ namespace GUI_QLPM
                 if (bn.MaBN.ToString() == mabn)
                 {
                     hoten.Text = bn.TenBN;
-                    load_data();
+                    
                 }
             }
 

@@ -27,8 +27,8 @@ namespace GUI_QLPM
         loaiTaiKhoanBUS loaitkBUS = new loaiTaiKhoanBUS();
         loaiTaiKhoanDTO loaitk = new loaiTaiKhoanDTO();
         private string temp;
+        private string temp_ma;
 
-       
         private void load()
         {
             db1.Clear();
@@ -40,7 +40,7 @@ namespace GUI_QLPM
             List<taiKhoanDTO> listTK = tkBus.select();
             List<loaiTaiKhoanDTO> listLoaiTK = loaitkBUS.select();
             this.loadData_Vao_GridView(listTK, listLoaiTK);
-
+            load_combobox();
         }
         private void loadData_Vao_GridView(List<taiKhoanDTO> listTk, List<loaiTaiKhoanDTO> listLoaiTK)
         {
@@ -52,22 +52,24 @@ namespace GUI_QLPM
             }
 
             DataTable table = new DataTable();
+            table.Columns.Add("Mã tài khoản", typeof(int));
             table.Columns.Add("Tên tài khoản", typeof(string));
             table.Columns.Add("Mật khẩu", typeof(string));
             table.Columns.Add("Họ và tên", typeof(string));
             table.Columns.Add("Loại tài khoản", typeof(string));
-            
+
             foreach (taiKhoanDTO tk in listTk)
             {
                 DataRow row = table.NewRow();
+                row["Mã tài khoản"] = tk.MaTK;
                 row["Tên tài khoản"] = tk.Username;
                 row["Mật khẩu"] = tk.Password;
                 row["Họ và tên"] = tk.Name;
                 foreach (loaiTaiKhoanDTO loaitk in listLoaiTK)
                 {
-                    if (tk.MaLoai==loaitk.MaRole)
+                    if (tk.MaLoai == loaitk.MaRole)
                     {
-                        row["Loại tài khoản"] = loaitk.TenLoaiTaiKhoan ;
+                        row["Loại tài khoản"] = loaitk.TenLoaiTaiKhoan;
                     }
                 }
                 table.Rows.Add(row);
@@ -79,6 +81,103 @@ namespace GUI_QLPM
         {
             ThemTaiKhoan ttk = new ThemTaiKhoan();
             ttk.Show();
+        }
+
+        private void TimKiem_Click(object sender, EventArgs e)
+        {
+            tkBus = new taiKhoanBUS();
+            loaitkBUS = new loaiTaiKhoanBUS();
+            string sKeyword = search.Text;
+            if (string.IsNullOrEmpty(sKeyword)) // Tìm tất cả nếu không có từ khóa
+            {
+                List<taiKhoanDTO> listTaiKhoan = tkBus.select();
+                List<loaiTaiKhoanDTO> listLoaiTaiKhoan = loaitkBUS.select();
+                this.loadData_Vao_GridView(listTaiKhoan, listLoaiTaiKhoan);
+            }
+            else
+            {
+                List<taiKhoanDTO> listTaiKhoan = tkBus.selectByKeyWord(sKeyword);
+                List<loaiTaiKhoanDTO> listLoaiTaiKhoan = loaitkBUS.select();
+                this.loadData_Vao_GridView(listTaiKhoan, listLoaiTaiKhoan);
+            }
+        }
+        public void load_combobox()
+        {
+            List<loaiTaiKhoanDTO> listRole = loaitkBUS.select();
+            this.loadData_Vao_Combobox(listRole);
+        }
+        private void loadData_Vao_Combobox(List<loaiTaiKhoanDTO> listRole)
+        {
+            comboBoxRole.Items.Clear();
+            if (listRole == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin nạp vào combox pkb từ DB", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                return;
+            }
+            foreach (loaiTaiKhoanDTO role in listRole)
+            {
+                comboBoxRole.Items.Add(role.TenLoaiTaiKhoan);
+                comboBoxRole.SelectedIndex = 0;
+            }
+        }
+
+        private void comboBoxRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadRole();
+        }
+        private void loadRole()
+        {
+            int selectedIndex = comboBoxRole.SelectedIndex;
+            List<loaiTaiKhoanDTO> listRole = loaitkBUS.select();
+        }
+
+        private void Sua_Click(object sender, EventArgs e)
+        {
+            tk.Username = username.Text;
+            tk.Password = password.Text;
+            tk.Name = hoten.Text;
+            tk.MaLoai = comboBoxRole.SelectedIndex + 1;
+
+            bool kq = tkBus.sua(tk, temp_ma);
+            if (!kq)
+                System.Windows.Forms.MessageBox.Show("Update bênh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Update bệnh nhân thành công", "Result");
+                load_data();
+            }
+        }
+
+        private void gird_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < gird.Rows.Count)
+            {
+                DataGridViewRow row = gird.Rows[e.RowIndex];
+                temp_ma = row.Cells[0].Value.ToString();
+                username.Text = row.Cells[1].Value.ToString();
+                password.Text = row.Cells[2].Value.ToString();
+                hoten.Text = row.Cells[3].Value.ToString();
+                if (e.RowIndex >= 0 && e.RowIndex < gird.Rows.Count && e.ColumnIndex == 4)
+                {
+                    string cellValue = row.Cells[4].Value?.ToString();
+                    int roleIndex;
+                    if (int.TryParse(cellValue, out roleIndex))
+                    {
+                        comboBoxRole.SelectedIndex = roleIndex;
+                    }
+         
+                }
+            }
+        }
+
+        private void Xoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QuayLai_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

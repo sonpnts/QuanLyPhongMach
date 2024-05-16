@@ -55,14 +55,11 @@ namespace QLPMDAL
         public bool sua(taiKhoanDTO tk, string maTaiKhoanold)
         {
             string query = string.Empty;
-          
-
             query += "update [TaiKhoan]";
-            query += "set userName=@userName,passWord=@passWord,name=@name,maRole=@maRole, where userName=@userName";
+            query += "set userName=@userName,passWord=@passWord,name=@name,maRole=@maRole where maTaiKhoan=@maTaiKhoanold";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
@@ -72,12 +69,11 @@ namespace QLPMDAL
                     cmd.Parameters.AddWithValue("@passWord", tk.Password);
                     cmd.Parameters.AddWithValue("@name", tk.Name);
                     cmd.Parameters.AddWithValue("@maRole", tk.MaLoai);
+                    cmd.Parameters.AddWithValue("@maTaiKhoanold", maTaiKhoanold);
                     try
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
-                        con.Close();
-                        con.Dispose();
                     }
                     catch (Exception ex)
                     {
@@ -155,7 +151,7 @@ namespace QLPMDAL
                                 tk.MaLoai = int.Parse(reader["maRole"].ToString());
                                 tk.MaTK = int.Parse(reader["maTaiKhoan"].ToString());
 
-                                
+
 
                                 lsTK.Add(tk);
 
@@ -173,6 +169,59 @@ namespace QLPMDAL
                 }
             }
             return lsTK;
+        }
+
+        public List<taiKhoanDTO> selectByKeyWord(string sKeyword)
+        {
+            string query = string.Empty;
+            query += " SELECT * ";
+            query += " FROM [TaiKhoan] ";
+            query += " WHERE ([name] LIKE CONCAT('%',@sKeyword,'%')) ";
+            query += " OR ([userName] LIKE CONCAT('%',@sKeyword,'%'))";
+
+            List<taiKhoanDTO> lsTaiKhoan = new List<taiKhoanDTO>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+                    cmd.Parameters.AddWithValue("@sKeyword", sKeyword);
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                taiKhoanDTO tk = new taiKhoanDTO();
+                                tk.MaTK = int.Parse(reader["maTaiKhoan"].ToString());
+                                tk.Username = reader["userName"].ToString();
+                                tk.Password = reader["password"].ToString();
+                                tk.Name = reader["name"].ToString();
+                                tk.MaLoai = int.Parse(reader["maRole"].ToString());
+
+                                lsTaiKhoan.Add(tk);
+
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+                        return null;
+                    }
+                }
+            }
+            return lsTaiKhoan;
         }
         public int autogenerate_maTaiKhoan()
         {

@@ -53,7 +53,7 @@ namespace QLPMDAL
         {
             string query = string.Empty;
             query += "update [DichVu]";
-            query += "set maDichVu=@maDichVu,tenDichVu=@tenDichVu,tienDichVu=@tienDichVu where maDichVu=@maDichVuOld";
+            query += "set tenDichVu=@tenDichVu,tienDichVu=@tienDichVu where maDichVu=@maDichVuOld";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {

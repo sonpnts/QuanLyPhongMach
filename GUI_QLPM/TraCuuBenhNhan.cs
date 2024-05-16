@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace GUI_QLPM
 {
@@ -20,6 +21,7 @@ namespace GUI_QLPM
         public DataTable db1 = new DataTable("BenhNhan");
         BenhNhanBUS bnBus = new BenhNhanBUS();
         BenhNhanDTO bn = new BenhNhanDTO();
+        PhieukhambenhBUS pkbBUS = new PhieukhambenhBUS();
         private string temp_ma;
 
         public TraCuuBenhNhan()
@@ -127,6 +129,42 @@ namespace GUI_QLPM
                 System.Windows.Forms.MessageBox.Show("Update bệnh nhân thành công", "Result");
                 load_data();
             }
+        }
+
+        private void xoabenhnhan_Click(object sender, EventArgs e)
+        {
+            List<PhieukhambenhDTO> pkb = pkbBUS.select();
+            foreach(PhieukhambenhDTO phieukhambenh in pkb)
+            {
+                if(phieukhambenh.MaBenhNhan==temp_ma)
+                {
+
+                    System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thất bại. Bệnh nhân đã khám", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    return;
+                }
+             
+            }
+            bn.MaBN = temp_ma;
+            bool kq = bnBus.xoa(bn);
+            if (!kq)
+            {
+                System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+               
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thành công", "Result");
+                load_data();
+                
+            }
+        }
+
+        private void btnThembn_Click(object sender, EventArgs e)
+        {
+            ThemBenhNhanMoi tbnm = new ThemBenhNhanMoi();
+            tbnm.Show();
+            load_data();
+
         }
     }
 }

@@ -94,7 +94,7 @@ namespace QLPMDAL
         {
             string query = string.Empty;
             query += "DELETE FROM [BenhNhan] ";
-            query += "WHERE maBenhNhan=@maBN";
+            query += "WHERE maBenhNhan=@MaBN";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -103,7 +103,7 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBenhNhan", bn.MaBN);
+                    cmd.Parameters.AddWithValue("@MaBN", bn.MaBN);
 
                     try
                     {

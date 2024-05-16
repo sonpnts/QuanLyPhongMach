@@ -55,7 +55,7 @@ namespace QLPMDAL
         {
             string query = string.Empty;
             query += "update [Thuoc]";
-            query += "set maThuoc=@maThuoc,tenThuoc=@tenThuoc,DonVi=@DonVi,Dongia=@Dongia,CachDung=@CachDung where maThuoc=@maThuocold";
+            query += "set tenThuoc=@tenThuoc,DonVi=@DonVi,Dongia=@Dongia,CachDung=@CachDung where maThuoc=@maThuocold";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -65,7 +65,6 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maThuoc", th.MaThuoc);
                     cmd.Parameters.AddWithValue("@tenThuoc", th.TenThuoc);
                     cmd.Parameters.AddWithValue("@DonVi", th.DonVi);
                     cmd.Parameters.AddWithValue("@Dongia", th.DonGia);

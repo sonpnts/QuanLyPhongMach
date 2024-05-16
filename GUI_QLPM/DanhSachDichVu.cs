@@ -17,12 +17,13 @@ namespace GUI_QLPM
         public DataTable db1 = new DataTable("DichVu");
         DichvuBUS dvBus = new DichvuBUS();
         DichvuDTO dv = new DichvuDTO();
+        public int temp_ma;
 
         public DanhSachDichVu()
         {
             InitializeComponent();
             load_data();
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void load()
         {
@@ -55,7 +56,7 @@ namespace GUI_QLPM
                 row["Tiền dịch vụ"] = dv.TienDichVu;
                 table.Rows.Add(row);
             }
-            grid.DataSource = table.DefaultView;
+            gird.DataSource = table.DefaultView;
         }
 
         private void TimKiem_Click(object sender, EventArgs e)
@@ -84,6 +85,48 @@ namespace GUI_QLPM
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < gird.Rows.Count)
+            {
+                DataGridViewRow row = gird.Rows[e.RowIndex];
+                txtTenDV.Text = row.Cells[1].Value.ToString();
+                txtTienDV.Text = row.Cells[2].Value.ToString();
+                temp_ma = int.Parse(row.Cells[0].Value.ToString());
+                
+            }
+
+        }
+
+        private void suadichvu_Click(object sender, EventArgs e)
+        {
+            dv.TenDichVu = txtTenDV.Text;
+            dv.TienDichVu = int.Parse(txtTienDV.Text);
+           
+
+            bool kq = dvBus.sua(dv, temp_ma);
+            if (!kq)
+                System.Windows.Forms.MessageBox.Show("Update dịch vụ thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Update dịch vụ thành công", "Result");
+                load_data();
+            }
+        }
+
+        private void xoadv_Click(object sender, EventArgs e)
+        {
+            dv.MaDichVu = temp_ma;
+            bool kq = dvBus.xoa(dv);
+            if (!kq)
+                System.Windows.Forms.MessageBox.Show("Xóa dịch vụ thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Xóa dịch vụ thành công", "Result");
+                load_data();
+            }
         }
     }
 }

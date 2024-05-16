@@ -30,10 +30,10 @@ namespace GUI_QLPM
             InitializeComponent();
             load_data();
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            mapkb.Text = ma;
-
+            mapkb.Text = (int.Parse(ma)-1).ToString();
+            
         }
-        //dacbit
+        
 
         public void load_data()
         {

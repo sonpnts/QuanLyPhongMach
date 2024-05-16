@@ -43,7 +43,6 @@
             this.QuanLyLoaiBenh = new System.Windows.Forms.Button();
             this.LapHoaDon = new System.Windows.Forms.Button();
             this.LapPhieuKham = new System.Windows.Forms.Button();
-            this.ThemBenhNhan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TraCuuBN = new System.Windows.Forms.Button();
             this.TaiKhoan = new System.Windows.Forms.GroupBox();
@@ -174,7 +173,7 @@
             this.DanhSachBenhNhan.Name = "DanhSachBenhNhan";
             this.DanhSachBenhNhan.Size = new System.Drawing.Size(281, 45);
             this.DanhSachBenhNhan.TabIndex = 2;
-            this.DanhSachBenhNhan.Text = "     Danh sách bệnh nhân\r\n\r\n";
+            this.DanhSachBenhNhan.Text = "Danh sách bệnh nhân\r\n\r\n đã khám";
             this.DanhSachBenhNhan.UseVisualStyleBackColor = false;
             this.DanhSachBenhNhan.Click += new System.EventHandler(this.DanhSachBenhNhan_Click);
             // 
@@ -185,12 +184,11 @@
             this.groupBox2.Controls.Add(this.QuanLyLoaiBenh);
             this.groupBox2.Controls.Add(this.LapHoaDon);
             this.groupBox2.Controls.Add(this.LapPhieuKham);
-            this.groupBox2.Controls.Add(this.ThemBenhNhan);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(423, 53);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(372, 352);
+            this.groupBox2.Size = new System.Drawing.Size(372, 322);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh mục";
@@ -200,7 +198,7 @@
             this.QuanLyThuoc.BackColor = System.Drawing.Color.LightCyan;
             this.QuanLyThuoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QuanLyThuoc.BackgroundImage")));
             this.QuanLyThuoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.QuanLyThuoc.Location = new System.Drawing.Point(46, 227);
+            this.QuanLyThuoc.Location = new System.Drawing.Point(46, 168);
             this.QuanLyThuoc.Name = "QuanLyThuoc";
             this.QuanLyThuoc.Size = new System.Drawing.Size(281, 45);
             this.QuanLyThuoc.TabIndex = 5;
@@ -213,7 +211,7 @@
             this.QuanLyLoaiBenh.BackColor = System.Drawing.Color.LightCyan;
             this.QuanLyLoaiBenh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QuanLyLoaiBenh.BackgroundImage")));
             this.QuanLyLoaiBenh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.QuanLyLoaiBenh.Location = new System.Drawing.Point(46, 288);
+            this.QuanLyLoaiBenh.Location = new System.Drawing.Point(46, 229);
             this.QuanLyLoaiBenh.Name = "QuanLyLoaiBenh";
             this.QuanLyLoaiBenh.Size = new System.Drawing.Size(281, 45);
             this.QuanLyLoaiBenh.TabIndex = 4;
@@ -226,7 +224,7 @@
             this.LapHoaDon.BackColor = System.Drawing.Color.LightCyan;
             this.LapHoaDon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LapHoaDon.BackgroundImage")));
             this.LapHoaDon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.LapHoaDon.Location = new System.Drawing.Point(46, 166);
+            this.LapHoaDon.Location = new System.Drawing.Point(46, 107);
             this.LapHoaDon.Name = "LapHoaDon";
             this.LapHoaDon.Size = new System.Drawing.Size(281, 45);
             this.LapHoaDon.TabIndex = 3;
@@ -239,26 +237,13 @@
             this.LapPhieuKham.BackColor = System.Drawing.Color.LightCyan;
             this.LapPhieuKham.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LapPhieuKham.BackgroundImage")));
             this.LapPhieuKham.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.LapPhieuKham.Location = new System.Drawing.Point(46, 105);
+            this.LapPhieuKham.Location = new System.Drawing.Point(46, 46);
             this.LapPhieuKham.Name = "LapPhieuKham";
             this.LapPhieuKham.Size = new System.Drawing.Size(281, 45);
             this.LapPhieuKham.TabIndex = 1;
             this.LapPhieuKham.Text = "Lập phiếu khám";
             this.LapPhieuKham.UseVisualStyleBackColor = false;
             this.LapPhieuKham.Click += new System.EventHandler(this.LapPhieuKham_Click);
-            // 
-            // ThemBenhNhan
-            // 
-            this.ThemBenhNhan.BackColor = System.Drawing.Color.LightCyan;
-            this.ThemBenhNhan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ThemBenhNhan.BackgroundImage")));
-            this.ThemBenhNhan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ThemBenhNhan.Location = new System.Drawing.Point(46, 44);
-            this.ThemBenhNhan.Name = "ThemBenhNhan";
-            this.ThemBenhNhan.Size = new System.Drawing.Size(281, 45);
-            this.ThemBenhNhan.TabIndex = 0;
-            this.ThemBenhNhan.Text = "     Thêm bệnh nhân\r\n";
-            this.ThemBenhNhan.UseVisualStyleBackColor = false;
-            this.ThemBenhNhan.Click += new System.EventHandler(this.ThemBenhNhan_Click);
             // 
             // groupBox1
             // 
@@ -279,11 +264,11 @@
             this.TraCuuBN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TraCuuBN.BackgroundImage")));
             this.TraCuuBN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.TraCuuBN.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TraCuuBN.Location = new System.Drawing.Point(55, 41);
+            this.TraCuuBN.Location = new System.Drawing.Point(40, 46);
             this.TraCuuBN.Name = "TraCuuBN";
-            this.TraCuuBN.Size = new System.Drawing.Size(250, 44);
+            this.TraCuuBN.Size = new System.Drawing.Size(299, 44);
             this.TraCuuBN.TabIndex = 1;
-            this.TraCuuBN.Text = "     Tra cứu bệnh nhân\r\n        \r\n\r\n\r\n";
+            this.TraCuuBN.Text = "   Quản lý danh sách bệnh nhân";
             this.TraCuuBN.UseVisualStyleBackColor = false;
             this.TraCuuBN.Click += new System.EventHandler(this.TraCuuBN_Click);
             // 
@@ -381,7 +366,6 @@
         private System.Windows.Forms.Button QuanLyLoaiBenh;
         private System.Windows.Forms.Button LapHoaDon;
         private System.Windows.Forms.Button LapPhieuKham;
-        private System.Windows.Forms.Button ThemBenhNhan;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button TraCuuBN;
         private System.Windows.Forms.GroupBox TaiKhoan;

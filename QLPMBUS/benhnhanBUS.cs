@@ -33,7 +33,7 @@ namespace QLPMBUS
         public bool xoa(BenhNhanDTO bn)
         {
             bool re = bnDAL.Xoa(bn);
-            return true;
+            return re;
         }
         //public bool timkiem(string mabn)
         //{

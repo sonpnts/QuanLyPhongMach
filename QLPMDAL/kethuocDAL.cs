@@ -53,6 +53,9 @@ namespace QLPMDAL
             }
             return true;
         }
+
+
+
         public List<KethuocDTO> selectbypkb(string mapkb)
         {
             string query = @"
