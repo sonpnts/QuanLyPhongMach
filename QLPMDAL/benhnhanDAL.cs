@@ -53,19 +53,21 @@ namespace QLPMDAL
 
         public bool Sua(BenhNhanDTO bn, string maBNold)
         {
+
+           
             string query = string.Empty;
             query += "UPDATE [BenhNhan] ";
-            query += "SET maBN=@maBN, tenBN=@tenBN, gioiTinh=@gioiTinh, ngaySinh=@ngaySinh, diaChi=@diaChi ";
+            query += "SET tenBenhNhan=@tenBenhNhan, gioiTinh=@gioiTinh, ngaySinh=@ngaySinh, diaChi=@diaChi ";
             query += "WHERE maBenhNhan=@maBNold";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBenhNhan", bn.MaBN);
+
+                    // Thêm tham số và giá trị của chúng
+                    
                     cmd.Parameters.AddWithValue("@tenBenhNhan", bn.TenBN);
                     cmd.Parameters.AddWithValue("@gioiTinh", bn.GtBN);
                     cmd.Parameters.AddWithValue("@ngaySinh", bn.NgsinhBN);
@@ -76,16 +78,15 @@ namespace QLPMDAL
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
-                        con.Close();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        con.Close();
-                        return false;
+                        // Xử lý lỗi
+                        Console.WriteLine("Lỗi: " + ex.Message);
                     }
-                }
+                } 
             }
-            return true;
+                return true;
         }
 
        

@@ -21,9 +21,15 @@ namespace QLPMBUS
             return re;
         }
 
+
         public List<taiKhoanDTO> select()
         {
             return tkDAL.select();
         }
+        public int autogenerate_maTaiKhoan()
+        {
+            return tkDAL.autogenerate_maTaiKhoan();
+        }
+
     }
 }

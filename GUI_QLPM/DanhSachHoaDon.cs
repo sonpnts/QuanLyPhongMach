@@ -86,12 +86,11 @@ namespace GUI_QLPM
                                         row["Tổng tiền"] = hd.TongTien.ToString();
                                         foreach(taiKhoanDTO tk in listTK)
                                         {
-                                            if (tk.MaTK == int.Parse(hd.MaNVTN.ToString()))
+                                            if (tk.MaTK == hd.MaNVTN)
                                             {
                                                 row["Nhân viên thu ngân"] = tk.Name;
 
                                             }
-
                                         }
                                         table.Rows.Add(row);
                                         stt += 1;

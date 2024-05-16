@@ -21,8 +21,8 @@ namespace QLPMDAL
         public bool them(BenhDTO be)
         {
             string query = string.Empty;
-            query += "INSERT INTO [Benh] ([maBenh], [tenBenh])";
-            query += "VALUES (@maBenh,@tenBenh)";
+            query += "INSERT INTO [Benh] ([tenBenh])";
+            query += "VALUES (@tenBenh)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -31,7 +31,7 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBenh", be.MaBenh);
+                  
                     cmd.Parameters.AddWithValue("@tenBenh", be.TenBenh);
                     try
                     {

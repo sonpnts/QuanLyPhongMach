@@ -38,6 +38,10 @@ namespace QLPMBUS
         {
             return beDAL.selectByKeyWord(sKeyword);
         }
+        public int autogenerate_mabenh()
+        {
+            return beDAL.autogenerate_mabenh();
+        }
 
     }
 }

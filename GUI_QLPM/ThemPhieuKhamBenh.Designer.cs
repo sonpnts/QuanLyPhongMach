@@ -252,6 +252,7 @@
             this.gird.RowTemplate.Height = 24;
             this.gird.Size = new System.Drawing.Size(1244, 344);
             this.gird.TabIndex = 15;
+            this.gird.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gird_CellClick);
             // 
             // KiemTra
             // 

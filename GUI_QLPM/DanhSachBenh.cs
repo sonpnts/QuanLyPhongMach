@@ -105,17 +105,17 @@ namespace GUI_QLPM
 
         private void Sua_Click(object sender, EventArgs e)
         {
-            // Tạo một thể hiện mới của form ThayDoiLoaiBenh
-            ThayDoiLoaiBenh thaydoi = new ThayDoiLoaiBenh();
+            //// Tạo một thể hiện mới của form ThayDoiLoaiBenh
+            //ThayDoiLoaiBenh thaydoi = new ThayDoiLoaiBenh();
 
-            // Lấy dữ liệu từ hàng được chọn trong DataGridView và gán cho các trường tương ứng của form ThayDoiLoaiBenh
-            DataGridViewRow selectedRow = grid.CurrentRow;
-            thaydoi.temp = selectedRow.Cells["MaBenh"].Value.ToString();
-            thaydoi.MaBenh= selectedRow.Cells["MaBenh"].Value.ToString();
-            thaydoi.TenBenh = selectedRow.Cells["TenBenh"].Value.ToString();
+            //// Lấy dữ liệu từ hàng được chọn trong DataGridView và gán cho các trường tương ứng của form ThayDoiLoaiBenh
+            //DataGridViewRow selectedRow = grid.CurrentRow;
+            //thaydoi.temp = selectedRow.Cells["MaBenh"].Value.ToString();
+            //thaydoi.MaBenh= selectedRow.Cells["MaBenh"].Value.ToString();
+            //thaydoi.TenBenh = selectedRow.Cells["TenBenh"].Value.ToString();
 
-            // Hiển thị form ThayDoiLoaiBenh
-            thaydoi.Show();
+            //// Hiển thị form ThayDoiLoaiBenh
+            //thaydoi.Show();
         }
 
 

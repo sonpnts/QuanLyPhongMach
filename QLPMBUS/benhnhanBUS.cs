@@ -28,11 +28,7 @@ namespace QLPMBUS
             bool re = bnDAL.Sua(bn,maBNold);
             return re;
         }
-        //public bool themmapkb(BenhNhanDTO bn, string mapkb)
-        //{
-        //    bool re = bnDAL.themmapkb(bn, mapkb);
-        //    return re;
-        //}
+      
 
         public bool xoa(BenhNhanDTO bn)
         {

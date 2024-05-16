@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GUI_QLPM
 {
@@ -19,7 +20,7 @@ namespace GUI_QLPM
         public DataTable db1 = new DataTable("BenhNhan");
         BenhNhanBUS bnBus = new BenhNhanBUS();
         BenhNhanDTO bn = new BenhNhanDTO();
-        private string temp;
+        private string temp_ma;
 
         public TraCuuBenhNhan()
         {
@@ -38,6 +39,10 @@ namespace GUI_QLPM
             bnBus = new BenhNhanBUS();
             List<BenhNhanDTO> listBenhNhan = bnBus.select();
             this.loadData_Vao_GridView(listBenhNhan);
+            hoten.Text = "";
+            ngaySinh.Text = "";
+            gioiTinh.Text = "";
+            diaChi.Text = "";
         }
         private void loadData_Vao_GridView(List<BenhNhanDTO> listBenhNhan)
         {
@@ -92,5 +97,36 @@ namespace GUI_QLPM
             this.Close();
         }
 
+        private void gird_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.RowIndex >= 0 && e.RowIndex < gird.Rows.Count)
+            {
+                DataGridViewRow row = gird.Rows[e.RowIndex];
+                hoten.Text = row.Cells[1].Value.ToString();
+                ngaySinh.Text = row.Cells[2].Value.ToString();
+                diaChi.Text = row.Cells[3].Value.ToString();
+                gioiTinh.Text = row.Cells[4].Value.ToString();
+                temp_ma = row.Cells[0].Value.ToString();
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bn.TenBN=hoten.Text;
+            bn.DiachiBN=diaChi.Text;
+            bn.NgsinhBN= DateTime.Parse(ngaySinh.Text);
+            bn.GtBN=gioiTinh.Text;
+
+            bool kq = bnBus.sua(bn, temp_ma);
+            if (!kq)
+                System.Windows.Forms.MessageBox.Show("Update bênh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Update bệnh nhân thành công", "Result");
+                load_data();
+            }
+        }
     }
 }

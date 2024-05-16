@@ -51,6 +51,7 @@ namespace QLPMDAL
             }
             return true;
         }
+
         public bool sua(taiKhoanDTO tk, string maTaiKhoanold)
         {
             string query = string.Empty;
@@ -173,5 +174,46 @@ namespace QLPMDAL
             }
             return lsTK;
         }
+        public int autogenerate_maTaiKhoan()
+        {
+            int maTK = 1;
+            string query = string.Empty;
+            query += "SELECT MAX (KQ.maTaiKhoan) AS MM from (SELECT CONVERT(float, TaiKhoan.maTaiKhoan) AS maTaiKhoan FROM TaiKhoan) AS KQ";
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                maTK = int.Parse(reader["MM"].ToString()) + 1;
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+
+                    }
+                }
+            }
+            return maTK;
+        }
+
     }
 }

@@ -14,51 +14,56 @@ using System.Windows.Forms;
 namespace GUI_QLPM
 {
     public partial class QLPMMainWindow : Form
+
     {
+        public int mataikhoan;
         taiKhoanBUS tkBus = new taiKhoanBUS();
         taiKhoanDTO tk = new taiKhoanDTO();
         loaiTaiKhoanBUS loaitkBUS = new loaiTaiKhoanBUS();
         loaiTaiKhoanDTO loaitk = new loaiTaiKhoanDTO();
-        public QLPMMainWindow(int loaitkhoan)
+        public QLPMMainWindow(int mataikhoanlogin)
         {
+            mataikhoan = mataikhoanlogin;
             List<taiKhoanDTO> listTK = tkBus.select();
             List<loaiTaiKhoanDTO> listLoaiTK = loaitkBUS.select();
             InitializeComponent();
             foreach (taiKhoanDTO taiKhoan in listTK)
             {
-                if (taiKhoan.MaLoai == loaitkhoan)
+                if (taiKhoan.MaTK == mataikhoanlogin)
                 {
                     tentaikhoandangnhap.Text += taiKhoan.Name;
                     tentaikhoandangnhap.Text += "| ";
-                }
-            }
-            foreach (loaiTaiKhoanDTO loaiTaiKhoan in listLoaiTK)
-            {
-                if (loaiTaiKhoan.MaRole == loaitkhoan)
-                {
-                    
-                    tentaikhoandangnhap.Text += loaiTaiKhoan.TenLoaiTaiKhoan;
-                }
-            }
-        
-            if (loaitkhoan==1)
-            {
-                TaiKhoan.Enabled = false;
-                DichVu.Enabled = false;
-                BaoCao.Enabled = false;
-                QuanLyLoaiBenh.Enabled = false;
-                QuanLyThuoc.Enabled = false;
-                LapHoaDon.Enabled= false;
+                    foreach (loaiTaiKhoanDTO loaiTaiKhoan in listLoaiTK)
+                    {
+                        if (loaiTaiKhoan.MaRole == taiKhoan.MaLoai)
+                        {
+                            tentaikhoandangnhap.Text += loaiTaiKhoan.TenLoaiTaiKhoan;
+                        }
 
+                    }
+                    if (taiKhoan.MaLoai == 1)
+                    {
+                        TaiKhoan.Enabled = false;
+                        DichVu.Enabled = false;
+                        BaoCao.Enabled = false;
+                        QuanLyLoaiBenh.Enabled = false;
+                        QuanLyThuoc.Enabled = false;
+                        LapHoaDon.Enabled = false;
+
+                    }
+                    else if (taiKhoan.MaLoai == 2)
+                    {
+                        TaiKhoan.Enabled = false;
+                        DichVu.Enabled = false;
+                        BaoCao.Enabled = false;
+                        QuanLyLoaiBenh.Enabled = false;
+                        QuanLyThuoc.Enabled = false;
+                    }
+                }
+
+                
             }
-            else if (loaitkhoan==2) 
-            {
-                TaiKhoan.Enabled = false;
-                DichVu.Enabled = false;
-                BaoCao.Enabled = false;
-                QuanLyLoaiBenh.Enabled = false;
-                QuanLyThuoc.Enabled = false;
-            }
+         
         }
 
         private void Dong_Click(object sender, EventArgs e)
@@ -69,7 +74,7 @@ namespace GUI_QLPM
         private void TraCuuBN_Click(object sender, EventArgs e)
         {
             TraCuuBenhNhan tcbn = new TraCuuBenhNhan();
-            tcbn.StartPosition = FormStartPosition.CenterParent; // Đặt form ở giữa form cha
+            tcbn.StartPosition = FormStartPosition.CenterParent; 
             tcbn.Show();
         }
 
@@ -82,14 +87,14 @@ namespace GUI_QLPM
 
         private void LapPhieuKham_Click(object sender, EventArgs e)
         {
-            ThemPhieuKhamBenh lpkb = new ThemPhieuKhamBenh();
+            ThemPhieuKhamBenh lpkb = new ThemPhieuKhamBenh(mataikhoan);
             lpkb.StartPosition = FormStartPosition.CenterParent;
             lpkb.Show();
         }
 
         private void LapHoaDon_Click_1(object sender, EventArgs e)
         {
-            LapHoaDon lhd = new LapHoaDon();
+            LapHoaDon lhd = new LapHoaDon(mataikhoan);
             lhd.StartPosition = FormStartPosition.CenterParent;
             lhd.Show();
         }
@@ -154,6 +159,11 @@ namespace GUI_QLPM
         {
             DanhSachHoaDon dshd = new DanhSachHoaDon();
             dshd.Show();
+        }
+
+        private void QLPMMainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

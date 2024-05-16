@@ -21,6 +21,7 @@ namespace GUI_QLPM
         PhieukhambenhBUS pkbBus= new PhieukhambenhBUS();
         BenhBUS beBus = new BenhBUS();
         ChandoanBUS cdBus = new ChandoanBUS();
+        taiKhoanBUS tkBus = new taiKhoanBUS();
         private int stt;
 
         public DanhSachBenhNhan()
@@ -42,11 +43,12 @@ namespace GUI_QLPM
             List<BenhDTO> listBenh = beBus.select();
             List<PhieukhambenhDTO> listpkb = pkbBus.select();
             List<ChandoanDTO> listcd = cdBus.select();
-            this.loadData_Vao_GridView(listBenhNhan, listBenh, listpkb, listcd);
+            List<taiKhoanDTO> listTK = tkBus.select();
+            this.loadData_Vao_GridView(listBenhNhan, listBenh, listpkb, listcd, listTK);
 
         }
 
-        private void loadData_Vao_GridView(List<BenhNhanDTO> listBenhNhan, List<BenhDTO> listBenh, List<PhieukhambenhDTO> listpkb, List<ChandoanDTO> listcd)
+        private void loadData_Vao_GridView(List<BenhNhanDTO> listBenhNhan, List<BenhDTO> listBenh, List<PhieukhambenhDTO> listpkb, List<ChandoanDTO> listcd, List<taiKhoanDTO> listTK)
         {
 
             if (listBenhNhan == null || listpkb == null || listBenh == null || listcd == null)
@@ -62,6 +64,7 @@ namespace GUI_QLPM
             table.Columns.Add("Ngày khám", typeof(string));
             table.Columns.Add("Triệu chứng", typeof(string));
             table.Columns.Add("Tên bệnh", typeof(string));
+            table.Columns.Add("Bác sĩ khám", typeof(string));
             foreach (BenhNhanDTO bn in listBenhNhan)
             {
                 foreach (PhieukhambenhDTO pkb in listpkb)
@@ -82,6 +85,14 @@ namespace GUI_QLPM
                                         row["Ngày khám"] = DateTime.Parse(pkb.NgayKham.ToString()).ToString("dd/MM/yyyy");
                                         row["Triệu chứng"] = pkb.TrieuChung;
                                         row["Tên bệnh"] = be.TenBenh;
+                                        foreach(taiKhoanDTO tk in listTK)
+                                        {
+                                            if(pkb.MBS==tk.MaTK)
+                                            {
+                                                row["Bác sĩ khám"] = tk.Name;
+
+                                            }    
+                                        }
                                         table.Rows.Add(row);
                                         stt += 1;
                                     }

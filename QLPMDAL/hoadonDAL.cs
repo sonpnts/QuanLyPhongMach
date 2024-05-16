@@ -133,7 +133,7 @@ namespace QLPMDAL
                                 hd.TongTien = float.Parse(reader["tongTien"].ToString());
                                 hd.TienKham = float.Parse(reader["tienKham"].ToString());
                                 hd.MaPKB = reader["maPKB"].ToString();
-                                hd.MaNVTN = reader["maTaiKhoan"].ToString();
+                                hd.MaNVTN = int.Parse(reader["maTaiKhoan"].ToString());
 
                                 lsHoaDon.Add(hd);
 

@@ -18,6 +18,7 @@ namespace GUI_QLPM
         public Login()
         {
             InitializeComponent();
+            matkhau.UseSystemPasswordChar=true;
         }
 
         taiKhoanBUS tkBus = new taiKhoanBUS();
@@ -39,7 +40,7 @@ namespace GUI_QLPM
                     if (tk.Password == matkhau.Text)
                     {
                         check = true;
-                        TENTK = tk.MaLoai;
+                        TENTK = tk.MaTK;
                     }
 
                 }

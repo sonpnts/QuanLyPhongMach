@@ -1,4 +1,5 @@
-﻿using QLPMDTO;
+﻿using QLPMBUS;
+using QLPMDTO;
 using System;
 using System.Windows.Forms;
 
@@ -6,18 +7,17 @@ namespace GUI_QLPM
 {
     public partial class ThemLoaiBenh : Form
     {
+        BenhBUS bnBUS = new BenhBUS();
         public ThemLoaiBenh()
         {
             InitializeComponent();
+            load();
         }
 
-        public BenhDTO GetBenh()
+        public void load()
         {
-            return new BenhDTO
-            {
-                MaBenh = maBenh.Text,
-                TenBenh = tenBenh.Text
-            };
+            maBenh.Text = bnBUS.autogenerate_mabenh().ToString();
+            tenBenh.Text = "";
         }
     
         private void btnSave_Click(object sender, EventArgs e)
@@ -28,9 +28,21 @@ namespace GUI_QLPM
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            else
+            {
+                BenhDTO be = new BenhDTO();
+                be.TenBenh = tenBenh.Text;
+                
+                bool kq = bnBUS.them(be);
+                if (!kq)
+                    System.Windows.Forms.MessageBox.Show("Thêm bệnh thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Thêm bệnh thành công", "Result");
+                    this.Close();
 
-            DialogResult = DialogResult.OK;
-            Close();
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -21,8 +21,8 @@ namespace QLPMDAL
         public bool them(PhieukhambenhDTO pkb)
         {
             string query = string.Empty;
-            query += "INSERT INTO [PhieuKhamBenh] ([NgayKham],[trieuChung],[maBenhNhan]) ";
-            query += "VALUES (@NgayKham , @trieuChung, @maBenhNhan)";
+            query += "INSERT INTO [PhieuKhamBenh] ([NgayKham],[trieuChung],[maBenhNhan], [maTaiKhoan]) ";
+            query += "VALUES (@NgayKham , @trieuChung, @maBenhNhan, @maTaiKhoan)";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -32,6 +32,7 @@ namespace QLPMDAL
                     cmd.Parameters.AddWithValue("@NgayKham", pkb.NgayKham);
                     cmd.Parameters.AddWithValue("@trieuChung", pkb.TrieuChung);
                     cmd.Parameters.AddWithValue("@maBenhNhan", pkb.MaBenhNhan);
+                    cmd.Parameters.AddWithValue("@maTaiKhoan", pkb.MBS);
 
                     try
                     {
@@ -125,6 +126,7 @@ namespace QLPMDAL
                             pkb.TrieuChung = reader["TrieuChung"].ToString();
                             pkb.NgayKham = Convert.ToDateTime(reader["NgayKham"]);
                             pkb.MaBenhNhan = reader["maBenhNhan"].ToString();
+                            pkb.MBS = int.Parse(reader["maTaiKhoan"].ToString());
                             lspkb.Add(pkb);
                         }
                     }

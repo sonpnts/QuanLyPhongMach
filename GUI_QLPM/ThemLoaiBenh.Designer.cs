@@ -74,7 +74,7 @@
             this.tenBenh.Location = new System.Drawing.Point(238, 105);
             this.tenBenh.Name = "tenBenh";
             this.tenBenh.Size = new System.Drawing.Size(262, 30);
-            this.tenBenh.TabIndex = 5;
+            this.tenBenh.TabIndex = 0;
             // 
             // Thêm
             // 
@@ -84,7 +84,7 @@
             this.Thêm.Location = new System.Drawing.Point(208, 171);
             this.Thêm.Name = "Thêm";
             this.Thêm.Size = new System.Drawing.Size(170, 51);
-            this.Thêm.TabIndex = 6;
+            this.Thêm.TabIndex = 1;
             this.Thêm.Text = "Thêm";
             this.Thêm.UseVisualStyleBackColor = false;
             this.Thêm.Click += new System.EventHandler(this.btnSave_Click);

@@ -2,6 +2,24 @@ CREATE DATABASE QLPM
 GO
 USE QLPM
 
+-- TẠO BẢNG ROLE
+CREATE TABLE Roles(
+    maRole int IDENTITY,
+    tenRole nvarchar(50) NOT NULL,
+	CONSTRAINT pk_Roles PRIMARY KEY CLUSTERED (maRole ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+-- TẠO BẢNG USER
+CREATE TABLE TaiKhoan(
+	maTaiKhoan int IDENTITY,
+    userName nvarchar(50) NOT NULL,
+	passWord nvarchar(50) NOT NULL,
+    name nvarchar(50) NOT NULL,
+	maRole int,
+    CONSTRAINT pk_TaiKhoan PRIMARY KEY CLUSTERED (maTaiKhoan ASC) ON [PRIMARY],
+	CONSTRAINT fk_Roles_TaiKhoan FOREIGN KEY (maRole) REFERENCES Roles (maRole)
+) ON [PRIMARY]
+
 -- TẠO BẢNG BỆNH NHÂN
 CREATE TABLE BenhNhan(
     maBenhNhan int IDENTITY,
@@ -19,8 +37,10 @@ CREATE TABLE PhieuKhamBenh(
     ngayKham date,
     trieuChung nvarchar(50),
 	maBenhNhan int,
+	maTaiKhoan int,
     CONSTRAINT pk_PhieuKhamBenh PRIMARY KEY CLUSTERED (maPKB ASC) ON [PRIMARY],
-	CONSTRAINT fk_BenhNhan_PhieuKhamBenh FOREIGN KEY (maBenhNhan) REFERENCES BenhNhan(maBenhNhan)
+	CONSTRAINT fk_BenhNhan_PhieuKhamBenh FOREIGN KEY (maBenhNhan) REFERENCES BenhNhan(maBenhNhan),
+	CONSTRAINT fk_TaiKhoan_PhieuKhamBenh FOREIGN KEY (maTaiKhoan) REFERENCES TaiKhoan(maTaiKhoan)
 ) ON [PRIMARY]
 
 
@@ -91,13 +111,12 @@ CREATE TABLE KeThuoc(
 ) ON [PRIMARY]
 
 
-
--- TẠO BẢNG QUY ĐỊNH
 -- TẠO BẢNG DichVu
 CREATE TABLE DichVu(
 	maDichVu int IDENTITY,
 	tenDichVu nvarchar(20) NOT NULL,
-    tienDichVu float NOT NULL
+    tienDichVu float NOT NULL,
+	CONSTRAINT pk_DichVu PRIMARY KEY CLUSTERED (maDichVu ASC) ON [PRIMARY]
 ) ON [PRIMARY]
 
 
@@ -110,26 +129,13 @@ CREATE TABLE HoaDon(
 	tienKham float,
     tongTien float,
 	maPKB int,
+	maTaiKhoan int,
     CONSTRAINT pk_HoaDon PRIMARY KEY CLUSTERED (maHoaDon ASC) ON [PRIMARY],
 	CONSTRAINT fk_PhieuKhamBenh_HoaDon FOREIGN KEY (maPKB) REFERENCES PhieuKhamBenh (maPKB),
+	CONSTRAINT fk_TaiKhoan_HoaDon FOREIGN KEY (maTaiKhoan) REFERENCES TaiKhoan(maTaiKhoan)
 ) ON [PRIMARY]
 
--- TẠO BẢNG ROLE
-CREATE TABLE Roles(
-    maRole int IDENTITY,
-    tenRole nvarchar(50) NOT NULL,
-	CONSTRAINT pk_Roles PRIMARY KEY CLUSTERED (maRole ASC) ON [PRIMARY]
-) ON [PRIMARY]
 
--- TẠO BẢNG USER
-CREATE TABLE TaiKhoan(
-    userName nvarchar(50) NOT NULL,
-	passWord nvarchar(50) NOT NULL,
-    name nvarchar(50) NOT NULL,
-	maRole int,
-    CONSTRAINT pk_TaiKhoan PRIMARY KEY CLUSTERED (username ASC) ON [PRIMARY],
-	CONSTRAINT fk_Roles_TaiKhoan FOREIGN KEY (maRole) REFERENCES Roles (maRole)
-) ON [PRIMARY]
 
 
 
@@ -140,10 +146,9 @@ INSERT INTO Roles (tenRole) VALUES
 
 
 INSERT INTO TaiKhoan (userName, passWord, name, maRole) VALUES
-('bacsi','123456','Bac Si Cuong',1),
-('thungan','123456','Thu Ngan Son',2),
-('qtv','123456','QTV Phong',3)
-
+('bacsi','123','Bac Si Cuong',1),
+('thungan','123','Thu Ngan Son',2),
+('qtv','123','QTV Phong',3)
 
 
 INSERT INTO BenhNhan (tenBenhNhan, ngaySinh, diaChi, gioiTinh) VALUES
@@ -169,17 +174,17 @@ INSERT INTO BenhNhan (tenBenhNhan, ngaySinh, diaChi, gioiTinh) VALUES
 (N'Ngô Thị T', '1998-08-20', N'Hà Giang', N'Nữ');
 
 
-INSERT INTO PhieuKhamBenh (ngayKham, trieuChung, maBenhNhan) VALUES
-('2024-01-01', N'Sốt cao', 1),
-('2024-01-02', N'Ho', 2),
-('2024-01-03', N'Đau bụng', 3),
-('2024-01-04', N'Đau đầu', 4),
-('2024-01-05', N'Khó thở', 5),
-('2024-01-06', N'Nôn mửa', 6),
-('2024-01-07', N'Tiêu chảy', 7),
-('2024-01-08', N'Chóng mặt', 8),
-('2024-01-09', N'Mệt mỏi', 9),
-('2024-01-10', N'Phát ban', 10);
+INSERT INTO PhieuKhamBenh (ngayKham, trieuChung, maBenhNhan, maTaiKhoan) VALUES
+('2024-01-01', N'Sốt cao', 1, 1),
+('2024-01-02', N'Ho', 2, 1),
+('2024-01-03', N'Đau bụng', 3, 1),
+('2024-01-04', N'Đau đầu', 4, 1),
+('2024-01-05', N'Khó thở', 5, 1),
+('2024-01-06', N'Nôn mửa', 6, 1),
+('2024-01-07', N'Tiêu chảy', 7, 1),
+('2024-01-08', N'Chóng mặt', 8, 1),
+('2024-01-09', N'Mệt mỏi', 9, 1),
+('2024-01-10', N'Phát ban', 10, 1);
 
 
 INSERT INTO Benh (tenBenh) VALUES
@@ -248,16 +253,16 @@ INSERT INTO Thuoc (tenThuoc, donGia, cachDung, donVi) VALUES
 
 
 INSERT INTO ToaThuoc (ngayKeToa, maPKB) VALUES
-('2024-01-01', 1),
-('2024-01-02', 2),
-('2024-01-03', 3),
-('2024-01-04', 4),
-('2024-01-05', 5),
-('2024-01-06', 6),
-('2024-01-07', 7),
-('2024-01-08', 8),
-('2024-01-09', 9),
-('2024-01-10', 10);
+('2024-05-01', 1),
+('2024-04-02', 2),
+('2024-03-03', 3),
+('2024-04-04', 4),
+('2024-05-05', 5),
+('2024-05-06', 6),
+('2024-03-07', 7),
+('2024-04-08', 8),
+('2024-05-09', 9),
+('2024-05-10', 10);
 
 
 INSERT INTO KeThuoc (maThuoc, maToaThuoc, soLuong) VALUES
@@ -274,7 +279,7 @@ INSERT INTO KeThuoc (maThuoc, maToaThuoc, soLuong) VALUES
 
 
 INSERT INTO DichVu (tenDichVu, tienDichVu) VALUES
-(N'Kham benh', 500000),
+(N'Khám bệnh', 500000),
 (N'Chụp X-quang', 300000),
 (N'Siêu âm', 200000),
 (N'Chụp CT', 1000000),
@@ -286,11 +291,11 @@ INSERT INTO DichVu (tenDichVu, tienDichVu) VALUES
 (N'Kiểm tra sức khỏe', 350000);
 
 
-INSERT INTO HoaDon (ngayLapHoaDon, tienThuoc, tienKham, tongTien, maPKB) VALUES
-('2024-05-01', 50000, 300000, 350000, 1),
-('2024-05-02', 100000, 300000, 400000, 2),
-('2024-05-03', 75000, 300000, 375000, 3),
-('2024-05-04', 125000, 300000, 425000, 4),
-('2024-05-05', 150000, 300000, 450000, 5),
-('2024-05-06', 25000, 300000, 325000, 6);
+INSERT INTO HoaDon (ngayLapHoaDon, tienThuoc, tienKham, tongTien, maPKB, maTaiKhoan) VALUES
+('2024-05-01', 50000, 300000, 350000, 1, 2),
+('2024-04-02', 100000, 300000, 400000, 2, 2),
+('2024-03-03', 75000, 300000, 375000, 3, 2),
+('2024-04-04', 125000, 300000, 425000, 4, 2),
+('2024-05-05', 150000, 300000, 450000, 5, 2),
+('2024-05-06', 25000, 300000, 325000, 6, 2);
 

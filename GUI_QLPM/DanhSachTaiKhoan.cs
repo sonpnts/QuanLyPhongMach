@@ -74,5 +74,11 @@ namespace GUI_QLPM
             }
             gird.DataSource = table.DefaultView;
         }
+
+        private void Them_Click(object sender, EventArgs e)
+        {
+            ThemTaiKhoan ttk = new ThemTaiKhoan();
+            ttk.Show();
+        }
     }
 }

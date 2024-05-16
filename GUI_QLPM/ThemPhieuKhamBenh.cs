@@ -12,24 +12,28 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GUI_QLPM
 {
     public partial class ThemPhieuKhamBenh : Form
     {
+        public int maBS;
         BenhNhanBUS bnBus = new BenhNhanBUS();
         BenhBUS beBus = new BenhBUS();
         PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
         ChandoanBUS cdBus = new ChandoanBUS();
         private int stt;
-        public ThemPhieuKhamBenh()
+        public ThemPhieuKhamBenh(int mabs)
         {
+            maBS=mabs;
             InitializeComponent();
             load_combobox_mabn();
             load_combobox_benh();
             ngayKham.Text = DateTime.Now.ToString();
             gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Load_Gird();
+            load_data();
         }
         public void load_combobox_mabn()
         {
@@ -53,6 +57,16 @@ namespace GUI_QLPM
             }
 
         }
+
+        public void load_data()
+        {
+            maPKB.Text = pkbBus.autogenerate_mapkb().ToString();
+            mabenhnhan.Text = "";
+            hoten.Text = "";
+            trieuchung.Text = "";
+            benh.Text = "";
+        }
+
         private void load_ten(List<BenhNhanDTO> listBenhNhan, string mabn)
         {
 
@@ -68,7 +82,7 @@ namespace GUI_QLPM
                 if (bn.MaBN.ToString() == mabn)
                 {
                     hoten.Text = bn.TenBN;
-                    maPKB.Text = pkbBus.autogenerate_mapkb().ToString();
+                    load_data();
                 }
             }
 
@@ -125,6 +139,7 @@ namespace GUI_QLPM
                 pkb.NgayKham = DateTime.UtcNow.Date;
                 pkb.TrieuChung = trieuchung.Text;
                 pkb.MaBenhNhan = mabenhnhan.Text;
+                pkb.MBS = maBS;
                 PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
                 ChandoanBUS cdBus = new ChandoanBUS();
                 bool kq2 = pkbBus.them(pkb);
@@ -132,6 +147,7 @@ namespace GUI_QLPM
                 if (kq2 == true && kq1 == true)
                 {
                     System.Windows.Forms.MessageBox.Show("Lập phiếu thành công", "Result");
+                    load_data();
                 }
                 else System.Windows.Forms.MessageBox.Show("Lập phiếu thất bại", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
@@ -152,8 +168,7 @@ namespace GUI_QLPM
         public void Load_Gird()
         {
             int stt = 1;
-            // bnBus = new BenhNhanBUS();
-            // pkbBus = new PhieukhambenhBUS();
+            
             List<BenhNhanDTO> listBenhNhan = bnBus.select();
             List<PhieukhambenhDTO> listpkb = pkbBus.select();
             DataTable table = new DataTable();
@@ -188,6 +203,16 @@ namespace GUI_QLPM
                 }
             }
             gird.DataSource = table.DefaultView;
+        }
+
+        private void gird_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < gird.Rows.Count)
+            {
+                DataGridViewRow row = gird.Rows[e.RowIndex];
+                hoten.Text = row.Cells[2].Value.ToString();
+                mabenhnhan.Text = row.Cells[1].Value.ToString();
+            }
         }
     }
         

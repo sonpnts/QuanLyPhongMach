@@ -23,14 +23,13 @@ namespace GUI_QLPM
         PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
         System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
 
-
-
         public float tt;
         public float tkham;
-        
+        public int maNV;
         public int stt;
-        public LapHoaDon()
+        public LapHoaDon(int mataikhoan)
         {
+            maNV = mataikhoan;
             InitializeComponent();
             load();
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -126,8 +125,6 @@ namespace GUI_QLPM
         }
 
    
-
-
         private void btnChon_Click(object sender, EventArgs e)
         {
             tt = 0;
@@ -171,7 +168,7 @@ namespace GUI_QLPM
         private void btnLuu_Click(object sender, EventArgs e)
         {
             HoadonDTO hd = new HoadonDTO();
-            
+            hd.MaNVTN = maNV;
             hd.TongTien = tt;
             hd.MaPKB = mapkb.Text;
             hd.NgayLapHoaDon = DateTime.UtcNow.Date;
@@ -246,6 +243,8 @@ namespace GUI_QLPM
         }
         public void loadtiendichvu()
         {
+
+
             int selectedIndex = comboDichVu.SelectedIndex;
             List<DichvuDTO> listdv = dvBus.select();
             foreach (DichvuDTO d in listdv)

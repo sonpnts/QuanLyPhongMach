@@ -61,6 +61,7 @@
             this.Them.TabIndex = 14;
             this.Them.Text = "Thêm";
             this.Them.UseVisualStyleBackColor = false;
+            this.Them.Click += new System.EventHandler(this.Them_Click);
             // 
             // TimKiem
             // 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gird = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gird)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,21 +45,33 @@
             this.gird.Size = new System.Drawing.Size(800, 325);
             this.gird.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(340, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Danh Sách Hóa Đơn";
+            // 
             // DanhSachHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.gird);
             this.Name = "DanhSachHoaDon";
             this.Text = "DanhSachHoaDon";
             ((System.ComponentModel.ISupportInitialize)(this.gird)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView gird;
+        private System.Windows.Forms.Label label1;
     }
 }
