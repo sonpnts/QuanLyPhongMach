@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachHoaDon));
             this.gird = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gird)).BeginInit();
@@ -38,34 +39,38 @@
             this.gird.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gird.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gird.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gird.Location = new System.Drawing.Point(0, 125);
+            this.gird.Location = new System.Drawing.Point(0, 193);
             this.gird.Name = "gird";
             this.gird.RowHeadersWidth = 51;
             this.gird.RowTemplate.Height = 24;
-            this.gird.Size = new System.Drawing.Size(800, 325);
+            this.gird.Size = new System.Drawing.Size(1582, 460);
             this.gird.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 43);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 16);
+            this.label1.Size = new System.Drawing.Size(1582, 190);
             this.label1.TabIndex = 1;
             this.label1.Text = "Danh Sách Hóa Đơn";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DanhSachHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1582, 653);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gird);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DanhSachHoaDon";
-            this.Text = "DanhSachHoaDon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Danh sách hóa đơn";
             ((System.ComponentModel.ISupportInitialize)(this.gird)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

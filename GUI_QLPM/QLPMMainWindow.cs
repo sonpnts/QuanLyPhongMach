@@ -31,33 +31,37 @@ namespace GUI_QLPM
             {
                 if (taiKhoan.MaTK == mataikhoanlogin)
                 {
-                    tentaikhoandangnhap.Text += taiKhoan.Name;
-                    tentaikhoandangnhap.Text += "| ";
+                    tentaikhoandangnhap.Text = taiKhoan.Name;
+                    
                     foreach (loaiTaiKhoanDTO loaiTaiKhoan in listLoaiTK)
                     {
                         if (loaiTaiKhoan.MaRole == taiKhoan.MaLoai)
                         {
-                            tentaikhoandangnhap.Text += loaiTaiKhoan.TenLoaiTaiKhoan;
+                            txtChucVu.Text = loaiTaiKhoan.TenLoaiTaiKhoan;
                         }
 
                     }
                     if (taiKhoan.MaLoai == 1)
                     {
-                        TaiKhoan.Enabled = false;
-                        DichVu.Enabled = false;
+                        DanhSachTaiKhoan.Enabled = false;
+                        DanhSachDichVu.Enabled = false;
                         BaoCao.Enabled = false;
                         QuanLyLoaiBenh.Enabled = false;
                         QuanLyThuoc.Enabled = false;
                         LapHoaDon.Enabled = false;
+                        QuanLyBenhNhan.Enabled = false;
+                        DanhSachHD.Enabled = false;
 
                     }
                     else if (taiKhoan.MaLoai == 2)
                     {
-                        TaiKhoan.Enabled = false;
-                        DichVu.Enabled = false;
+                        DanhSachTaiKhoan.Enabled = false;
+                        DanhSachDichVu.Enabled = false;
                         BaoCao.Enabled = false;
                         QuanLyLoaiBenh.Enabled = false;
                         QuanLyThuoc.Enabled = false;
+                        QuanLyBenhNhan.Enabled = false;
+                        LapPhieuKham.Enabled = false;
                     }
                 }
 
@@ -164,6 +168,12 @@ namespace GUI_QLPM
         private void QLPMMainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             
+        }
+
+        private void QuanLyBenhNhan_Click(object sender, EventArgs e)
+        {
+            QuanLyBN qlbn = new QuanLyBN();
+            qlbn.Show();
         }
     }
 }

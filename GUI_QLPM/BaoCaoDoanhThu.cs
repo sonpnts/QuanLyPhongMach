@@ -13,6 +13,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace GUI_QLPM
 {
@@ -20,10 +21,13 @@ namespace GUI_QLPM
     {
         HoadonBUS hdBus = new HoadonBUS();
         public int stt;
+        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
         public BaoCaoDoanhThu()
         {
             InitializeComponent();
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            nam.SelectedItem = "2024";
+            thang.SelectedItem = "5";
         }
         public void load_data()
         {
@@ -95,20 +99,30 @@ namespace GUI_QLPM
             table.Columns.Add("Số Thứ Tự", typeof(int));
             table.Columns.Add("Ngày Lập Hóa Đơn", typeof(string));
             table.Columns.Add("Số Bệnh Nhân", typeof(int));
-            table.Columns.Add("Doanh Thu", typeof(float));
+            table.Columns.Add("Doanh Thu", typeof(string));
             table.Columns.Add("Tỷ Lệ", typeof(string));
             foreach (HoadonDTO hd in listhoadon)
             {
-                string ngkham = DateTime.Parse(hd.NgayLapHoaDon.ToString()).ToString("dd/MM/yyyy");
+                string ngkham = DateTime.Parse(hd.NgayLapHoaDon.ToString()).ToString("yyyy-MM-dd");
                 tongdoanhthu += float.Parse(hdBus.doanhthu(ngkham).ToString());
             }
             foreach (HoadonDTO hd in listhoadon)
             {
                 DataRow row = table.NewRow();
-                string ngkham = DateTime.Parse(hd.NgayLapHoaDon.ToString()).ToString("dd/MM/yyyy");
-                row["Ngày Lập Hóa Đơn"] = DateTime.Parse(ngkham.ToString()).ToString("dd/MM/yyyy");
+                string ngkham = DateTime.Parse(hd.NgayLapHoaDon.ToString()).ToString("yyyy-MM-dd");
+                row["Ngày Lập Hóa Đơn"] = DateTime.Parse(ngkham.ToString()).ToString("dd-MM-yyyy");
                 row["Số Bệnh Nhân"] = int.Parse(hdBus.sobenhnhan(ngkham).ToString());
-                row["Doanh Thu"] = float.Parse(hdBus.doanhthu(ngkham).ToString());
+                string valueDoanhthu = hdBus.doanhthu(ngkham).ToString(CultureInfo.InvariantCulture);
+                decimal parsedDoanhthu;
+
+                // Try to parse the string value to a decimal using "en-US" culture and allowing thousands separators
+                if (decimal.TryParse(valueDoanhthu, NumberStyles.Number, culture, out parsedDoanhthu))
+                {
+                    // Format the parsed decimal value with "en-US" culture and no decimal places
+                    row["Doanh Thu"] = parsedDoanhthu.ToString("N0", culture);
+                }
+
+                //row["Doanh Thu"] = valueDoanhthu.ToString("N0", culture);
                 row["Tỷ Lệ"] = Math.Round(((double)float.Parse(hdBus.doanhthu(ngkham).ToString()) / (double)tongdoanhthu) * 100, 2).ToString() + "%";
                 row["Số Thứ Tự"] = stt;
                 table.Rows.Add(row);
@@ -117,7 +131,8 @@ namespace GUI_QLPM
 
             grid.DataSource = table.DefaultView;
         }
-      
+
+
 
         private void Xem_Click(object sender, EventArgs e)
         {

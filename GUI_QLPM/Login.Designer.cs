@@ -40,16 +40,16 @@
             // username
             // 
             this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(233, 33);
+            this.username.Location = new System.Drawing.Point(199, 33);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(208, 30);
+            this.username.Size = new System.Drawing.Size(343, 30);
             this.username.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(71, 36);
+            this.label2.Location = new System.Drawing.Point(37, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 25);
             this.label2.TabIndex = 10;
@@ -59,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 88);
+            this.label1.Location = new System.Drawing.Point(37, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 25);
             this.label1.TabIndex = 10;
@@ -68,9 +68,9 @@
             // matkhau
             // 
             this.matkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matkhau.Location = new System.Drawing.Point(233, 85);
+            this.matkhau.Location = new System.Drawing.Point(199, 85);
             this.matkhau.Name = "matkhau";
-            this.matkhau.Size = new System.Drawing.Size(208, 30);
+            this.matkhau.Size = new System.Drawing.Size(343, 30);
             this.matkhau.TabIndex = 1;
             // 
             // dangnhap
@@ -78,9 +78,9 @@
             this.dangnhap.BackColor = System.Drawing.Color.RosyBrown;
             this.dangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dangnhap.ForeColor = System.Drawing.Color.Transparent;
-            this.dangnhap.Location = new System.Drawing.Point(370, 140);
+            this.dangnhap.Location = new System.Drawing.Point(312, 151);
             this.dangnhap.Name = "dangnhap";
-            this.dangnhap.Size = new System.Drawing.Size(157, 51);
+            this.dangnhap.Size = new System.Drawing.Size(166, 40);
             this.dangnhap.TabIndex = 2;
             this.dangnhap.Text = "Đăng nhập";
             this.dangnhap.UseVisualStyleBackColor = false;
@@ -91,10 +91,10 @@
             this.button1.BackColor = System.Drawing.Color.RosyBrown;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(97, 140);
+            this.button1.Location = new System.Drawing.Point(489, 151);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 51);
-            this.button1.TabIndex = 2;
+            this.button1.Size = new System.Drawing.Size(166, 40);
+            this.button1.TabIndex = 3;
             this.button1.Text = "Thoát";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -103,9 +103,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(599, 224);
+            this.ClientSize = new System.Drawing.Size(693, 225);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dangnhap);
             this.Controls.Add(this.matkhau);

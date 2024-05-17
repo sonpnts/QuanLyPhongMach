@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemTaiKhoan));
             this.username = new System.Windows.Forms.TextBox();
             this.password = new System.Windows.Forms.TextBox();
             this.maTaiKhoan = new System.Windows.Forms.TextBox();
@@ -159,6 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(488, 461);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.label3);
@@ -171,8 +173,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ThemTaiKhoan";
-            this.Text = "ThemTaiKhoan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Thêm tài khoản";
             this.ResumeLayout(false);
             this.PerformLayout();
 

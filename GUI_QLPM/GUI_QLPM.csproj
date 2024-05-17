@@ -128,18 +128,6 @@
     <Compile Include="ThayDoiQuyDinh.Designer.cs">
       <DependentUpon>ThayDoiQuyDinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThayDoiThongTinBenhNhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThayDoiThongTinBenhNhan.Designer.cs">
-      <DependentUpon>ThayDoiThongTinBenhNhan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ThayDoiThongTinThuoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ThayDoiThongTinThuoc.Designer.cs">
-      <DependentUpon>ThayDoiThongTinThuoc.cs</DependentUpon>
-    </Compile>
     <Compile Include="ThemBenhNhanMoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,11 +158,11 @@
     <Compile Include="ThemTaiKhoan.Designer.cs">
       <DependentUpon>ThemTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThemThuocMoi.cs">
+    <Compile Include="QuanLyBenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThemThuocMoi.Designer.cs">
-      <DependentUpon>ThemThuocMoi.cs</DependentUpon>
+    <Compile Include="QuanLyBenhNhan.Designer.cs">
+      <DependentUpon>QuanLyBenhNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="TraCuuBenhNhan.cs">
       <SubType>Form</SubType>
@@ -230,12 +218,6 @@
     <EmbeddedResource Include="ThayDoiQuyDinh.resx">
       <DependentUpon>ThayDoiQuyDinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThayDoiThongTinBenhNhan.resx">
-      <DependentUpon>ThayDoiThongTinBenhNhan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ThayDoiThongTinThuoc.resx">
-      <DependentUpon>ThayDoiThongTinThuoc.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ThemBenhNhanMoi.resx">
       <DependentUpon>ThemBenhNhanMoi.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,8 +233,8 @@
     <EmbeddedResource Include="ThemTaiKhoan.resx">
       <DependentUpon>ThemTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThemThuocMoi.resx">
-      <DependentUpon>ThemThuocMoi.cs</DependentUpon>
+    <EmbeddedResource Include="QuanLyBenhNhan.resx">
+      <DependentUpon>QuanLyBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TraCuuBenhNhan.resx">
       <DependentUpon>TraCuuBenhNhan.cs</DependentUpon>

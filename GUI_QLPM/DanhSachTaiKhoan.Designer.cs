@@ -52,9 +52,9 @@
             this.comboBoxRole.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRole.FormattingEnabled = true;
-            this.comboBoxRole.Location = new System.Drawing.Point(257, 312);
+            this.comboBoxRole.Location = new System.Drawing.Point(952, 182);
             this.comboBoxRole.Name = "comboBoxRole";
-            this.comboBoxRole.Size = new System.Drawing.Size(274, 33);
+            this.comboBoxRole.Size = new System.Drawing.Size(306, 33);
             this.comboBoxRole.TabIndex = 42;
             // 
             // label5
@@ -63,7 +63,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(181, 279);
+            this.label5.Location = new System.Drawing.Point(820, 190);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 25);
             this.label5.TabIndex = 35;
@@ -74,9 +74,9 @@
             this.hoten.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.hoten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hoten.ForeColor = System.Drawing.Color.Black;
-            this.hoten.Location = new System.Drawing.Point(260, 240);
+            this.hoten.Location = new System.Drawing.Point(952, 128);
             this.hoten.Name = "hoten";
-            this.hoten.Size = new System.Drawing.Size(271, 30);
+            this.hoten.Size = new System.Drawing.Size(306, 30);
             this.hoten.TabIndex = 39;
             // 
             // label4
@@ -85,7 +85,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(156, 243);
+            this.label4.Location = new System.Drawing.Point(820, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 25);
             this.label4.TabIndex = 36;
@@ -96,9 +96,9 @@
             this.password.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password.ForeColor = System.Drawing.Color.Black;
-            this.password.Location = new System.Drawing.Point(260, 204);
+            this.password.Location = new System.Drawing.Point(459, 185);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(271, 30);
+            this.password.Size = new System.Drawing.Size(306, 30);
             this.password.TabIndex = 40;
             // 
             // label3
@@ -107,7 +107,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(138, 207);
+            this.label3.Location = new System.Drawing.Point(324, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 25);
             this.label3.TabIndex = 37;
@@ -118,9 +118,9 @@
             this.username.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.ForeColor = System.Drawing.Color.Black;
-            this.username.Location = new System.Drawing.Point(260, 168);
+            this.username.Location = new System.Drawing.Point(459, 128);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(271, 30);
+            this.username.Size = new System.Drawing.Size(306, 30);
             this.username.TabIndex = 41;
             // 
             // label2
@@ -129,7 +129,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(134, 171);
+            this.label2.Location = new System.Drawing.Point(324, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 25);
             this.label2.TabIndex = 38;
@@ -141,9 +141,9 @@
             this.Sua.BackColor = System.Drawing.Color.RosyBrown;
             this.Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Sua.ForeColor = System.Drawing.Color.Transparent;
-            this.Sua.Location = new System.Drawing.Point(831, 171);
+            this.Sua.Location = new System.Drawing.Point(720, 260);
             this.Sua.Name = "Sua";
-            this.Sua.Size = new System.Drawing.Size(145, 63);
+            this.Sua.Size = new System.Drawing.Size(147, 58);
             this.Sua.TabIndex = 34;
             this.Sua.Text = "Sửa";
             this.Sua.UseVisualStyleBackColor = false;
@@ -154,11 +154,11 @@
             this.gird.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gird.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gird.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gird.Location = new System.Drawing.Point(0, 458);
+            this.gird.Location = new System.Drawing.Point(0, 347);
             this.gird.Name = "gird";
             this.gird.RowHeadersWidth = 51;
             this.gird.RowTemplate.Height = 24;
-            this.gird.Size = new System.Drawing.Size(1018, 195);
+            this.gird.Size = new System.Drawing.Size(1582, 306);
             this.gird.TabIndex = 33;
             this.gird.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gird_CellContentClick);
             // 
@@ -168,9 +168,9 @@
             this.QuayLai.BackColor = System.Drawing.Color.RosyBrown;
             this.QuayLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuayLai.ForeColor = System.Drawing.Color.Transparent;
-            this.QuayLai.Location = new System.Drawing.Point(694, 277);
+            this.QuayLai.Location = new System.Drawing.Point(922, 260);
             this.QuayLai.Name = "QuayLai";
-            this.QuayLai.Size = new System.Drawing.Size(130, 49);
+            this.QuayLai.Size = new System.Drawing.Size(147, 58);
             this.QuayLai.TabIndex = 32;
             this.QuayLai.Text = "Quay lại";
             this.QuayLai.UseVisualStyleBackColor = false;
@@ -182,7 +182,7 @@
             this.Them.BackColor = System.Drawing.Color.RosyBrown;
             this.Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Them.ForeColor = System.Drawing.Color.Transparent;
-            this.Them.Location = new System.Drawing.Point(635, 176);
+            this.Them.Location = new System.Drawing.Point(514, 265);
             this.Them.Name = "Them";
             this.Them.Size = new System.Drawing.Size(147, 58);
             this.Them.TabIndex = 31;
@@ -196,7 +196,7 @@
             this.TimKiem.BackColor = System.Drawing.Color.RosyBrown;
             this.TimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimKiem.ForeColor = System.Drawing.Color.Transparent;
-            this.TimKiem.Location = new System.Drawing.Point(670, 52);
+            this.TimKiem.Location = new System.Drawing.Point(1046, 24);
             this.TimKiem.Name = "TimKiem";
             this.TimKiem.Size = new System.Drawing.Size(130, 49);
             this.TimKiem.TabIndex = 30;
@@ -208,10 +208,10 @@
             // 
             this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(279, 61);
+            this.search.Location = new System.Drawing.Point(563, 33);
             this.search.Multiline = true;
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(360, 36);
+            this.search.Size = new System.Drawing.Size(461, 36);
             this.search.TabIndex = 29;
             // 
             // label1
@@ -219,7 +219,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(125, 67);
+            this.label1.Location = new System.Drawing.Point(407, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 25);
             this.label1.TabIndex = 28;
@@ -229,8 +229,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(1018, 653);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1582, 653);
             this.Controls.Add(this.comboBoxRole);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.hoten);
@@ -248,6 +248,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DanhSachTaiKhoan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh sách tài khoản";
             ((System.ComponentModel.ISupportInitialize)(this.gird)).EndInit();
             this.ResumeLayout(false);

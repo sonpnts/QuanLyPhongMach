@@ -140,9 +140,9 @@ CREATE TABLE HoaDon(
 
 
 INSERT INTO Roles (tenRole) VALUES
-('Bac Si'),
-('Thu Ngan'),
-('Quan Tri Vien')
+('Bác sĩ'),
+('Thu ngân'),
+('Quản trị viên')
 
 
 INSERT INTO TaiKhoan (userName, passWord, name, maRole) VALUES
@@ -279,7 +279,7 @@ INSERT INTO KeThuoc (maThuoc, maToaThuoc, soLuong) VALUES
 
 
 INSERT INTO DichVu (tenDichVu, tienDichVu) VALUES
-(N'Khám bệnh', 500000),
+(N'Khám bệnh', 50000),
 (N'Chụp X-quang', 300000),
 (N'Siêu âm', 200000),
 (N'Chụp CT', 1000000),

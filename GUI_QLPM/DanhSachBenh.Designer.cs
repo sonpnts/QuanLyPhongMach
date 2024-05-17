@@ -42,9 +42,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(80, 65);
+            this.label1.Location = new System.Drawing.Point(428, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 25);
             this.label1.TabIndex = 0;
@@ -52,19 +53,21 @@
             // 
             // maBenh
             // 
+            this.maBenh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maBenh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maBenh.Location = new System.Drawing.Point(243, 53);
+            this.maBenh.Location = new System.Drawing.Point(573, 53);
             this.maBenh.Multiline = true;
             this.maBenh.Name = "maBenh";
-            this.maBenh.Size = new System.Drawing.Size(328, 37);
+            this.maBenh.Size = new System.Drawing.Size(431, 37);
             this.maBenh.TabIndex = 1;
             // 
             // TimKiem
             // 
+            this.TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TimKiem.BackColor = System.Drawing.Color.RosyBrown;
             this.TimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimKiem.ForeColor = System.Drawing.Color.Transparent;
-            this.TimKiem.Location = new System.Drawing.Point(595, 44);
+            this.TimKiem.Location = new System.Drawing.Point(1028, 44);
             this.TimKiem.Name = "TimKiem";
             this.TimKiem.Size = new System.Drawing.Size(126, 48);
             this.TimKiem.TabIndex = 2;
@@ -74,12 +77,13 @@
             // 
             // Them
             // 
+            this.Them.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Them.BackColor = System.Drawing.Color.RosyBrown;
             this.Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Them.ForeColor = System.Drawing.Color.Transparent;
-            this.Them.Location = new System.Drawing.Point(100, 136);
+            this.Them.Location = new System.Drawing.Point(387, 136);
             this.Them.Name = "Them";
-            this.Them.Size = new System.Drawing.Size(126, 48);
+            this.Them.Size = new System.Drawing.Size(166, 48);
             this.Them.TabIndex = 3;
             this.Them.Text = "Thêm";
             this.Them.UseVisualStyleBackColor = false;
@@ -87,12 +91,13 @@
             // 
             // QuayLai
             // 
+            this.QuayLai.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.QuayLai.BackColor = System.Drawing.Color.RosyBrown;
             this.QuayLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuayLai.ForeColor = System.Drawing.Color.Transparent;
-            this.QuayLai.Location = new System.Drawing.Point(574, 136);
+            this.QuayLai.Location = new System.Drawing.Point(1029, 136);
             this.QuayLai.Name = "QuayLai";
-            this.QuayLai.Size = new System.Drawing.Size(126, 48);
+            this.QuayLai.Size = new System.Drawing.Size(166, 48);
             this.QuayLai.TabIndex = 4;
             this.QuayLai.Text = "Quay lại";
             this.QuayLai.UseVisualStyleBackColor = false;
@@ -103,22 +108,23 @@
             this.grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grid.Location = new System.Drawing.Point(0, 206);
+            this.grid.Location = new System.Drawing.Point(0, 204);
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
-            this.grid.Size = new System.Drawing.Size(800, 244);
+            this.grid.Size = new System.Drawing.Size(1582, 449);
             this.grid.TabIndex = 5;
             this.grid.SelectionChanged += new System.EventHandler(this.grid_SelectionChanged);
             // 
             // Sua
             // 
+            this.Sua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Sua.BackColor = System.Drawing.Color.RosyBrown;
             this.Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Sua.ForeColor = System.Drawing.Color.Transparent;
-            this.Sua.Location = new System.Drawing.Point(258, 136);
+            this.Sua.Location = new System.Drawing.Point(601, 136);
             this.Sua.Name = "Sua";
-            this.Sua.Size = new System.Drawing.Size(126, 48);
+            this.Sua.Size = new System.Drawing.Size(166, 48);
             this.Sua.TabIndex = 6;
             this.Sua.Text = "Sửa";
             this.Sua.UseVisualStyleBackColor = false;
@@ -126,12 +132,13 @@
             // 
             // Xoa
             // 
+            this.Xoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Xoa.BackColor = System.Drawing.Color.RosyBrown;
             this.Xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Xoa.ForeColor = System.Drawing.Color.Transparent;
-            this.Xoa.Location = new System.Drawing.Point(416, 136);
+            this.Xoa.Location = new System.Drawing.Point(815, 136);
             this.Xoa.Name = "Xoa";
-            this.Xoa.Size = new System.Drawing.Size(126, 48);
+            this.Xoa.Size = new System.Drawing.Size(166, 48);
             this.Xoa.TabIndex = 7;
             this.Xoa.Text = "Xóa";
             this.Xoa.UseVisualStyleBackColor = false;
@@ -141,8 +148,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1582, 653);
             this.Controls.Add(this.Xoa);
             this.Controls.Add(this.Sua);
             this.Controls.Add(this.grid);

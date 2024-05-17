@@ -333,10 +333,10 @@
             this.TienKham.Controls.Add(this.btnThayDoiTK);
             this.TienKham.Controls.Add(this.txtTienKham);
             this.TienKham.Controls.Add(this.label7);
-            this.TienKham.Location = new System.Drawing.Point(4, 25);
+            this.TienKham.Location = new System.Drawing.Point(4, 29);
             this.TienKham.Name = "TienKham";
             this.TienKham.Padding = new System.Windows.Forms.Padding(3);
-            this.TienKham.Size = new System.Drawing.Size(792, 421);
+            this.TienKham.Size = new System.Drawing.Size(792, 417);
             this.TienKham.TabIndex = 1;
             this.TienKham.Text = "TIỀN KHÁM";
             this.TienKham.UseVisualStyleBackColor = true;
@@ -376,9 +376,9 @@
             this.BenhNhan.Controls.Add(this.btnThayDoiBN);
             this.BenhNhan.Controls.Add(this.txtSLBenhNhan);
             this.BenhNhan.Controls.Add(this.label8);
-            this.BenhNhan.Location = new System.Drawing.Point(4, 25);
+            this.BenhNhan.Location = new System.Drawing.Point(4, 29);
             this.BenhNhan.Name = "BenhNhan";
-            this.BenhNhan.Size = new System.Drawing.Size(792, 421);
+            this.BenhNhan.Size = new System.Drawing.Size(792, 417);
             this.BenhNhan.TabIndex = 2;
             this.BenhNhan.Text = "BỆNH NHÂN";
             // 
@@ -416,6 +416,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "ThayDoiQuyDinh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thay đổi quy định";
             this.tabControl1.ResumeLayout(false);
             this.Thuoc.ResumeLayout(false);

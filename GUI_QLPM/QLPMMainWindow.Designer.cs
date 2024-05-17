@@ -30,31 +30,31 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLPMMainWindow));
             this.btnDangXuat = new System.Windows.Forms.Button();
-            this.DichVu = new System.Windows.Forms.GroupBox();
             this.DanhSachDichVu = new System.Windows.Forms.Button();
             this.BaoCao = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.danhsachhoadon = new System.Windows.Forms.Button();
             this.BaoCaoDoanhThu = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.DanhSachTaiKhoan = new System.Windows.Forms.Button();
+            this.DanhSachHD = new System.Windows.Forms.Button();
             this.DanhSachBenhNhan = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.QuanLyBenhNhan = new System.Windows.Forms.Button();
             this.QuanLyThuoc = new System.Windows.Forms.Button();
             this.QuanLyLoaiBenh = new System.Windows.Forms.Button();
             this.LapHoaDon = new System.Windows.Forms.Button();
             this.LapPhieuKham = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TraCuuBN = new System.Windows.Forms.Button();
-            this.TaiKhoan = new System.Windows.Forms.GroupBox();
-            this.DanhSachTaiKhoan = new System.Windows.Forms.Button();
             this.tentaikhoandangnhap = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.DichVu.SuspendLayout();
+            this.txtChucVu = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.BaoCao.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.TaiKhoan.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,25 +71,12 @@
             this.btnDangXuat.UseVisualStyleBackColor = false;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
-            // DichVu
-            // 
-            this.DichVu.BackColor = System.Drawing.Color.Transparent;
-            this.DichVu.Controls.Add(this.DanhSachDichVu);
-            this.DichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DichVu.ForeColor = System.Drawing.Color.Black;
-            this.DichVu.Location = new System.Drawing.Point(22, 345);
-            this.DichVu.Name = "DichVu";
-            this.DichVu.Size = new System.Drawing.Size(360, 99);
-            this.DichVu.TabIndex = 10;
-            this.DichVu.TabStop = false;
-            this.DichVu.Text = "Dịch vụ";
-            // 
             // DanhSachDichVu
             // 
             this.DanhSachDichVu.BackColor = System.Drawing.Color.LightCyan;
             this.DanhSachDichVu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DanhSachDichVu.BackgroundImage")));
             this.DanhSachDichVu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DanhSachDichVu.Location = new System.Drawing.Point(46, 36);
+            this.DanhSachDichVu.Location = new System.Drawing.Point(40, 104);
             this.DanhSachDichVu.Name = "DanhSachDichVu";
             this.DanhSachDichVu.Size = new System.Drawing.Size(281, 45);
             this.DanhSachDichVu.TabIndex = 3;
@@ -101,13 +88,12 @@
             // 
             this.BaoCao.BackColor = System.Drawing.Color.Transparent;
             this.BaoCao.Controls.Add(this.button1);
-            this.BaoCao.Controls.Add(this.danhsachhoadon);
             this.BaoCao.Controls.Add(this.BaoCaoDoanhThu);
             this.BaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BaoCao.ForeColor = System.Drawing.Color.Black;
-            this.BaoCao.Location = new System.Drawing.Point(22, 468);
+            this.BaoCao.Location = new System.Drawing.Point(423, 391);
             this.BaoCao.Name = "BaoCao";
-            this.BaoCao.Size = new System.Drawing.Size(360, 243);
+            this.BaoCao.Size = new System.Drawing.Size(372, 186);
             this.BaoCao.TabIndex = 11;
             this.BaoCao.TabStop = false;
             this.BaoCao.Text = "Báo cáo";
@@ -117,7 +103,7 @@
             this.button1.BackColor = System.Drawing.Color.LightCyan;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Location = new System.Drawing.Point(40, 176);
+            this.button1.Location = new System.Drawing.Point(46, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(281, 45);
             this.button1.TabIndex = 4;
@@ -125,25 +111,12 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.BaoCaoSuDungThuoc_Click);
             // 
-            // danhsachhoadon
-            // 
-            this.danhsachhoadon.BackColor = System.Drawing.Color.LightCyan;
-            this.danhsachhoadon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("danhsachhoadon.BackgroundImage")));
-            this.danhsachhoadon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.danhsachhoadon.Location = new System.Drawing.Point(40, 51);
-            this.danhsachhoadon.Name = "danhsachhoadon";
-            this.danhsachhoadon.Size = new System.Drawing.Size(281, 45);
-            this.danhsachhoadon.TabIndex = 3;
-            this.danhsachhoadon.Text = "Danh sách Hóa Đơn";
-            this.danhsachhoadon.UseVisualStyleBackColor = false;
-            this.danhsachhoadon.Click += new System.EventHandler(this.danhsachhoadon_Click);
-            // 
             // BaoCaoDoanhThu
             // 
             this.BaoCaoDoanhThu.BackColor = System.Drawing.Color.LightCyan;
             this.BaoCaoDoanhThu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BaoCaoDoanhThu.BackgroundImage")));
             this.BaoCaoDoanhThu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BaoCaoDoanhThu.Location = new System.Drawing.Point(40, 115);
+            this.BaoCaoDoanhThu.Location = new System.Drawing.Point(46, 45);
             this.BaoCaoDoanhThu.Name = "BaoCaoDoanhThu";
             this.BaoCaoDoanhThu.Size = new System.Drawing.Size(281, 45);
             this.BaoCaoDoanhThu.TabIndex = 3;
@@ -154,15 +127,44 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.DanhSachTaiKhoan);
+            this.groupBox3.Controls.Add(this.DanhSachHD);
+            this.groupBox3.Controls.Add(this.DanhSachDichVu);
             this.groupBox3.Controls.Add(this.DanhSachBenhNhan);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(22, 204);
+            this.groupBox3.Location = new System.Drawing.Point(22, 169);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(360, 117);
+            this.groupBox3.Size = new System.Drawing.Size(360, 312);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách";
+            // 
+            // DanhSachTaiKhoan
+            // 
+            this.DanhSachTaiKhoan.BackColor = System.Drawing.Color.LightCyan;
+            this.DanhSachTaiKhoan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DanhSachTaiKhoan.BackgroundImage")));
+            this.DanhSachTaiKhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DanhSachTaiKhoan.Location = new System.Drawing.Point(40, 222);
+            this.DanhSachTaiKhoan.Name = "DanhSachTaiKhoan";
+            this.DanhSachTaiKhoan.Size = new System.Drawing.Size(281, 45);
+            this.DanhSachTaiKhoan.TabIndex = 3;
+            this.DanhSachTaiKhoan.Text = "     Danh sách tài khoản";
+            this.DanhSachTaiKhoan.UseVisualStyleBackColor = false;
+            this.DanhSachTaiKhoan.Click += new System.EventHandler(this.DanhSachTaiKhoan_Click);
+            // 
+            // DanhSachHD
+            // 
+            this.DanhSachHD.BackColor = System.Drawing.Color.LightCyan;
+            this.DanhSachHD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DanhSachHD.BackgroundImage")));
+            this.DanhSachHD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DanhSachHD.Location = new System.Drawing.Point(40, 161);
+            this.DanhSachHD.Name = "DanhSachHD";
+            this.DanhSachHD.Size = new System.Drawing.Size(281, 45);
+            this.DanhSachHD.TabIndex = 4;
+            this.DanhSachHD.Text = "     Danh sách hóa đơn";
+            this.DanhSachHD.UseVisualStyleBackColor = false;
+            this.DanhSachHD.Click += new System.EventHandler(this.danhsachhoadon_Click);
             // 
             // DanhSachBenhNhan
             // 
@@ -180,18 +182,32 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.QuanLyBenhNhan);
             this.groupBox2.Controls.Add(this.QuanLyThuoc);
             this.groupBox2.Controls.Add(this.QuanLyLoaiBenh);
             this.groupBox2.Controls.Add(this.LapHoaDon);
             this.groupBox2.Controls.Add(this.LapPhieuKham);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(423, 53);
+            this.groupBox2.Location = new System.Drawing.Point(423, 18);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(372, 322);
+            this.groupBox2.Size = new System.Drawing.Size(372, 357);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh mục";
+            // 
+            // QuanLyBenhNhan
+            // 
+            this.QuanLyBenhNhan.BackColor = System.Drawing.Color.LightCyan;
+            this.QuanLyBenhNhan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QuanLyBenhNhan.BackgroundImage")));
+            this.QuanLyBenhNhan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.QuanLyBenhNhan.Location = new System.Drawing.Point(46, 292);
+            this.QuanLyBenhNhan.Name = "QuanLyBenhNhan";
+            this.QuanLyBenhNhan.Size = new System.Drawing.Size(281, 45);
+            this.QuanLyBenhNhan.TabIndex = 6;
+            this.QuanLyBenhNhan.Text = "Quản lý bệnh nhân";
+            this.QuanLyBenhNhan.UseVisualStyleBackColor = false;
+            this.QuanLyBenhNhan.Click += new System.EventHandler(this.QuanLyBenhNhan_Click);
             // 
             // QuanLyThuoc
             // 
@@ -251,7 +267,7 @@
             this.groupBox1.Controls.Add(this.TraCuuBN);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(22, 53);
+            this.groupBox1.Location = new System.Drawing.Point(22, 18);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 127);
             this.groupBox1.TabIndex = 9;
@@ -268,43 +284,17 @@
             this.TraCuuBN.Name = "TraCuuBN";
             this.TraCuuBN.Size = new System.Drawing.Size(299, 44);
             this.TraCuuBN.TabIndex = 1;
-            this.TraCuuBN.Text = "   Quản lý danh sách bệnh nhân";
+            this.TraCuuBN.Text = " Tra cứu bệnh nhân";
             this.TraCuuBN.UseVisualStyleBackColor = false;
             this.TraCuuBN.Click += new System.EventHandler(this.TraCuuBN_Click);
             // 
-            // TaiKhoan
-            // 
-            this.TaiKhoan.BackColor = System.Drawing.Color.Transparent;
-            this.TaiKhoan.Controls.Add(this.DanhSachTaiKhoan);
-            this.TaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TaiKhoan.ForeColor = System.Drawing.Color.Black;
-            this.TaiKhoan.Location = new System.Drawing.Point(423, 429);
-            this.TaiKhoan.Name = "TaiKhoan";
-            this.TaiKhoan.Size = new System.Drawing.Size(372, 87);
-            this.TaiKhoan.TabIndex = 11;
-            this.TaiKhoan.TabStop = false;
-            this.TaiKhoan.Text = "Tài khoản";
-            // 
-            // DanhSachTaiKhoan
-            // 
-            this.DanhSachTaiKhoan.BackColor = System.Drawing.Color.LightCyan;
-            this.DanhSachTaiKhoan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DanhSachTaiKhoan.BackgroundImage")));
-            this.DanhSachTaiKhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DanhSachTaiKhoan.Location = new System.Drawing.Point(46, 21);
-            this.DanhSachTaiKhoan.Name = "DanhSachTaiKhoan";
-            this.DanhSachTaiKhoan.Size = new System.Drawing.Size(281, 45);
-            this.DanhSachTaiKhoan.TabIndex = 3;
-            this.DanhSachTaiKhoan.Text = "     Danh sách tài khoản";
-            this.DanhSachTaiKhoan.UseVisualStyleBackColor = false;
-            this.DanhSachTaiKhoan.Click += new System.EventHandler(this.DanhSachTaiKhoan_Click);
-            // 
             // tentaikhoandangnhap
             // 
-            this.tentaikhoandangnhap.Font = new System.Drawing.Font("Modern No. 20", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tentaikhoandangnhap.Location = new System.Drawing.Point(872, 12);
+            this.tentaikhoandangnhap.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tentaikhoandangnhap.Location = new System.Drawing.Point(972, 12);
             this.tentaikhoandangnhap.Multiline = true;
             this.tentaikhoandangnhap.Name = "tentaikhoandangnhap";
-            this.tentaikhoandangnhap.Size = new System.Drawing.Size(265, 28);
+            this.tentaikhoandangnhap.Size = new System.Drawing.Size(224, 28);
             this.tentaikhoandangnhap.TabIndex = 14;
             // 
             // groupBox4
@@ -313,12 +303,40 @@
             this.groupBox4.Controls.Add(this.btnDangXuat);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
-            this.groupBox4.Location = new System.Drawing.Point(423, 540);
+            this.groupBox4.Location = new System.Drawing.Point(22, 506);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(372, 87);
+            this.groupBox4.Size = new System.Drawing.Size(360, 87);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Tài khoản";
+            // 
+            // txtChucVu
+            // 
+            this.txtChucVu.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChucVu.Location = new System.Drawing.Point(972, 64);
+            this.txtChucVu.Multiline = true;
+            this.txtChucVu.Name = "txtChucVu";
+            this.txtChucVu.Size = new System.Drawing.Size(224, 28);
+            this.txtChucVu.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(865, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Họ và tên";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(865, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Chức vụ";
             // 
             // QLPMMainWindow
             // 
@@ -328,11 +346,12 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1246, 723);
+            this.ClientSize = new System.Drawing.Size(1582, 653);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.txtChucVu);
             this.Controls.Add(this.tentaikhoandangnhap);
-            this.Controls.Add(this.TaiKhoan);
-            this.Controls.Add(this.DichVu);
             this.Controls.Add(this.BaoCao);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -340,12 +359,10 @@
             this.Name = "QLPMMainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang chủ";
-            this.DichVu.ResumeLayout(false);
             this.BaoCao.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.TaiKhoan.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -354,7 +371,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnDangXuat;
-        private System.Windows.Forms.GroupBox DichVu;
         private System.Windows.Forms.Button DanhSachDichVu;
         private System.Windows.Forms.GroupBox BaoCao;
         private System.Windows.Forms.Button button1;
@@ -368,10 +384,13 @@
         private System.Windows.Forms.Button LapPhieuKham;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button TraCuuBN;
-        private System.Windows.Forms.GroupBox TaiKhoan;
         private System.Windows.Forms.Button DanhSachTaiKhoan;
         private System.Windows.Forms.TextBox tentaikhoandangnhap;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button danhsachhoadon;
+        private System.Windows.Forms.Button QuanLyBenhNhan;
+        private System.Windows.Forms.Button DanhSachHD;
+        private System.Windows.Forms.TextBox txtChucVu;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

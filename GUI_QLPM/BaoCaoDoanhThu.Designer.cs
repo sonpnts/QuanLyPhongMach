@@ -48,35 +48,37 @@
             // 
             // chart2
             // 
+            this.chart2.Anchor = System.Windows.Forms.AnchorStyles.None;
             chartArea1.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(0, 23);
+            this.chart2.Location = new System.Drawing.Point(25, 12);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(846, 496);
+            this.chart2.Size = new System.Drawing.Size(612, 298);
             this.chart2.TabIndex = 11;
             this.chart2.Text = "chart2";
             // 
             // chart1
             // 
+            this.chart1.Anchor = System.Windows.Forms.AnchorStyles.None;
             chartArea2.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(970, 179);
+            this.chart1.Location = new System.Drawing.Point(643, 12);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(521, 325);
+            this.chart1.Size = new System.Drawing.Size(482, 298);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "chart1";
             // 
@@ -85,19 +87,20 @@
             this.grid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grid.Location = new System.Drawing.Point(0, 546);
+            this.grid.Location = new System.Drawing.Point(0, 316);
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
-            this.grid.Size = new System.Drawing.Size(1630, 337);
+            this.grid.Size = new System.Drawing.Size(1582, 337);
             this.grid.TabIndex = 9;
             // 
             // Xem
             // 
+            this.Xem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Xem.BackColor = System.Drawing.Color.RosyBrown;
             this.Xem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Xem.ForeColor = System.Drawing.Color.Transparent;
-            this.Xem.Location = new System.Drawing.Point(1180, 105);
+            this.Xem.Location = new System.Drawing.Point(1236, 202);
             this.Xem.Name = "Xem";
             this.Xem.Size = new System.Drawing.Size(193, 49);
             this.Xem.TabIndex = 8;
@@ -107,6 +110,7 @@
             // 
             // nam
             // 
+            this.nam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nam.FormattingEnabled = true;
             this.nam.Items.AddRange(new object[] {
@@ -121,10 +125,8 @@
             "2032",
             "2033",
             "2034",
-            "2035",
-            "",
-            ""});
-            this.nam.Location = new System.Drawing.Point(1278, 51);
+            "2035"});
+            this.nam.Location = new System.Drawing.Point(1334, 148);
             this.nam.Name = "nam";
             this.nam.Size = new System.Drawing.Size(179, 33);
             this.nam.TabIndex = 7;
@@ -132,6 +134,7 @@
             // 
             // thang
             // 
+            this.thang.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.thang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thang.FormattingEnabled = true;
             this.thang.Items.AddRange(new object[] {
@@ -147,7 +150,7 @@
             "10",
             "11",
             "12"});
-            this.thang.Location = new System.Drawing.Point(1075, 51);
+            this.thang.Location = new System.Drawing.Point(1131, 148);
             this.thang.Name = "thang";
             this.thang.Size = new System.Drawing.Size(179, 33);
             this.thang.TabIndex = 6;
@@ -157,8 +160,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1630, 883);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1582, 653);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.grid);
@@ -167,8 +170,8 @@
             this.Controls.Add(this.thang);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BaoCaoDoanhThu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo doanh thu";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();

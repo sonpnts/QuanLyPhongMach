@@ -31,12 +31,12 @@ namespace QLPMDAL
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@ngayLapHoaDon", hd.NgayLapHoaDon);
-					cmd.Parameters.AddWithValue("@tienThuoc", hd.TienThuoc);
-					cmd.Parameters.AddWithValue("@tienKham", hd.TienKham);
-					cmd.Parameters.AddWithValue("@tongTien", hd.TongTien);
+                    cmd.Parameters.AddWithValue("@tienThuoc", hd.TienThuoc);
+                    cmd.Parameters.AddWithValue("@tienKham", hd.TienKham);
+                    cmd.Parameters.AddWithValue("@tongTien", hd.TongTien);
                     cmd.Parameters.AddWithValue("@maPKB", hd.MaPKB);
                     cmd.Parameters.AddWithValue("@maTaiKhoan", hd.MaNVTN);
-                    
+
                     try
                     {
                         con.Open();
@@ -200,7 +200,7 @@ namespace QLPMDAL
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@NgayLapHoaDon", ngayLapHoaDon);
-     
+
                     try
                     {
                         con.Open();
@@ -268,7 +268,7 @@ namespace QLPMDAL
             }
             return sobn;
         }
-        public List<HoadonDTO> selectByMonth(string month,string year)
+        public List<HoadonDTO> selectByMonth(string month, string year)
         {
             string query = string.Empty;
             query += " SELECT NgayLapHoaDon ";

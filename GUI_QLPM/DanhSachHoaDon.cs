@@ -103,6 +103,6 @@ namespace GUI_QLPM
             }
             gird.DataSource = table.DefaultView;
         }
-    
-}
+
+    }
 }

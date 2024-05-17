@@ -42,21 +42,22 @@
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grid.Location = new System.Drawing.Point(0, 185);
+            this.grid.Location = new System.Drawing.Point(0, 198);
             this.grid.Name = "grid";
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
-            this.grid.Size = new System.Drawing.Size(800, 265);
+            this.grid.Size = new System.Drawing.Size(1582, 455);
             this.grid.TabIndex = 7;
             // 
             // Xem
             // 
+            this.Xem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Xem.BackColor = System.Drawing.Color.RosyBrown;
             this.Xem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Xem.ForeColor = System.Drawing.Color.Transparent;
-            this.Xem.Location = new System.Drawing.Point(327, 111);
+            this.Xem.Location = new System.Drawing.Point(671, 104);
             this.Xem.Name = "Xem";
-            this.Xem.Size = new System.Drawing.Size(147, 52);
+            this.Xem.Size = new System.Drawing.Size(241, 52);
             this.Xem.TabIndex = 6;
             this.Xem.Text = "XEM";
             this.Xem.UseVisualStyleBackColor = false;
@@ -64,6 +65,7 @@
             // 
             // nam
             // 
+            this.nam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nam.FormattingEnabled = true;
             this.nam.Items.AddRange(new object[] {
@@ -80,7 +82,7 @@
             "2034",
             "2035",
             ""});
-            this.nam.Location = new System.Drawing.Point(432, 47);
+            this.nam.Location = new System.Drawing.Point(823, 47);
             this.nam.Name = "nam";
             this.nam.Size = new System.Drawing.Size(156, 33);
             this.nam.TabIndex = 5;
@@ -88,6 +90,7 @@
             // 
             // thang
             // 
+            this.thang.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.thang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thang.FormattingEnabled = true;
             this.thang.Items.AddRange(new object[] {
@@ -103,7 +106,7 @@
             "10",
             "11",
             "12"});
-            this.thang.Location = new System.Drawing.Point(212, 47);
+            this.thang.Location = new System.Drawing.Point(603, 47);
             this.thang.Name = "thang";
             this.thang.Size = new System.Drawing.Size(156, 33);
             this.thang.TabIndex = 4;
@@ -113,8 +116,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1582, 653);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.Xem);
             this.Controls.Add(this.nam);

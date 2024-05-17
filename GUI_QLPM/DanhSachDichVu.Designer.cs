@@ -49,11 +49,11 @@
             this.gird.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gird.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gird.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gird.Location = new System.Drawing.Point(0, 205);
+            this.gird.Location = new System.Drawing.Point(0, 255);
             this.gird.Name = "gird";
             this.gird.RowHeadersWidth = 51;
             this.gird.RowTemplate.Height = 24;
-            this.gird.Size = new System.Drawing.Size(1015, 398);
+            this.gird.Size = new System.Drawing.Size(1582, 398);
             this.gird.TabIndex = 23;
             this.gird.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
@@ -62,7 +62,7 @@
             this.button3.BackColor = System.Drawing.Color.RosyBrown;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Transparent;
-            this.button3.Location = new System.Drawing.Point(783, 119);
+            this.button3.Location = new System.Drawing.Point(1094, 161);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(171, 44);
             this.button3.TabIndex = 22;
@@ -75,7 +75,7 @@
             this.button2.BackColor = System.Drawing.Color.RosyBrown;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(566, 119);
+            this.button2.Location = new System.Drawing.Point(877, 161);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(171, 44);
             this.button2.TabIndex = 21;
@@ -88,7 +88,7 @@
             this.TimKiem.BackColor = System.Drawing.Color.RosyBrown;
             this.TimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimKiem.ForeColor = System.Drawing.Color.Transparent;
-            this.TimKiem.Location = new System.Drawing.Point(773, 23);
+            this.TimKiem.Location = new System.Drawing.Point(1084, 23);
             this.TimKiem.Name = "TimKiem";
             this.TimKiem.Size = new System.Drawing.Size(171, 44);
             this.TimKiem.TabIndex = 20;
@@ -99,17 +99,17 @@
             // maDichVu
             // 
             this.maDichVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maDichVu.Location = new System.Drawing.Point(266, 30);
+            this.maDichVu.Location = new System.Drawing.Point(577, 32);
             this.maDichVu.Multiline = true;
             this.maDichVu.Name = "maDichVu";
-            this.maDichVu.Size = new System.Drawing.Size(313, 36);
+            this.maDichVu.Size = new System.Drawing.Size(459, 34);
             this.maDichVu.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(101, 41);
+            this.label1.Location = new System.Drawing.Point(412, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 25);
             this.label1.TabIndex = 18;
@@ -120,7 +120,7 @@
             this.suadichvu.BackColor = System.Drawing.Color.RosyBrown;
             this.suadichvu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suadichvu.ForeColor = System.Drawing.Color.Transparent;
-            this.suadichvu.Location = new System.Drawing.Point(340, 119);
+            this.suadichvu.Location = new System.Drawing.Point(651, 161);
             this.suadichvu.Name = "suadichvu";
             this.suadichvu.Size = new System.Drawing.Size(187, 44);
             this.suadichvu.TabIndex = 21;
@@ -132,7 +132,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 88);
+            this.label2.Location = new System.Drawing.Point(317, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 25);
             this.label2.TabIndex = 18;
@@ -141,7 +141,7 @@
             // txtTenDV
             // 
             this.txtTenDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDV.Location = new System.Drawing.Point(132, 85);
+            this.txtTenDV.Location = new System.Drawing.Point(443, 127);
             this.txtTenDV.Multiline = true;
             this.txtTenDV.Name = "txtTenDV";
             this.txtTenDV.Size = new System.Drawing.Size(202, 36);
@@ -151,7 +151,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 138);
+            this.label3.Location = new System.Drawing.Point(317, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 25);
             this.label3.TabIndex = 18;
@@ -160,7 +160,7 @@
             // txtTienDV
             // 
             this.txtTienDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTienDV.Location = new System.Drawing.Point(132, 127);
+            this.txtTienDV.Location = new System.Drawing.Point(443, 169);
             this.txtTienDV.Multiline = true;
             this.txtTienDV.Name = "txtTienDV";
             this.txtTienDV.Size = new System.Drawing.Size(202, 36);
@@ -171,7 +171,7 @@
             this.xoadv.BackColor = System.Drawing.Color.RosyBrown;
             this.xoadv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xoadv.ForeColor = System.Drawing.Color.Transparent;
-            this.xoadv.Location = new System.Drawing.Point(340, 72);
+            this.xoadv.Location = new System.Drawing.Point(651, 114);
             this.xoadv.Name = "xoadv";
             this.xoadv.Size = new System.Drawing.Size(187, 44);
             this.xoadv.TabIndex = 21;
@@ -183,8 +183,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1015, 603);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1582, 653);
             this.Controls.Add(this.gird);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.suadichvu);

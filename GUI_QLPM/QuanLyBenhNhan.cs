@@ -16,7 +16,7 @@ using System.Diagnostics;
 
 namespace GUI_QLPM
 {
-    public partial class TraCuuBenhNhan : Form
+    public partial class QuanLyBN : Form
     {
         public DataTable db1 = new DataTable("BenhNhan");
         BenhNhanBUS bnBus = new BenhNhanBUS();
@@ -24,13 +24,13 @@ namespace GUI_QLPM
         PhieukhambenhBUS pkbBUS = new PhieukhambenhBUS();
         private string temp_ma;
 
-        public TraCuuBenhNhan()
+        public QuanLyBN()
         {
             InitializeComponent();
             load_data();
             gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
+    
         private void load()
         {
             db1.Clear();
@@ -41,7 +41,10 @@ namespace GUI_QLPM
             bnBus = new BenhNhanBUS();
             List<BenhNhanDTO> listBenhNhan = bnBus.select();
             this.loadData_Vao_GridView(listBenhNhan);
-
+            hoten.Text = "";
+            ngaySinh.Text = "";
+            gioiTinh.Text = "";
+            diaChi.Text = "";
         }
         private void loadData_Vao_GridView(List<BenhNhanDTO> listBenhNhan)
         {
@@ -60,7 +63,7 @@ namespace GUI_QLPM
             table.Columns.Add("Địa chỉ", typeof(string));
             table.Columns.Add("Giới tính", typeof(string));
 
-
+           
             foreach (BenhNhanDTO bn in listBenhNhan)
             {
                 DataRow row = table.NewRow();
@@ -69,7 +72,7 @@ namespace GUI_QLPM
                 row["Ngày sinh"] = DateTime.Parse(bn.NgsinhBN.ToString()).ToString("dd/MM/yyyy");
                 row["Địa chỉ"] = bn.DiachiBN;
                 row["Giới tính"] = bn.GtBN;
-
+              
                 table.Rows.Add(row);
             }
             gird.DataSource = table.DefaultView;
@@ -96,6 +99,72 @@ namespace GUI_QLPM
             this.Close();
         }
 
+        private void gird_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.RowIndex >= 0 && e.RowIndex < gird.Rows.Count)
+            {
+                DataGridViewRow row = gird.Rows[e.RowIndex];
+                hoten.Text = row.Cells[1].Value.ToString();
+                ngaySinh.Text = row.Cells[2].Value.ToString();
+                diaChi.Text = row.Cells[3].Value.ToString();
+                gioiTinh.Text = row.Cells[4].Value.ToString();
+                temp_ma = row.Cells[0].Value.ToString();
+            }
+            
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bn.TenBN=hoten.Text;
+            bn.DiachiBN=diaChi.Text;
+            bn.NgsinhBN= DateTime.Parse(ngaySinh.Text);
+            bn.GtBN=gioiTinh.Text;
+
+            bool kq = bnBus.sua(bn, temp_ma);
+            if (!kq)
+                System.Windows.Forms.MessageBox.Show("Update bênh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Update bệnh nhân thành công", "Result");
+                load_data();
+            }
+        }
+
+        private void xoabenhnhan_Click(object sender, EventArgs e)
+        {
+            List<PhieukhambenhDTO> pkb = pkbBUS.select();
+            foreach(PhieukhambenhDTO phieukhambenh in pkb)
+            {
+                if(phieukhambenh.MaBenhNhan==temp_ma)
+                {
+
+                    System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thất bại. Bệnh nhân đã khám", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    return;
+                }
+             
+            }
+            bn.MaBN = temp_ma;
+            bool kq = bnBus.xoa(bn);
+            if (!kq)
+            {
+                System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+               
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thành công", "Result");
+                load_data();
+                
+            }
+        }
+
+        private void btnThembn_Click(object sender, EventArgs e)
+        {
+            ThemBenhNhanMoi tbnm = new ThemBenhNhanMoi();
+            tbnm.Show();
+            load_data();
+
+        }
     }
 }
