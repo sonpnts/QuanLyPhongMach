@@ -23,40 +23,39 @@ namespace GUI_QLPM
         private void load()
         {
             ThuocBUS thBus = new ThuocBUS();
-            List<Cachdung> listcd = thBus.getcachdung();
-            List<Donvi> listdv = thBus.getdonvi();
-            this.load_combobox(listdv, listcd);
+           
+            
         }
-        private void load_combobox(List<Donvi> listdv, List<Cachdung> listcd)
-        {
-            if (listdv == null || listcd == null)
-            {
-                System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB");
-                return;
-            }
+        //private void load_combobox(List<Donvi> listdv, List<Cachdung> listcd)
+        //{
+        //    if (listdv == null || listcd == null)
+        //    {
+        //        System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB");
+        //        return;
+        //    }
 
-            DataTable table = new DataTable();
-            DataTable table1 = new DataTable();
+        //    DataTable table = new DataTable();
+        //    DataTable table1 = new DataTable();
 
-            table.Columns.Add("donVi", typeof(string));
-            table1.Columns.Add("cachDung", typeof(string));
-            foreach (Donvi dv in listdv)
-            {
-                DataRow row = table.NewRow();
-                row["donVi"] = dv.DonVi;
-                table.Rows.Add(row);
-            }
-            foreach (Cachdung cd in listcd)
-            {
-                DataRow row = table1.NewRow();
-                row["cachDung"] = cd.CachDung;
-                table1.Rows.Add(row);
-            }
-            cbb_donvi_Sua.DataSource = table.DefaultView;
-            cbb_donvi_Sua.DisplayMember = "donVi";
-            cbb_cachdung_Sua.DataSource = table1.DefaultView;
-            cbb_cachdung_Sua.DisplayMember = "cachDung";
-        }
+        //    table.Columns.Add("donVi", typeof(string));
+        //    table1.Columns.Add("cachDung", typeof(string));
+        //    foreach (Donvi dv in listdv)
+        //    {
+        //        DataRow row = table.NewRow();
+        //        row["donVi"] = dv.DonVi;
+        //        table.Rows.Add(row);
+        //    }
+        //    foreach (Cachdung cd in listcd)
+        //    {
+        //        DataRow row = table1.NewRow();
+        //        row["cachDung"] = cd.CachDung;
+        //        table1.Rows.Add(row);
+        //    }
+        //    cbb_donvi_Sua.DataSource = table.DefaultView;
+        //    cbb_donvi_Sua.DisplayMember = "donVi";
+        //    cbb_cachdung_Sua.DataSource = table1.DefaultView;
+        //    cbb_cachdung_Sua.DisplayMember = "cachDung";
+        //}
 
         private void TienKham_Click(object sender, EventArgs e)
         {

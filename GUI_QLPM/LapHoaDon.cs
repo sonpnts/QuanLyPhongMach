@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace GUI_QLPM
@@ -20,6 +21,11 @@ namespace GUI_QLPM
         ThuocBUS thBus = new ThuocBUS();
         KethuocBUS ktBus = new KethuocBUS();
         DichvuBUS dvBus = new DichvuBUS();
+        cachDungBUS cdBUS = new cachDungBUS();
+        donViBUS donViBUS = new donViBUS();
+        List<cachdungDTO> listcd;
+        List<donViDTO> listdv;
+
         PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
         System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
 
@@ -33,6 +39,8 @@ namespace GUI_QLPM
             InitializeComponent();
             load();
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            listcd = cdBUS.select();
+            listdv = donViBUS.select();
         }
         public void load()
         {
@@ -218,7 +226,15 @@ namespace GUI_QLPM
 
                         DataRow row = table.NewRow();
                         row["Tên thuốc"] = th.TenThuoc;
-                        row["Đơn vị tính"] = th.DonVi;
+                      
+                        foreach (donViDTO donvi in listdv)
+                        {
+                            if (donvi.MaDonVi == th.MaDonVi)
+                            {
+                                row["Đơn vị tín"] = donvi.TenDonVi;
+                            }
+
+                        }
                         row["Đơn giá"] = th.DonGia;
                         row["Số lượng"] = kt.SoLuong;
                         row["Thành tiền"] = (kt.SoLuong * th.DonGia).ToString();

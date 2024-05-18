@@ -20,6 +20,10 @@ namespace GUI_QLPM
         public DataTable db1 = new DataTable("Thuoc");
         ThuocBUS thBus = new ThuocBUS();
         ThuocDTO th = new ThuocDTO();
+        cachDungBUS cdBUS = new cachDungBUS();
+        donViBUS donViBUS = new donViBUS();
+        List<cachdungDTO> listcd ;
+        List<donViDTO> listdv;
         private string temp;
 
         public DanhSachThuoc()
@@ -33,8 +37,8 @@ namespace GUI_QLPM
         {
             ThuocBUS thBus = new ThuocBUS();
             mathuoc.Text = thBus.autogenerate_mathuoc().ToString();
-            List<Cachdung> listcd = thBus.getcachdung();
-            List<Donvi> listdv = thBus.getdonvi();
+            listcd = cdBUS.select();
+            listdv = donViBUS.select();
             this.load_combobox(listdv, listcd);
             tenthuoc.Text = "";
             donvitinh.Text = "";
@@ -53,7 +57,7 @@ namespace GUI_QLPM
             cachdung.Text = "";
 
         }
-        private void load_combobox(List<Donvi> listdv, List<Cachdung> listcd)
+        private void load_combobox(List<donViDTO> listdv, List<cachdungDTO> listcd)
         {
             if (listdv == null || listcd == null)
             {
@@ -67,16 +71,16 @@ namespace GUI_QLPM
 
             table.Columns.Add("donVi", typeof(string));
             table1.Columns.Add("cachDung", typeof(string));
-            foreach (Donvi dv in listdv)
+            foreach (donViDTO dv in listdv)
             {
                 DataRow row = table.NewRow();
-                row["donVi"] = dv.DonVi;
+                row["donVi"] = dv.TenDonVi;
                 table.Rows.Add(row);
             }
-            foreach (Cachdung cd in listcd)
+            foreach (cachdungDTO cd in listcd)
             {
                 DataRow row = table1.NewRow();
-                row["cachDung"] = cd.CachDung;
+                row["cachDung"] = cd.TenCachDung;
                 table1.Rows.Add(row);
             }
             // Đặt dữ liệu vào ComboBox donvitinh từ table
@@ -112,9 +116,25 @@ namespace GUI_QLPM
                 DataRow row = table.NewRow();
                 row["maThuoc"] = th.MaThuoc;
                 row["tenThuoc"] = th.TenThuoc;
-                row["DVT"] = th.DonVi;
+                foreach(donViDTO donvi in listdv)
+                {
+                    if (donvi.MaDonVi == th.MaDonVi)
+                    {
+                        row["DVT"] = donvi.TenDonVi;
+                    }
+
+                }
+                
                 row["Dongia"] = th.DonGia;
-                row["CachDung"] = th.CachDung;
+                foreach (cachdungDTO cd in listcd)
+                {
+                    if (cd.MaCachDung == th.MaCachDung)
+                    {
+                        row["CachDung"] = cd.TenCachDung;
+                    }
+
+                }
+                
                 table.Rows.Add(row);
             }
             grid.DataSource = table.DefaultView;
@@ -149,8 +169,24 @@ namespace GUI_QLPM
                 th.MaThuoc = mathuoc.Text;
                 th.TenThuoc = tenthuoc.Text;
                 th.DonGia = float.Parse(dongia.Text);
-                th.CachDung = cachdung.Text;
-                th.DonVi = donvitinh.Text;
+                foreach (donViDTO donvi in listdv)
+                {
+                    if (donvi.TenDonVi == donvitinh.Text)
+                    {
+                        th.MaDonVi=donvi.MaDonVi;
+                    }
+
+                }
+
+                
+                foreach (cachdungDTO cd in listcd)
+                {
+                    if (cd.TenCachDung == cachdung.Text)
+                    {
+                        th.MaCachDung=cd.MaCachDung;
+                    }
+
+                }
 
                 thBus = new ThuocBUS();
                 bool kq = thBus.them(th);
@@ -168,9 +204,26 @@ namespace GUI_QLPM
         private void Sua_Click(object sender, EventArgs e)
         {
             th.TenThuoc = tenthuoc.Text;
-            th.DonVi = donvitinh.Text;
+            foreach (donViDTO donvi in listdv)
+            {
+                if (donvi.TenDonVi == donvitinh.Text)
+                {
+                    th.MaDonVi = donvi.MaDonVi;
+                }
+
+            }
+
+
+            foreach (cachdungDTO cd in listcd)
+            {
+                if (cd.TenCachDung == cachdung.Text)
+                {
+                    th.MaCachDung = cd.MaCachDung;
+                }
+
+            }
             th.DonGia = int.Parse(dongia.Text);
-            th.CachDung = cachdung.Text;
+            
 
             bool kq = thBus.sua(th, temp);
             if (!kq)
@@ -201,9 +254,26 @@ namespace GUI_QLPM
         {
             th.MaThuoc = mathuoc.Text;
             th.TenThuoc = tenthuoc.Text;
-            th.DonVi = donvitinh.Text;
+            foreach (donViDTO donvi in listdv)
+            {
+                if (donvi.TenDonVi == donvitinh.Text)
+                {
+                    th.MaDonVi = donvi.MaDonVi;
+                }
+
+            }
+
+
+            foreach (cachdungDTO cd in listcd)
+            {
+                if (cd.TenCachDung == cachdung.Text)
+                {
+                    th.MaCachDung = cd.MaCachDung;
+                }
+
+            }
             th.DonGia = int.Parse(dongia.Text);
-            th.CachDung = cachdung.Text;
+           
 
             bool kq = thBus.xoa(th);
             if (!kq)
@@ -216,5 +286,6 @@ namespace GUI_QLPM
             }
         }
     }
+    
 }
 

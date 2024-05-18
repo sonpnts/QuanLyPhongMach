@@ -32,9 +32,9 @@ namespace QLPMDAL
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@tenThuoc", th.TenThuoc);
-                    cmd.Parameters.AddWithValue("@donVi", th.DonVi);
+                    cmd.Parameters.AddWithValue("@donVi", th.MaDonVi);
                     cmd.Parameters.AddWithValue("@Dongia", th.DonGia);
-                    cmd.Parameters.AddWithValue("@CachDung", th.CachDung);
+                    cmd.Parameters.AddWithValue("@CachDung", th.MaCachDung);
                     try
                     {
                         con.Open();
@@ -66,9 +66,9 @@ namespace QLPMDAL
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@tenThuoc", th.TenThuoc);
-                    cmd.Parameters.AddWithValue("@DonVi", th.DonVi);
+                    cmd.Parameters.AddWithValue("@DonVi", th.MaDonVi);
                     cmd.Parameters.AddWithValue("@Dongia", th.DonGia);
-                    cmd.Parameters.AddWithValue("@CachDung", th.CachDung);
+                    cmd.Parameters.AddWithValue("@CachDung", th.MaCachDung);
                     cmd.Parameters.AddWithValue("@maThuocold", maThuocold);
                     try
                     {
@@ -149,8 +149,8 @@ namespace QLPMDAL
                                 ThuocDTO th = new ThuocDTO();
                                 th.MaThuoc = reader["maThuoc"].ToString();
                                 th.TenThuoc = reader["tenThuoc"].ToString();
-                                th.DonVi = reader["DonVi"].ToString();
-                                th.CachDung = reader["CachDung"].ToString();
+                                th.MaDonVi = int.Parse(reader["maDonVi"].ToString());
+                                th.MaCachDung = int.Parse(reader["maCachDung"].ToString());
                                 th.DonGia = float.Parse(reader["donGia"].ToString());
 
                                 lsThuoc.Add(th);
@@ -201,8 +201,8 @@ namespace QLPMDAL
                                 ThuocDTO th = new ThuocDTO();
                                 th.MaThuoc = reader["maThuoc"].ToString();
                                 th.TenThuoc = reader["tenThuoc"].ToString();
-                                th.DonVi = reader["DonVi"].ToString();
-                                th.CachDung = reader["CachDung"].ToString();
+                                th.MaDonVi = int.Parse(reader["maDonVi"].ToString());
+                                th.MaCachDung = int.Parse(reader["maCachDung"].ToString());
                                 th.DonGia = float.Parse(reader["donGia"].ToString());
 
                                 lsThuoc.Add(th);
@@ -293,8 +293,8 @@ namespace QLPMDAL
                                     {
                                         MaThuoc = reader["maThuoc"].ToString(),
                                         TenThuoc = reader["tenThuoc"].ToString(),
-                                        DonVi = reader["donVi"].ToString(),
-                                        CachDung = reader["CachDung"].ToString(),
+                                        MaDonVi = int.Parse(reader["maDonVi"].ToString()),
+                                        MaCachDung = int.Parse(reader["maCachDung"].ToString()),
                                         DonGia = float.Parse(reader["donGia"].ToString())
                                     };
 
@@ -345,7 +345,7 @@ namespace QLPMDAL
                                 ThuocDTO th = new ThuocDTO();
                                 th.MaThuoc = reader["maThuoc"].ToString();
                                 th.TenThuoc = reader["tenThuoc"].ToString();
-                                th.DonVi = reader["DonVi"].ToString();
+                                th.MaDonVi = int.Parse(reader["maDonVi"].ToString());
                                 lsThuoc.Add(th);
 
                             }
@@ -363,94 +363,8 @@ namespace QLPMDAL
             }
             return lsThuoc;
         }
-        public List<Donvi> getdonvi()
-        {
-            string query = string.Empty;
-            query += "SELECT * FROM DonVi";
-
-
-            List<Donvi> lsdv = new List<Donvi>();
-
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    try
-                    {
-                        con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
-                        {
-                            while (reader.Read())
-                            {
-                                Donvi dv = new Donvi();
-                                dv.DonVi = reader["donVi"].ToString();
-                                lsdv.Add(dv);
-
-                            }
-                        }
-
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return null;
-                    }
-                }
-            }
-            return lsdv;
-        }
-        public List<Cachdung> getcachdung()
-        {
-            string query = string.Empty;
-            query += "SELECT * FROM CachDung";
-
-
-            List<Cachdung> lscd = new List<Cachdung>();
-
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    try
-                    {
-                        con.Open();
-                        SqlDataReader reader = null;
-                        reader = cmd.ExecuteReader();
-                        if (reader.HasRows == true)
-                        {
-                            while (reader.Read())
-                            {
-                                Cachdung cd = new Cachdung();
-                                cd.CachDung = reader["cachDung"].ToString();
-                                lscd.Add(cd);
-
-                            }
-                        }
-
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return null;
-                    }
-                }
-            }
-            return lscd;
-        }
+       
+        
         public bool thaydoiCD(string cdmoi, string cdcu)
         {
             string query = string.Empty;

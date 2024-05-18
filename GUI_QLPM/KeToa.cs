@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -19,11 +20,15 @@ namespace GUI_QLPM
     public partial class KeToa : Form
     {
 
-
+        PhieukhambenhBUS pkbBus = new PhieukhambenhBUS(); 
         public DataTable db1 = new DataTable();
         ToathuocBUS ttBus = new ToathuocBUS();
         KethuocBUS ktBus = new KethuocBUS();
         ThuocBUS thBus = new ThuocBUS();
+        cachDungBUS cdBUS = new cachDungBUS();
+        donViBUS donViBUS = new donViBUS();
+        List<cachdungDTO> listcd;
+        List<donViDTO> listdv;
         string id;
         public KeToa(string ma)
         {
@@ -31,7 +36,9 @@ namespace GUI_QLPM
             load_data();
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             mapkb.Text = (int.Parse(ma)-1).ToString();
-            
+            listcd = cdBUS.select();
+            listdv = donViBUS.select();
+
         }
         
 
@@ -40,14 +47,19 @@ namespace GUI_QLPM
             db1.Clear();
             db1.Columns.Add("Mã thuốc", typeof(string));
             db1.Columns.Add("tenThuoc", typeof(string));
-            db1.Columns.Add("DonVi", typeof(string));
+            db1.Columns.Add("Đơn vị", typeof(string));
             db1.Columns.Add("Dongia", typeof(float));
-            db1.Columns.Add("CachDung", typeof(string));
+            db1.Columns.Add("Cách dùng", typeof(string));
             db1.Columns.Add("soLuong", typeof(System.Int32));
             ThuocBUS thBus = new ThuocBUS();
             List<ThuocDTO> listThuoc = thBus.select();
             this.loadData_Vao_Combobox(listThuoc);
             ttBus = new ToathuocBUS();
+           
+            List<PhieukhambenhDTO> listPKB = pkbBus.select();
+            List<ToathuocDTO> listToaThuoc = ttBus.select();
+            this.loadData_Vao_Combobox(listThuoc, listPKB, listToaThuoc);
+
             maToa.Text = ttBus.autogenerate_matoa().ToString();
 
         }
@@ -90,9 +102,27 @@ namespace GUI_QLPM
                     DataRow row = db1.NewRow();
                     row["Mã thuốc"] = th.MaThuoc;
                     row["tenThuoc"] = th.TenThuoc;
-                    row["DonVi"] = th.DonVi;
+                    foreach (donViDTO donvi in listdv)
+                    {
+                        if (donvi.MaDonVi == th.MaDonVi)
+                        {
+                            row["Đơn vị"] = donvi.TenDonVi;
+                        }
+
+                    }
+
                     row["Dongia"] = th.DonGia;
-                    row["CachDung"] = th.CachDung;
+                    foreach (cachdungDTO cd in listcd)
+                    {
+                        if (cd.MaCachDung == th.MaCachDung)
+                        {
+                            row["Cách dùng"] = cd.TenCachDung;
+                        }
+
+                    }
+                    
+                    row["Dongia"] = th.DonGia;
+                    
                     row["soLuong"] = soluong;
                     db1.Rows.Add(row);
                 }
@@ -155,6 +185,50 @@ namespace GUI_QLPM
             }
         }
 
+        private void loadData_Vao_Combobox(List<ThuocDTO> listThuoc, List<PhieukhambenhDTO> listPKB, List<ToathuocDTO> listToaThuoc)
+        {
+
+            if (listThuoc == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB", "Result", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
+            }
+
+            if (listPKB == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Không có phiếu khám bệnh nào cần kê thuốc !!!", "Result", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Error);
+                return;
+            }
+            DataTable table = new DataTable();
+
+            table.Columns.Add("tenThuoc", typeof(string));
+            foreach (ThuocDTO th in listThuoc)
+            {
+                DataRow row = table.NewRow();
+                row["tenThuoc"] = th.TenThuoc;
+                table.Rows.Add(row);
+            }
+            TenThuoc.DataSource = table.DefaultView;
+            TenThuoc.DisplayMember = "tenThuoc";
+            TenThuoc.SelectedIndex = -1;
+
+            HashSet<string> maPKBDaCoTrongToaThuoc = new HashSet<string>();
+
+            foreach (ToathuocDTO tt in listToaThuoc)
+            {
+                maPKBDaCoTrongToaThuoc.Add(tt.MaPkb);
+            }
+
+            foreach (PhieukhambenhDTO pkb in listPKB)
+            {
+                if (!maPKBDaCoTrongToaThuoc.Contains(pkb.MaPKB))
+                {
+                    mapkb.Items.Add(pkb.MaPKB);
+
+                }
+            }
+        }
+
         private void grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataGridView dataGridView = (DataGridView)sender;
@@ -213,6 +287,7 @@ namespace GUI_QLPM
             else
             {
                 System.Windows.Forms.MessageBox.Show("Kê toa thành công", "Result");
+                load_data();
             }
 
            

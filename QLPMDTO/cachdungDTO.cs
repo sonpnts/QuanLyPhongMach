@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace QLPMDTO
 {
-    class cachdungDTO
+    public class cachdungDTO
     {
+        private int maCachDung;
+        private string tenCachDung;
+        public int MaCachDung { get { return maCachDung; } set { maCachDung = value; } }
+        public string TenCachDung { get { return tenCachDung; } set { tenCachDung = value; } }
     }
 }

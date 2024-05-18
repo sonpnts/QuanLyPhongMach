@@ -23,5 +23,9 @@ namespace QLPMBUS
         {
             return ttDAL.autogenerate_matoa();
         }
+        public List<ToathuocDTO> select()
+        {
+            return ttDAL.select();
+        }
     }
 }

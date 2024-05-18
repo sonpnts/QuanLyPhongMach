@@ -50,6 +50,53 @@ namespace QLPMDAL
             }
             return true;
         }
+        public List<ToathuocDTO> select()
+        {
+            string query = string.Empty;
+            query += "SELECT * ";
+            query += "FROM [ToaThuoc]";
+
+            List<ToathuocDTO> lsToaThuoc = new List<ToathuocDTO>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                ToathuocDTO tt = new ToathuocDTO();
+                                tt.MaToa = reader["maToaThuoc"].ToString();
+                                tt.NgayKetoa = Convert.ToDateTime(reader["ngayKeToa"]);
+                                tt.MaPkb = reader["maPKB"].ToString();
+
+                                lsToaThuoc.Add(tt);
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        con.Close();
+                        return null;
+                    }
+                }
+            }
+            return lsToaThuoc;
+        }
 
         public int autogenerate_matoa()
         {

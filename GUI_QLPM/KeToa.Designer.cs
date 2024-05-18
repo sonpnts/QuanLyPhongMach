@@ -37,9 +37,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.AddThuoc_SoLuong = new System.Windows.Forms.Button();
             this.maToa = new System.Windows.Forms.TextBox();
-            this.mapkb = new System.Windows.Forms.TextBox();
             this.soLuong = new System.Windows.Forms.TextBox();
             this.TenThuoc = new System.Windows.Forms.ComboBox();
+            this.mapkb = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,15 +135,6 @@
             this.maToa.Size = new System.Drawing.Size(185, 30);
             this.maToa.TabIndex = 7;
             // 
-            // mapkb
-            // 
-            this.mapkb.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mapkb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mapkb.Location = new System.Drawing.Point(590, 49);
-            this.mapkb.Name = "mapkb";
-            this.mapkb.Size = new System.Drawing.Size(160, 30);
-            this.mapkb.TabIndex = 9;
-            // 
             // soLuong
             // 
             this.soLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -163,15 +154,25 @@
             this.TenThuoc.Size = new System.Drawing.Size(185, 33);
             this.TenThuoc.TabIndex = 11;
             // 
+            // mapkb
+            // 
+            this.mapkb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mapkb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapkb.FormattingEnabled = true;
+            this.mapkb.Location = new System.Drawing.Point(581, 48);
+            this.mapkb.Name = "mapkb";
+            this.mapkb.Size = new System.Drawing.Size(140, 33);
+            this.mapkb.TabIndex = 13;
+            // 
             // KeToa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mapkb);
             this.Controls.Add(this.TenThuoc);
             this.Controls.Add(this.soLuong);
-            this.Controls.Add(this.mapkb);
             this.Controls.Add(this.maToa);
             this.Controls.Add(this.AddThuoc_SoLuong);
             this.Controls.Add(this.label4);
@@ -200,8 +201,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button AddThuoc_SoLuong;
         private System.Windows.Forms.TextBox maToa;
-        private System.Windows.Forms.TextBox mapkb;
         private System.Windows.Forms.TextBox soLuong;
         private System.Windows.Forms.ComboBox TenThuoc;
+        private System.Windows.Forms.ComboBox mapkb;
     }
 }

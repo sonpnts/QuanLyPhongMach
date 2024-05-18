@@ -64,30 +64,33 @@ CREATE TABLE ChuanDoan(
 ) ON [PRIMARY]
 
 
--- TẠO BẢNG ĐƠN VỊ
+
 CREATE TABLE DonVi(
-    donVi nvarchar(20) NOT NULL,
-	CONSTRAINT pk_donVi PRIMARY KEY CLUSTERED (donVi ASC) ON [PRIMARY],
-) ON [PRIMARY]
+    maDonVi int IDENTITY,
+    tenDonVi nvarchar(20) NOT NULL,
+    CONSTRAINT pk_donVi PRIMARY KEY CLUSTERED (maDonVi ASC) ON [PRIMARY]
+) ON [PRIMARY];
 
--- TẠO BẢNG Cách dùng
+
+
 CREATE TABLE CachDung(
-    cachDung nvarchar(20) NOT NULL,
-	CONSTRAINT pk_cachDung PRIMARY KEY CLUSTERED (cachDung ASC) ON [PRIMARY],
-) ON [PRIMARY]
+    maCachDung int IDENTITY,
+    tenCachDung nvarchar(20) NOT NULL,
+    CONSTRAINT pk_cachDung PRIMARY KEY CLUSTERED (maCachDung ASC) ON [PRIMARY]
+) ON [PRIMARY];
 
 
--- TẠO BẢNG THUỐC
+
 CREATE TABLE Thuoc(
     maThuoc int IDENTITY,
     tenThuoc nvarchar(50) NOT NULL,
     donGia float NOT NULL,
-    cachDung nvarchar(20) NOT NULL,
-	donVi nvarchar(20) NOT NULL,
+    maCachDung int NOT NULL,
+    maDonVi int NOT NULL,
     CONSTRAINT pk_Thuoc PRIMARY KEY CLUSTERED (maThuoc ASC) ON [PRIMARY],
-	CONSTRAINT fk_DonVi_Thuoc FOREIGN KEY (donVi) REFERENCES DonVi (donVi),
-    CONSTRAINT fk_CachDung_Thuoc FOREIGN KEY (cachDung) REFERENCES CachDung (cachDung)
-) ON [PRIMARY]
+    CONSTRAINT fk_DonVi_Thuoc FOREIGN KEY (maDonVi) REFERENCES DonVi (maDonVi),
+    CONSTRAINT fk_CachDung_Thuoc FOREIGN KEY (maCachDung) REFERENCES CachDung (maCachDung)
+) ON [PRIMARY];
 
 
 -- TẠO BẢNG TOA THUỐC
@@ -140,9 +143,9 @@ CREATE TABLE HoaDon(
 
 
 INSERT INTO Roles (tenRole) VALUES
-('Bác sĩ'),
-('Thu ngân'),
-('Quản trị viên')
+(N'Bác sĩ'),
+(N'Thu ngân'),
+(N'Quản trị viên')
 
 
 INSERT INTO TaiKhoan (userName, passWord, name, maRole) VALUES
@@ -210,10 +213,10 @@ INSERT INTO ChuanDoan (maBenh, maPKB) VALUES
 (7, 7),
 (8, 8),
 (9, 9),
-(10, 10);
+(10,10);
 
 
-INSERT INTO DonVi (donVi) VALUES
+INSERT INTO DonVi (tenDonVi) VALUES
 (N'Viên'),
 (N'Chai'),
 (N'Ống'),
@@ -226,7 +229,7 @@ INSERT INTO DonVi (donVi) VALUES
 (N'Dạng lỏng');
 
 
-INSERT INTO CachDung (cachDung) VALUES
+INSERT INTO CachDung (tenCachDung) VALUES
 (N'Uống sau ăn'),
 (N'Uống trước ăn'),
 (N'Uống khi đói'),
@@ -239,17 +242,17 @@ INSERT INTO CachDung (cachDung) VALUES
 (N'Hít');
 
 
-INSERT INTO Thuoc (tenThuoc, donGia, cachDung, donVi) VALUES
-(N'Paracetamol', 5000, N'Uống sau ăn', N'Viên'),
-(N'Amoxicillin', 10000, N'Uống trước ăn', N'Viên'),
-(N'Vitamin C', 2000, N'Uống khi đói', N'Viên'),
-(N'Ibuprofen', 8000, N'Uống buổi sáng', N'Viên'),
-(N'Aspirin', 7000, N'Uống buổi tối', N'Viên'),
-(N'Cephalexin', 12000, N'Tiêm', N'Ống'),
-(N'Diclofenac', 6000, N'Bôi ngoài da', N'Chai'),
-(N'Ranitidine', 9000, N'Ngậm', N'Viên'),
-(N'Ceftriaxone', 15000, N'Nhai', N'Viên nang'),
-(N'Dexamethasone', 11000, N'Hít', N'Dạng lỏng');
+INSERT INTO Thuoc (tenThuoc, donGia, maCachDung, maDonVi) VALUES
+(N'Paracetamol', 5000, 1, 1),
+(N'Amoxicillin', 10000, 2, 1),
+(N'Vitamin C', 2000, 3, 1),
+(N'Ibuprofen', 8000, 4, 1),
+(N'Aspirin', 7000, 5, 1),
+(N'Cephalexin', 12000, 6, 3),
+(N'Diclofenac', 6000, 7, 2),
+(N'Ranitidine', 9000, 8, 1),
+(N'Ceftriaxone', 15000, 9,9),
+(N'Dexamethasone', 11000, 10 , 10);
 
 
 INSERT INTO ToaThuoc (ngayKeToa, maPKB) VALUES

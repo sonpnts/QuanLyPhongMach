@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="benhBUS.cs" />
     <Compile Include="benhnhanBUS.cs" />
+    <Compile Include="cachDungBUS.cs" />
     <Compile Include="chandoanBUS.cs" />
     <Compile Include="dichvuBUS.cs" />
+    <Compile Include="donViBUS.cs" />
     <Compile Include="hoadonBUS.cs" />
     <Compile Include="kethuocBUS.cs" />
     <Compile Include="loaiTaiKhoanBUS.cs" />

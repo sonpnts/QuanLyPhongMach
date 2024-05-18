@@ -11,24 +11,20 @@ namespace QLPMDTO
         private string maThuoc;
         private string tenThuoc;
         private float donGia;
-        private string dv;
-        private string cachDung;
+        
+        private int maCachDung;
+        private int maDonVi;
 
 
         public string MaThuoc { get => maThuoc; set => maThuoc = value; }
         public string TenThuoc { get => tenThuoc; set => tenThuoc = value; }
         public float DonGia { get => donGia; set => donGia = value; }
-        public string DonVi { get => dv; set => dv = value; }
-        public string CachDung { get => cachDung; set => cachDung = value; }
+        
+        public int MaCachDung { get => maCachDung; set => maCachDung = value; }
+        public int MaDonVi { get => maDonVi; set => maDonVi = value; }
     }
-    public class Donvi
-    {
-        private string donVi;
-        public string DonVi { get => donVi; set => donVi = value; }
-    }
-    public class Cachdung
-    {
-        private string cachDung;
-        public string CachDung { get => cachDung; set => cachDung = value; }
-    }
+    
+       
+    
+   
 }

@@ -148,6 +148,7 @@ namespace GUI_QLPM
                 {
                     System.Windows.Forms.MessageBox.Show("Lập phiếu thành công", "Result");
                     load_data();
+                    Load_Gird();
                 }
                 else System.Windows.Forms.MessageBox.Show("Lập phiếu thất bại", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }

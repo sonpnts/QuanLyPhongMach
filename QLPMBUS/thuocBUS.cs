@@ -50,14 +50,7 @@ namespace QLPMBUS
         {
             return thDAL.baocaobymonth(month, year);
         }
-        public List<Donvi> getdonvi()
-        {
-            return thDAL.getdonvi();
-        }
-        public List<Cachdung> getcachdung()
-        {
-            return thDAL.getcachdung();
-        }
+        
         public bool thaydoiCD(string cdmoi, string cdcu)
         {
             bool re = thDAL.thaydoiCD(cdmoi, cdcu);
