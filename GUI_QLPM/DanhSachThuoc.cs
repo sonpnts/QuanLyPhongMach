@@ -15,7 +15,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI_QLPM
 {
-    public partial class DanhSachThuoc : Form
+    public partial class QuanLyThuoc : Form
     {
         public DataTable db1 = new DataTable("Thuoc");
         ThuocBUS thBus = new ThuocBUS();
@@ -26,7 +26,7 @@ namespace GUI_QLPM
         List<donViDTO> listdv;
         private string temp;
 
-        public DanhSachThuoc()
+        public QuanLyThuoc()
         {
             InitializeComponent();
             load();
@@ -227,10 +227,10 @@ namespace GUI_QLPM
 
             bool kq = thBus.sua(th, temp);
             if (!kq)
-                System.Windows.Forms.MessageBox.Show("Update bênh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                System.Windows.Forms.MessageBox.Show("Update thuốc thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             else
             {
-                System.Windows.Forms.MessageBox.Show("Update bệnh nhân thành công", "Result");
+                System.Windows.Forms.MessageBox.Show("Update thuốc thành công", "Result");
                 load_data();
                 load();
             }
@@ -277,13 +277,18 @@ namespace GUI_QLPM
 
             bool kq = thBus.xoa(th);
             if (!kq)
-                System.Windows.Forms.MessageBox.Show("Update bênh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                System.Windows.Forms.MessageBox.Show("Update thuốc thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             else
             {
-                System.Windows.Forms.MessageBox.Show("Update bệnh nhân thành công", "Result");
+                System.Windows.Forms.MessageBox.Show("Update thuốc thành công", "Result");
                 load_data();
                 load();
             }
+        }
+
+        private void Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     

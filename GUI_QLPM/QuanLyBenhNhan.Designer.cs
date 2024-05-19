@@ -109,6 +109,7 @@
             this.quaylai.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.quaylai.BackColor = System.Drawing.Color.RosyBrown;
             this.quaylai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quaylai.ForeColor = System.Drawing.Color.Transparent;
             this.quaylai.Location = new System.Drawing.Point(1071, 259);
             this.quaylai.Name = "quaylai";
             this.quaylai.Size = new System.Drawing.Size(191, 54);
@@ -219,6 +220,7 @@
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.RosyBrown;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(571, 259);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 54);
@@ -232,6 +234,7 @@
             this.xoabenhnhan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.xoabenhnhan.BackColor = System.Drawing.Color.RosyBrown;
             this.xoabenhnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xoabenhnhan.ForeColor = System.Drawing.Color.Transparent;
             this.xoabenhnhan.Location = new System.Drawing.Point(813, 259);
             this.xoabenhnhan.Name = "xoabenhnhan";
             this.xoabenhnhan.Size = new System.Drawing.Size(191, 54);
@@ -245,6 +248,7 @@
             this.btnThembn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThembn.BackColor = System.Drawing.Color.RosyBrown;
             this.btnThembn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThembn.ForeColor = System.Drawing.Color.Transparent;
             this.btnThembn.Location = new System.Drawing.Point(321, 259);
             this.btnThembn.Name = "btnThembn";
             this.btnThembn.Size = new System.Drawing.Size(191, 54);

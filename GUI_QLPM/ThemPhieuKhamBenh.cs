@@ -161,7 +161,7 @@ namespace GUI_QLPM
 
         private void KeToa_Click(object sender, EventArgs e)
         {
-            KeToa toa = new KeToa(maPKB.Text);
+            KeToa toa = new KeToa();
             toa.Show();
         }
 

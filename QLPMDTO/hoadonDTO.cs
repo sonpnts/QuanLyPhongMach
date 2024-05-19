@@ -10,7 +10,7 @@ namespace QLPMDTO
     {
         private int maHoaDon;
         private DateTime ngayLapHoaDon;
-		private float tienThuoc;
+		private decimal tienThuoc;
         private float tienKham;
         private float tongTien;
         private string maPKB;
@@ -22,7 +22,7 @@ namespace QLPMDTO
 		
         public int MaHoaDon { get => maHoaDon; set => maHoaDon = value; }
         public DateTime NgayLapHoaDon { get => ngayLapHoaDon; set => ngayLapHoaDon = value; }
-		public float TienThuoc { get => tienThuoc; set => tienThuoc = value; }
+		public decimal TienThuoc { get => tienThuoc; set => tienThuoc = value; }
         public float TienKham { get => tienKham; set => tienKham = value; }
         public float TongTien { get => tongTien; set => tongTien = value; }
         public int MaNVTN { get => maNVTN; set => maNVTN = value; }

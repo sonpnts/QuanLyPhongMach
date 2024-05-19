@@ -51,35 +51,6 @@ namespace QLPMBUS
             return thDAL.baocaobymonth(month, year);
         }
         
-        public bool thaydoiCD(string cdmoi, string cdcu)
-        {
-            bool re = thDAL.thaydoiCD(cdmoi, cdcu);
-            return re;
-        }
-        public bool thaydoiDV(string dvmoi, string dvcu)
-        {
-            bool re = thDAL.thaydoiDV(dvmoi, dvcu);
-            return re;
-        }
-        public bool xoaDV(string dv)
-        {
-            bool re = thDAL.xoaDV(dv);
-            return re;
-        }
-        public bool xoaCD(string cd)
-        {
-            bool re = thDAL.xoaCD(cd);
-            return re;
-        }
-        public bool themdv(string dv)
-        {
-            bool re = thDAL.themdv(dv);
-            return re;
-        }
-        public bool themcd(string cd)
-        {
-            bool re = thDAL.themcd(cd);
-            return re;
-        }
+        
     }
 }

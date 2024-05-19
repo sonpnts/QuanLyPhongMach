@@ -19,9 +19,9 @@ namespace QLPMBUS
             bool re = hdDAL.them(hd);
             return re;
         }
-        public float tienthuoc(HoadonDTO hd,string mapkb)
+        public decimal tienthuoc(HoadonDTO hd,string mapkb)
         {
-           float re = hdDAL.tienthuoc(hd,mapkb);
+           decimal re = hdDAL.tienthuoc(hd,mapkb);
            return re;
         }
         public float tienkham()
@@ -41,7 +41,7 @@ namespace QLPMBUS
         {
             return hdDAL.sobenhnhan(ngHD);
         }
-        public float doanhthu(string ngHD)
+        public decimal doanhthu(string ngHD)
         {
             return hdDAL.doanhthu(ngHD);
         }

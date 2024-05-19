@@ -1,6 +1,6 @@
 ﻿namespace GUI_QLPM
 {
-    partial class DanhSachThuoc
+    partial class QuanLyThuoc
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachThuoc));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyThuoc));
             this.cachdung = new System.Windows.Forms.ComboBox();
             this.donvitinh = new System.Windows.Forms.ComboBox();
             this.tenthuoc = new System.Windows.Forms.TextBox();
@@ -202,6 +202,7 @@
             this.Thoat.TabIndex = 25;
             this.Thoat.Text = "Thoát";
             this.Thoat.UseVisualStyleBackColor = false;
+            this.Thoat.Click += new System.EventHandler(this.Thoat_Click);
             // 
             // Them
             // 
@@ -217,7 +218,7 @@
             this.Them.UseVisualStyleBackColor = false;
             this.Them.Click += new System.EventHandler(this.Them_Click);
             // 
-            // DanhSachThuoc
+            // QuanLyThuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -239,9 +240,9 @@
             this.Controls.Add(this.Thoat);
             this.Controls.Add(this.Them);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DanhSachThuoc";
+            this.Name = "QuanLyThuoc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Danh sách thuốc";
+            this.Text = "Quản lý thuốc";
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

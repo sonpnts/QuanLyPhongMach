@@ -94,7 +94,7 @@ namespace GUI_QLPM
                 return;
 
             }
-            float tongdoanhthu = 0;
+            decimal tongdoanhthu = 0;
             DataTable table = new DataTable();
             table.Columns.Add("Số Thứ Tự", typeof(int));
             table.Columns.Add("Ngày Lập Hóa Đơn", typeof(string));
@@ -104,7 +104,7 @@ namespace GUI_QLPM
             foreach (HoadonDTO hd in listhoadon)
             {
                 string ngkham = DateTime.Parse(hd.NgayLapHoaDon.ToString()).ToString("yyyy-MM-dd");
-                tongdoanhthu += float.Parse(hdBus.doanhthu(ngkham).ToString());
+                tongdoanhthu += decimal.Parse(hdBus.doanhthu(ngkham).ToString());
             }
             foreach (HoadonDTO hd in listhoadon)
             {

@@ -43,8 +43,8 @@ namespace GUI_QLPM
                     }
                     if (taiKhoan.MaLoai == 1)
                     {
-                        DanhSachTaiKhoan.Enabled = false;
-                        DanhSachDichVu.Enabled = false;
+                        QuanLyTaiKhoan.Enabled = false;
+                        QuanLyDichVu.Enabled = false;
                         BaoCao.Enabled = false;
                         QuanLyLoaiBenh.Enabled = false;
                         QuanLyThuoc.Enabled = false;
@@ -55,13 +55,18 @@ namespace GUI_QLPM
                     }
                     else if (taiKhoan.MaLoai == 2)
                     {
-                        DanhSachTaiKhoan.Enabled = false;
-                        DanhSachDichVu.Enabled = false;
+                        QuanLyTaiKhoan.Enabled = false;
+                        QuanLyDichVu.Enabled = false;
                         BaoCao.Enabled = false;
                         QuanLyLoaiBenh.Enabled = false;
                         QuanLyThuoc.Enabled = false;
                         QuanLyBenhNhan.Enabled = false;
                         LapPhieuKham.Enabled = false;
+                    }
+                    else
+                    {
+                        LapHoaDon.Enabled=false;
+                        LapPhieuKham.Enabled=false;
                     }
                 }
 
@@ -106,14 +111,14 @@ namespace GUI_QLPM
 
         private void QuanLyThuoc_Click(object sender, EventArgs e)
         {
-            DanhSachThuoc dst = new DanhSachThuoc();
+            QuanLyThuoc dst = new QuanLyThuoc();
             dst.StartPosition = FormStartPosition.CenterParent;
             dst.Show();
         }
 
         private void QuanLyLoaiBenh_Click(object sender, EventArgs e)
         {
-            DanhSachBenh dsb = new DanhSachBenh();
+            QuanLyBenh dsb = new QuanLyBenh();
             dsb.StartPosition = FormStartPosition.CenterParent;
             dsb.Show();
         }
@@ -139,14 +144,14 @@ namespace GUI_QLPM
             bcsdt.Show();
         }
 
-        private void DanhSachDichVu_Click(object sender, EventArgs e)
+        private void QuanLyDichVu_Click(object sender, EventArgs e)
         {
             DanhSachDichVu dsdv = new DanhSachDichVu();
             dsdv.StartPosition = FormStartPosition.CenterParent;
             dsdv.Show();
         }
 
-        private void DanhSachTaiKhoan_Click(object sender, EventArgs e)
+        private void QuanLyTaiKhoan_Click(object sender, EventArgs e)
         {
             DanhSachTaiKhoan tk = new DanhSachTaiKhoan();
             tk.Show();

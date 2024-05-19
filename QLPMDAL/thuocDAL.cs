@@ -21,7 +21,7 @@ namespace QLPMDAL
         public bool them(ThuocDTO th)
         {
             string query = string.Empty;
-            query += "INSERT INTO [Thuoc] ([tenThuoc],[DonVi],[Dongia],[CachDung])";
+            query += "INSERT INTO [Thuoc] ([tenThuoc],[maDonVi],[Dongia],[maCachDung])";
             query += "VALUES (@tenThuoc,@donVi,@Dongia,@CachDung)";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -55,7 +55,7 @@ namespace QLPMDAL
         {
             string query = string.Empty;
             query += "update [Thuoc]";
-            query += "set tenThuoc=@tenThuoc,DonVi=@DonVi,Dongia=@Dongia,CachDung=@CachDung where maThuoc=@maThuocold";
+            query += "set tenThuoc=@tenThuoc,maDonVi=@DonVi,Dongia=@Dongia,maCachDung=@CachDung where maThuoc=@maThuocold";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -265,7 +265,7 @@ namespace QLPMDAL
         public List<ThuocDTO> selectbypkb(string mapkb)
         {
             string query = @"
-        SELECT TH.maThuoc, TH.tenThuoc, TH.CachDung, TH.donVi, TH.donGia 
+        SELECT TH.maThuoc, TH.tenThuoc, TH.maCachDung, TH.maDonVi, TH.donGia 
         FROM PhieuKhamBenh PKB 
         JOIN ToaThuoc T ON PKB.maPKB = T.maPKB 
         JOIN KeThuoc KT ON T.maToaThuoc = KT.maToaThuoc 
@@ -318,7 +318,7 @@ namespace QLPMDAL
         public List<ThuocDTO> baocaobymonth(string month, string year)
         {
             string query = string.Empty;
-            query += "SELECT TH.maThuoc, TH.tenThuoc, TH.donVi FROM ToaThuoc T JOIN KeThuoc KT ON T.maToaThuoc=KT.maToaThuoc JOIN Thuoc TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngayKeToa)=@month and YEAR(T.ngayKeToa)=@year group by TH.maThuoc,TH.tenThuoc,TH.DonVi";
+            query += "SELECT TH.maThuoc, TH.tenThuoc, TH.maDonVi FROM ToaThuoc T JOIN KeThuoc KT ON T.maToaThuoc=KT.maToaThuoc JOIN Thuoc TH ON KT.maThuoc=TH.maThuoc WHERE MONTH(T.ngayKeToa)=@month and YEAR(T.ngayKeToa)=@year group by TH.maThuoc,TH.tenThuoc,TH.maDonVi";
 
 
             List<ThuocDTO> lsThuoc = new List<ThuocDTO>();
@@ -365,193 +365,6 @@ namespace QLPMDAL
         }
        
         
-        public bool thaydoiCD(string cdmoi, string cdcu)
-        {
-            string query = string.Empty;
-            query += "UPDATE [CachDung] set cachDung=@cdmoi where cachDung=@cdcu";
-
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@cdmoi", cdmoi);
-                    cmd.Parameters.AddWithValue("@cdcu", cdcu);
-
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return false;
-                    }
-                }
-
-                return true;
-            }
-        }
-        public bool thaydoiDV(string dvmoi, string dvcu)
-        {
-            string query = string.Empty;
-            query += "UPDATE [DonVi] set donVi=@dvmoi where donVi=@dvcu";
-
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@dvmoi", dvmoi);
-                    cmd.Parameters.AddWithValue("@dvcu", dvcu);
-
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return false;
-                    }
-                }
-
-                return true;
-            }
-        }
-        public bool xoaDV(string dv)
-        {
-            string query = string.Empty;
-            query += "DELETE FROM DonVi WHERE donVi=@donVi";
-
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@donVi", dv);
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return false;
-                    }
-                }
-
-                return true;
-            }
-        }
-        public bool xoaCD(string cd)
-        {
-            string query = string.Empty;
-            query += "DELETE FROM CachDung WHERE cachDung=@cachDung";
-
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@cachDung", cd);
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return false;
-                    }
-                }
-
-                return true;
-            }
-        }
-        public bool themdv(string dv)
-        {
-            string query = string.Empty;
-            query += "INSERT INTO [DonVi] ([donVi])";
-            query += "VALUES (@donVi)";
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@donVi", dv);
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-        public bool themcd(string cd)
-        {
-            string query = string.Empty;
-            query += "INSERT INTO [CachDung] ([cachDung])";
-            query += "VALUES (@cachDung)";
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@cachDung", cd);
-                    try
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        con.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        con.Close();
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
+        
     }
 }

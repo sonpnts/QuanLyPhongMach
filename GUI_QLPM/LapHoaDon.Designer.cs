@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LapHoaDon));
-            this.btnChon = new System.Windows.Forms.Button();
             this.tongtien = new System.Windows.Forms.TextBox();
             this.tienthuoc = new System.Windows.Forms.TextBox();
             this.tienkham = new System.Windows.Forms.TextBox();
@@ -59,19 +58,6 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnChon
-            // 
-            this.btnChon.BackColor = System.Drawing.Color.RosyBrown;
-            this.btnChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChon.ForeColor = System.Drawing.Color.Transparent;
-            this.btnChon.Location = new System.Drawing.Point(414, 27);
-            this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(99, 48);
-            this.btnChon.TabIndex = 43;
-            this.btnChon.Text = "Chọn";
-            this.btnChon.UseVisualStyleBackColor = false;
-            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
             // tongtien
             // 
@@ -337,7 +323,6 @@
             this.groupBox2.BackColor = System.Drawing.Color.LightCyan;
             this.groupBox2.Controls.Add(this.mapkb);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.btnChon);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.mahd);
             this.groupBox2.Controls.Add(this.label12);
@@ -381,8 +366,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnChon;
         private System.Windows.Forms.TextBox tongtien;
         private System.Windows.Forms.TextBox tienthuoc;
         private System.Windows.Forms.TextBox tienkham;

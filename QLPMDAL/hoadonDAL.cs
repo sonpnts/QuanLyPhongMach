@@ -53,9 +53,9 @@ namespace QLPMDAL
             }
             return true;
         }
-        public float tienthuoc(HoadonDTO hd, string maPKB)
+        public decimal tienthuoc(HoadonDTO hd, string maPKB)
         {
-            float tien = 0;
+            decimal tien = 0;
             string query = string.Empty;
             query += "SELECT SUM(TH.donGia * KT.soLuong) AS TIENTHUOC ";
             query += "FROM PhieuKhamBenh PKB ";
@@ -81,7 +81,7 @@ namespace QLPMDAL
                             {
                                 if (reader["TIENTHUOC"] != DBNull.Value)
                                 {
-                                    tien = float.Parse(reader["TIENTHUOC"].ToString());
+                                    tien = decimal.Parse(reader["TIENTHUOC"].ToString());
                                 }
                             }
                         }
@@ -129,7 +129,7 @@ namespace QLPMDAL
                                 HoadonDTO hd = new HoadonDTO();
                                 hd.MaHoaDon = int.Parse(reader["maHoaDon"].ToString());
                                 hd.NgayLapHoaDon = DateTime.Parse(reader["NgayLapHoaDon"].ToString());
-                                hd.TienThuoc = float.Parse(reader["tienThuoc"].ToString());
+                                hd.TienThuoc = decimal.Parse(reader["tienThuoc"].ToString());
                                 hd.TongTien = float.Parse(reader["tongTien"].ToString());
                                 hd.TienKham = float.Parse(reader["tienKham"].ToString());
                                 hd.MaPKB = reader["maPKB"].ToString();
@@ -186,9 +186,9 @@ namespace QLPMDAL
         }
 
 
-        public float doanhthu(string ngayLapHoaDon)
+        public decimal doanhthu(string ngayLapHoaDon)
         {
-            float doanhthu = 0;
+            decimal doanhthu = 0;
             string query = string.Empty;
             query += "SELECT sum (HD.TongTien) as doanhthu FROM HoaDon HD WHERE HD.NgayLapHoaDon=@NgayLapHoaDon";
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -210,7 +210,7 @@ namespace QLPMDAL
                         {
                             while (reader.Read())
                             {
-                                doanhthu = float.Parse(reader["doanhthu"].ToString());
+                                doanhthu = decimal.Parse(reader["doanhthu"].ToString());
 
                             }
                         }

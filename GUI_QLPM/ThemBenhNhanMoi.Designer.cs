@@ -155,7 +155,7 @@
             // 
             this.btn_Them.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Them.ForeColor = System.Drawing.Color.Black;
+            this.btn_Them.ForeColor = System.Drawing.Color.Transparent;
             this.btn_Them.Location = new System.Drawing.Point(214, 323);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(151, 52);
@@ -168,6 +168,7 @@
             // 
             this.btnQuayLai.BackColor = System.Drawing.Color.RosyBrown;
             this.btnQuayLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuayLai.ForeColor = System.Drawing.Color.Transparent;
             this.btnQuayLai.Location = new System.Drawing.Point(433, 323);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Size = new System.Drawing.Size(151, 52);

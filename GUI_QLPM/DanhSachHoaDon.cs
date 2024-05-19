@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace GUI_QLPM
 {
     public partial class DanhSachHoaDon : Form
     {
+        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
         BenhNhanBUS bnBus = new BenhNhanBUS();
         PhieukhambenhBUS pkbBus = new PhieukhambenhBUS();
         BenhBUS beBus = new BenhBUS();
@@ -54,7 +56,7 @@ namespace GUI_QLPM
                 return;
 
             }
-
+            
             DataTable table = new DataTable();
             table.Columns.Add("Số thứ tự", typeof(int));
             table.Columns.Add("Tên bệnh nhân", typeof(string));
@@ -81,9 +83,9 @@ namespace GUI_QLPM
                                         row["Số thứ tự"] = stt;
                                         row["Tên bệnh nhân"] = bn.TenBN;
                                         row["Ngày khám"] = DateTime.Parse(pkb.NgayKham.ToString()).ToString("dd/MM/yyyy");
-                                        row["Tiền khám"] = hd.TienKham.ToString();
-                                        row["Tiền thuốc"] = hd.TienThuoc.ToString();
-                                        row["Tổng tiền"] = hd.TongTien.ToString();
+                                        row["Tiền khám"] = hd.TienKham.ToString("N0", culture);
+                                        row["Tiền thuốc"] = hd.TienThuoc.ToString("N0", culture);
+                                        row["Tổng tiền"] = hd.TongTien.ToString("N0", culture);
                                         foreach(taiKhoanDTO tk in listTK)
                                         {
                                             if (tk.MaTK == hd.MaNVTN)

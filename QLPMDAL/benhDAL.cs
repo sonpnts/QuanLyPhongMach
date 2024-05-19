@@ -53,7 +53,7 @@ namespace QLPMDAL
         {
             string query = string.Empty;
             query += "update [Benh]";
-            query += "set maBenh=@maBenh,tenBenh=@tenBenh where maBenh=@maBenhold";
+            query += "set tenBenh=@tenBenh where maBenh=@maBenhold";
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -63,9 +63,8 @@ namespace QLPMDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@maBN", be.MaBenh);
-                    cmd.Parameters.AddWithValue("@tenBN", be.TenBenh);
-                    cmd.Parameters.AddWithValue("@maBNold", maBenhold);
+                    cmd.Parameters.AddWithValue("@tenBenh", be.TenBenh);
+                    cmd.Parameters.AddWithValue("@maBenhold", maBenhold);
                     try
                     {
                         con.Open();

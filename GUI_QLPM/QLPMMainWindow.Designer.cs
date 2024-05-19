@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLPMMainWindow));
             this.btnDangXuat = new System.Windows.Forms.Button();
-            this.DanhSachDichVu = new System.Windows.Forms.Button();
+            this.QuanLyDichVu = new System.Windows.Forms.Button();
             this.BaoCao = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.BaoCaoDoanhThu = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.DanhSachTaiKhoan = new System.Windows.Forms.Button();
             this.DanhSachHD = new System.Windows.Forms.Button();
             this.DanhSachBenhNhan = new System.Windows.Forms.Button();
+            this.QuanLyTaiKhoan = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.QuanLyBenhNhan = new System.Windows.Forms.Button();
             this.QuanLyThuoc = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             this.btnDangXuat.BackColor = System.Drawing.Color.LightCyan;
             this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.ForeColor = System.Drawing.Color.Black;
-            this.btnDangXuat.Location = new System.Drawing.Point(46, 26);
+            this.btnDangXuat.Location = new System.Drawing.Point(46, 21);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(281, 45);
             this.btnDangXuat.TabIndex = 7;
@@ -71,18 +71,18 @@
             this.btnDangXuat.UseVisualStyleBackColor = false;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
-            // DanhSachDichVu
+            // QuanLyDichVu
             // 
-            this.DanhSachDichVu.BackColor = System.Drawing.Color.LightCyan;
-            this.DanhSachDichVu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DanhSachDichVu.BackgroundImage")));
-            this.DanhSachDichVu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DanhSachDichVu.Location = new System.Drawing.Point(40, 104);
-            this.DanhSachDichVu.Name = "DanhSachDichVu";
-            this.DanhSachDichVu.Size = new System.Drawing.Size(281, 45);
-            this.DanhSachDichVu.TabIndex = 3;
-            this.DanhSachDichVu.Text = "     Danh sách dịch vụ";
-            this.DanhSachDichVu.UseVisualStyleBackColor = false;
-            this.DanhSachDichVu.Click += new System.EventHandler(this.DanhSachDichVu_Click);
+            this.QuanLyDichVu.BackColor = System.Drawing.Color.LightCyan;
+            this.QuanLyDichVu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QuanLyDichVu.BackgroundImage")));
+            this.QuanLyDichVu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.QuanLyDichVu.Location = new System.Drawing.Point(46, 454);
+            this.QuanLyDichVu.Name = "QuanLyDichVu";
+            this.QuanLyDichVu.Size = new System.Drawing.Size(281, 45);
+            this.QuanLyDichVu.TabIndex = 3;
+            this.QuanLyDichVu.Text = "     Quản lý dịch vụ";
+            this.QuanLyDichVu.UseVisualStyleBackColor = false;
+            this.QuanLyDichVu.Click += new System.EventHandler(this.QuanLyDichVu_Click);
             // 
             // BaoCao
             // 
@@ -91,9 +91,9 @@
             this.BaoCao.Controls.Add(this.BaoCaoDoanhThu);
             this.BaoCao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BaoCao.ForeColor = System.Drawing.Color.Black;
-            this.BaoCao.Location = new System.Drawing.Point(423, 391);
+            this.BaoCao.Location = new System.Drawing.Point(26, 177);
             this.BaoCao.Name = "BaoCao";
-            this.BaoCao.Size = new System.Drawing.Size(372, 186);
+            this.BaoCao.Size = new System.Drawing.Size(360, 173);
             this.BaoCao.TabIndex = 11;
             this.BaoCao.TabStop = false;
             this.BaoCao.Text = "Báo cáo";
@@ -103,7 +103,7 @@
             this.button1.BackColor = System.Drawing.Color.LightCyan;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Location = new System.Drawing.Point(46, 115);
+            this.button1.Location = new System.Drawing.Point(40, 94);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(281, 45);
             this.button1.TabIndex = 4;
@@ -116,7 +116,7 @@
             this.BaoCaoDoanhThu.BackColor = System.Drawing.Color.LightCyan;
             this.BaoCaoDoanhThu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BaoCaoDoanhThu.BackgroundImage")));
             this.BaoCaoDoanhThu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BaoCaoDoanhThu.Location = new System.Drawing.Point(46, 45);
+            this.BaoCaoDoanhThu.Location = new System.Drawing.Point(40, 33);
             this.BaoCaoDoanhThu.Name = "BaoCaoDoanhThu";
             this.BaoCaoDoanhThu.Size = new System.Drawing.Size(281, 45);
             this.BaoCaoDoanhThu.TabIndex = 3;
@@ -127,38 +127,23 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.DanhSachTaiKhoan);
             this.groupBox3.Controls.Add(this.DanhSachHD);
-            this.groupBox3.Controls.Add(this.DanhSachDichVu);
             this.groupBox3.Controls.Add(this.DanhSachBenhNhan);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(22, 169);
+            this.groupBox3.Location = new System.Drawing.Point(26, 366);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(360, 312);
+            this.groupBox3.Size = new System.Drawing.Size(360, 149);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách";
-            // 
-            // DanhSachTaiKhoan
-            // 
-            this.DanhSachTaiKhoan.BackColor = System.Drawing.Color.LightCyan;
-            this.DanhSachTaiKhoan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DanhSachTaiKhoan.BackgroundImage")));
-            this.DanhSachTaiKhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DanhSachTaiKhoan.Location = new System.Drawing.Point(40, 222);
-            this.DanhSachTaiKhoan.Name = "DanhSachTaiKhoan";
-            this.DanhSachTaiKhoan.Size = new System.Drawing.Size(281, 45);
-            this.DanhSachTaiKhoan.TabIndex = 3;
-            this.DanhSachTaiKhoan.Text = "     Danh sách tài khoản";
-            this.DanhSachTaiKhoan.UseVisualStyleBackColor = false;
-            this.DanhSachTaiKhoan.Click += new System.EventHandler(this.DanhSachTaiKhoan_Click);
             // 
             // DanhSachHD
             // 
             this.DanhSachHD.BackColor = System.Drawing.Color.LightCyan;
             this.DanhSachHD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DanhSachHD.BackgroundImage")));
             this.DanhSachHD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DanhSachHD.Location = new System.Drawing.Point(40, 161);
+            this.DanhSachHD.Location = new System.Drawing.Point(40, 82);
             this.DanhSachHD.Name = "DanhSachHD";
             this.DanhSachHD.Size = new System.Drawing.Size(281, 45);
             this.DanhSachHD.TabIndex = 4;
@@ -171,7 +156,7 @@
             this.DanhSachBenhNhan.BackColor = System.Drawing.Color.LightCyan;
             this.DanhSachBenhNhan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DanhSachBenhNhan.BackgroundImage")));
             this.DanhSachBenhNhan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DanhSachBenhNhan.Location = new System.Drawing.Point(40, 44);
+            this.DanhSachBenhNhan.Location = new System.Drawing.Point(40, 21);
             this.DanhSachBenhNhan.Name = "DanhSachBenhNhan";
             this.DanhSachBenhNhan.Size = new System.Drawing.Size(281, 45);
             this.DanhSachBenhNhan.TabIndex = 2;
@@ -179,9 +164,24 @@
             this.DanhSachBenhNhan.UseVisualStyleBackColor = false;
             this.DanhSachBenhNhan.Click += new System.EventHandler(this.DanhSachBenhNhan_Click);
             // 
+            // QuanLyTaiKhoan
+            // 
+            this.QuanLyTaiKhoan.BackColor = System.Drawing.Color.LightCyan;
+            this.QuanLyTaiKhoan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QuanLyTaiKhoan.BackgroundImage")));
+            this.QuanLyTaiKhoan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.QuanLyTaiKhoan.Location = new System.Drawing.Point(46, 385);
+            this.QuanLyTaiKhoan.Name = "QuanLyTaiKhoan";
+            this.QuanLyTaiKhoan.Size = new System.Drawing.Size(281, 45);
+            this.QuanLyTaiKhoan.TabIndex = 3;
+            this.QuanLyTaiKhoan.Text = "Quản lý tài khoản";
+            this.QuanLyTaiKhoan.UseVisualStyleBackColor = false;
+            this.QuanLyTaiKhoan.Click += new System.EventHandler(this.QuanLyTaiKhoan_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.QuanLyTaiKhoan);
+            this.groupBox2.Controls.Add(this.QuanLyDichVu);
             this.groupBox2.Controls.Add(this.QuanLyBenhNhan);
             this.groupBox2.Controls.Add(this.QuanLyThuoc);
             this.groupBox2.Controls.Add(this.QuanLyLoaiBenh);
@@ -189,9 +189,9 @@
             this.groupBox2.Controls.Add(this.LapPhieuKham);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(423, 18);
+            this.groupBox2.Location = new System.Drawing.Point(423, 34);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(372, 357);
+            this.groupBox2.Size = new System.Drawing.Size(372, 539);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh mục";
@@ -201,7 +201,7 @@
             this.QuanLyBenhNhan.BackColor = System.Drawing.Color.LightCyan;
             this.QuanLyBenhNhan.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QuanLyBenhNhan.BackgroundImage")));
             this.QuanLyBenhNhan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.QuanLyBenhNhan.Location = new System.Drawing.Point(46, 292);
+            this.QuanLyBenhNhan.Location = new System.Drawing.Point(46, 316);
             this.QuanLyBenhNhan.Name = "QuanLyBenhNhan";
             this.QuanLyBenhNhan.Size = new System.Drawing.Size(281, 45);
             this.QuanLyBenhNhan.TabIndex = 6;
@@ -214,7 +214,7 @@
             this.QuanLyThuoc.BackColor = System.Drawing.Color.LightCyan;
             this.QuanLyThuoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QuanLyThuoc.BackgroundImage")));
             this.QuanLyThuoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.QuanLyThuoc.Location = new System.Drawing.Point(46, 168);
+            this.QuanLyThuoc.Location = new System.Drawing.Point(46, 178);
             this.QuanLyThuoc.Name = "QuanLyThuoc";
             this.QuanLyThuoc.Size = new System.Drawing.Size(281, 45);
             this.QuanLyThuoc.TabIndex = 5;
@@ -227,7 +227,7 @@
             this.QuanLyLoaiBenh.BackColor = System.Drawing.Color.LightCyan;
             this.QuanLyLoaiBenh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("QuanLyLoaiBenh.BackgroundImage")));
             this.QuanLyLoaiBenh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.QuanLyLoaiBenh.Location = new System.Drawing.Point(46, 229);
+            this.QuanLyLoaiBenh.Location = new System.Drawing.Point(46, 247);
             this.QuanLyLoaiBenh.Name = "QuanLyLoaiBenh";
             this.QuanLyLoaiBenh.Size = new System.Drawing.Size(281, 45);
             this.QuanLyLoaiBenh.TabIndex = 4;
@@ -240,7 +240,7 @@
             this.LapHoaDon.BackColor = System.Drawing.Color.LightCyan;
             this.LapHoaDon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LapHoaDon.BackgroundImage")));
             this.LapHoaDon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.LapHoaDon.Location = new System.Drawing.Point(46, 107);
+            this.LapHoaDon.Location = new System.Drawing.Point(46, 109);
             this.LapHoaDon.Name = "LapHoaDon";
             this.LapHoaDon.Size = new System.Drawing.Size(281, 45);
             this.LapHoaDon.TabIndex = 3;
@@ -253,7 +253,7 @@
             this.LapPhieuKham.BackColor = System.Drawing.Color.LightCyan;
             this.LapPhieuKham.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LapPhieuKham.BackgroundImage")));
             this.LapPhieuKham.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.LapPhieuKham.Location = new System.Drawing.Point(46, 46);
+            this.LapPhieuKham.Location = new System.Drawing.Point(46, 40);
             this.LapPhieuKham.Name = "LapPhieuKham";
             this.LapPhieuKham.Size = new System.Drawing.Size(281, 45);
             this.LapPhieuKham.TabIndex = 1;
@@ -267,7 +267,7 @@
             this.groupBox1.Controls.Add(this.TraCuuBN);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(22, 18);
+            this.groupBox1.Location = new System.Drawing.Point(26, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 127);
             this.groupBox1.TabIndex = 9;
@@ -303,7 +303,7 @@
             this.groupBox4.Controls.Add(this.btnDangXuat);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.Black;
-            this.groupBox4.Location = new System.Drawing.Point(22, 506);
+            this.groupBox4.Location = new System.Drawing.Point(26, 540);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(360, 87);
             this.groupBox4.TabIndex = 12;
@@ -356,6 +356,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QLPMMainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang chủ";
@@ -371,7 +372,7 @@
 
         #endregion
         private System.Windows.Forms.Button btnDangXuat;
-        private System.Windows.Forms.Button DanhSachDichVu;
+        private System.Windows.Forms.Button QuanLyDichVu;
         private System.Windows.Forms.GroupBox BaoCao;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BaoCaoDoanhThu;
@@ -384,7 +385,7 @@
         private System.Windows.Forms.Button LapPhieuKham;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button TraCuuBN;
-        private System.Windows.Forms.Button DanhSachTaiKhoan;
+        private System.Windows.Forms.Button QuanLyTaiKhoan;
         private System.Windows.Forms.TextBox tentaikhoandangnhap;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button QuanLyBenhNhan;

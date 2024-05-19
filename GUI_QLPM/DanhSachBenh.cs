@@ -11,21 +11,24 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GUI_QLPM
 {
-    public partial class DanhSachBenh : Form
+    public partial class QuanLyBenh : Form
     {
         public DataTable db1 = new DataTable("tblBENH");
         BenhBUS beBus = new BenhBUS();
         BenhDTO be = new BenhDTO();
+
         private string temp;
 
-        public DanhSachBenh()
+        public QuanLyBenh()
         {
             InitializeComponent();
             load_data();
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tenBenh.Text = " ";
         }
         private void load()
         {
@@ -36,6 +39,7 @@ namespace GUI_QLPM
             beBus = new BenhBUS();
             List<BenhDTO> listBenh = beBus.select();
             this.loadData_Vao_GridView(listBenh);
+            tenBenh.Text = " ";
 
         }
         private void loadData_Vao_GridView(List<BenhDTO> listBenh)
@@ -63,7 +67,7 @@ namespace GUI_QLPM
         private void TimKiem_Click(object sender, EventArgs e)
         {
             beBus = new BenhBUS();
-            string sKeyword = maBenh.Text;
+            string sKeyword = ma.Text;
             if (sKeyword == null || sKeyword == string.Empty || sKeyword.Length == 0) // tìm tất cả
             {
                 List<BenhDTO> listBenh = beBus.select();
@@ -78,7 +82,7 @@ namespace GUI_QLPM
 
         private void QuayLai_Click(object sender, EventArgs e)
         {
-            load_data();
+            this.Close();
         }
 
         private void grid_SelectionChanged(object sender, EventArgs e)
@@ -99,23 +103,53 @@ namespace GUI_QLPM
 
         private void Them_Click(object sender, EventArgs e)
         {
-            ThemLoaiBenh tlb = new ThemLoaiBenh();
-            tlb.Show();
+            if (string.IsNullOrEmpty(maBenh.Text) || string.IsNullOrEmpty(tenBenh.Text))
+            {
+                System.Windows.Forms.MessageBox.Show("Vui lòng điền đầy đủ thông tin", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                BenhDTO be = new BenhDTO();
+                be.TenBenh = tenBenh.Text;
+
+                bool kq = beBus.them(be);
+                if (!kq)
+                    System.Windows.Forms.MessageBox.Show("Thêm bệnh thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Thêm bệnh thành công", "Result");
+                    load_data();
+                    load();
+                }
+            }
         }
+        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < grid.Rows.Count)
+            {
+                DataGridViewRow row = grid.Rows[e.RowIndex];
+                maBenh.Text = row.Cells[0].Value.ToString();
+                tenBenh.Text = row.Cells[1].Value.ToString();
+                temp = row.Cells[0].Value.ToString();
+            }
+        }
+
 
         private void Sua_Click(object sender, EventArgs e)
         {
-            //// Tạo một thể hiện mới của form ThayDoiLoaiBenh
-            //ThayDoiLoaiBenh thaydoi = new ThayDoiLoaiBenh();
+            be.MaBenh = maBenh.Text;
+            be.TenBenh = tenBenh.Text;
 
-            //// Lấy dữ liệu từ hàng được chọn trong DataGridView và gán cho các trường tương ứng của form ThayDoiLoaiBenh
-            //DataGridViewRow selectedRow = grid.CurrentRow;
-            //thaydoi.temp = selectedRow.Cells["MaBenh"].Value.ToString();
-            //thaydoi.MaBenh= selectedRow.Cells["MaBenh"].Value.ToString();
-            //thaydoi.TenBenh = selectedRow.Cells["TenBenh"].Value.ToString();
-
-            //// Hiển thị form ThayDoiLoaiBenh
-            //thaydoi.Show();
+            bool kq = beBus.sua(be, temp);
+            if (!kq)
+                System.Windows.Forms.MessageBox.Show("Update loại bệnh thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Update loại bệnh thành công", "Result");
+                load_data();
+                load();
+            }
         }
 
 
@@ -131,6 +165,7 @@ namespace GUI_QLPM
             else
                 System.Windows.Forms.MessageBox.Show("Xóa loại bệnh thành công", "Result");
             load_data();
+            load();
         }
     }
 }

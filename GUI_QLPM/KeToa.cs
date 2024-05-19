@@ -30,12 +30,12 @@ namespace GUI_QLPM
         List<cachdungDTO> listcd;
         List<donViDTO> listdv;
         string id;
-        public KeToa(string ma)
+        public KeToa()
         {
             InitializeComponent();
             load_data();
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            mapkb.Text = (int.Parse(ma)-1).ToString();
+            
             listcd = cdBUS.select();
             listdv = donViBUS.select();
 
@@ -46,11 +46,11 @@ namespace GUI_QLPM
         {
             db1.Clear();
             db1.Columns.Add("Mã thuốc", typeof(string));
-            db1.Columns.Add("tenThuoc", typeof(string));
+            db1.Columns.Add("Tên thuốc", typeof(string));
             db1.Columns.Add("Đơn vị", typeof(string));
-            db1.Columns.Add("Dongia", typeof(float));
+            db1.Columns.Add("Đơn giá", typeof(float));
             db1.Columns.Add("Cách dùng", typeof(string));
-            db1.Columns.Add("soLuong", typeof(System.Int32));
+            db1.Columns.Add("Số lượng", typeof(System.Int32));
             ThuocBUS thBus = new ThuocBUS();
             List<ThuocDTO> listThuoc = thBus.select();
             this.loadData_Vao_Combobox(listThuoc);
@@ -63,6 +63,14 @@ namespace GUI_QLPM
             maToa.Text = ttBus.autogenerate_matoa().ToString();
 
         }
+        public void reset()
+        {
+            db1.Clear();
+            mapkb.Text = "";
+            soLuong.Text = "";
+            TenThuoc.Text = "";
+            maToa.Text = ttBus.autogenerate_matoa().ToString();
+        }
         private void loadData_Vao_Combobox(List<ThuocDTO> listThuoc)
         {
 
@@ -74,15 +82,15 @@ namespace GUI_QLPM
 
             DataTable table = new DataTable();
 
-            table.Columns.Add("tenThuoc", typeof(string));
+            table.Columns.Add("Tên thuốc", typeof(string));
             foreach (ThuocDTO th in listThuoc)
             {
                 DataRow row = table.NewRow();
-                row["tenThuoc"] = th.TenThuoc;
+                row["Tên thuốc"] = th.TenThuoc;
                 table.Rows.Add(row);
             }
             TenThuoc.DataSource = table.DefaultView;
-            TenThuoc.DisplayMember = "tenThuoc";
+            TenThuoc.DisplayMember = "Tên thuốc";
             TenThuoc.SelectedIndex = -1;
 
         }
@@ -101,7 +109,7 @@ namespace GUI_QLPM
                 {
                     DataRow row = db1.NewRow();
                     row["Mã thuốc"] = th.MaThuoc;
-                    row["tenThuoc"] = th.TenThuoc;
+                    row["Tên thuốc"] = th.TenThuoc;
                     foreach (donViDTO donvi in listdv)
                     {
                         if (donvi.MaDonVi == th.MaDonVi)
@@ -111,7 +119,7 @@ namespace GUI_QLPM
 
                     }
 
-                    row["Dongia"] = th.DonGia;
+                    row["Đơn giá"] = th.DonGia;
                     foreach (cachdungDTO cd in listcd)
                     {
                         if (cd.MaCachDung == th.MaCachDung)
@@ -121,9 +129,9 @@ namespace GUI_QLPM
 
                     }
                     
-                    row["Dongia"] = th.DonGia;
                     
-                    row["soLuong"] = soluong;
+                    
+                    row["Số lượng"] = soluong;
                     db1.Rows.Add(row);
                 }
             }
@@ -164,11 +172,11 @@ namespace GUI_QLPM
                 {
                     for (int i = 0; i < rows.Length; i++)
                     {
-                        if (rows[i]["tenThuoc"].ToString() == TenThuoc.Text.ToString())
+                        if (rows[i]["Tên thuốc"].ToString() == TenThuoc.Text.ToString())
                         {
                             int sl = 0;
-                            sl = int.Parse(rows[i]["soLuong"].ToString());
-                            db1.Rows[i][0] = sl + int.Parse(soLuong.Text.ToString());
+                            sl = int.Parse(rows[i]["Số lượng"].ToString());
+                            db1.Rows[i][5] = sl + int.Parse(soLuong.Text.ToString());
                             notExist = false;
                             break;
                         }
@@ -201,15 +209,15 @@ namespace GUI_QLPM
             }
             DataTable table = new DataTable();
 
-            table.Columns.Add("tenThuoc", typeof(string));
+            table.Columns.Add("Tên thuốc", typeof(string));
             foreach (ThuocDTO th in listThuoc)
             {
                 DataRow row = table.NewRow();
-                row["tenThuoc"] = th.TenThuoc;
+                row["Tên thuốc"] = th.TenThuoc;
                 table.Rows.Add(row);
             }
             TenThuoc.DataSource = table.DefaultView;
-            TenThuoc.DisplayMember = "tenThuoc";
+            TenThuoc.DisplayMember = "Tên thuốc";
             TenThuoc.SelectedIndex = -1;
 
             HashSet<string> maPKBDaCoTrongToaThuoc = new HashSet<string>();
@@ -236,14 +244,14 @@ namespace GUI_QLPM
 
             if (row_selected != null)
             {
-                string id = row_selected.Cells["maThuoc"].Value.ToString();
+                string id = row_selected.Cells["Mã thuốc"].Value.ToString();
             }
 
         }
 
         private void grid_Click(object sender, EventArgs e)
         {
-            DataRow[] drr = db1.Select("maThuoc='" + id + "'");
+            DataRow[] drr = db1.Select("Mã thuốc='" + id + "'");
             for (int i = 0; i < drr.Length; i++)
                 drr[i].Delete();
             db1.AcceptChanges();
@@ -287,7 +295,7 @@ namespace GUI_QLPM
             else
             {
                 System.Windows.Forms.MessageBox.Show("Kê toa thành công", "Result");
-                load_data();
+                reset();
             }
 
            

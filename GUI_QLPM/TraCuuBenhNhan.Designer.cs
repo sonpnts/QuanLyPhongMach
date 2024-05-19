@@ -83,6 +83,7 @@
             this.timkiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.timkiem.BackColor = System.Drawing.Color.RosyBrown;
             this.timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timkiem.ForeColor = System.Drawing.Color.Transparent;
             this.timkiem.Location = new System.Drawing.Point(933, 46);
             this.timkiem.Name = "timkiem";
             this.timkiem.Size = new System.Drawing.Size(158, 53);
@@ -107,6 +108,7 @@
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.RosyBrown;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(1116, 46);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(158, 53);

@@ -37,10 +37,10 @@ namespace GUI_QLPM
         {
             maNV = mataikhoan;
             InitializeComponent();
-            load();
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             listcd = cdBUS.select();
             listdv = donViBUS.select();
+            load();
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         public void load()
         {
@@ -132,47 +132,7 @@ namespace GUI_QLPM
            
         }
 
-   
-        private void btnChon_Click(object sender, EventArgs e)
-        {
-            tt = 0;
-            stt = 1;
-            hdBus = new HoadonBUS();
-
-            HoadonDTO hd = new HoadonDTO();
-            load_TenBN();
-            load_data(mapkb.Text);
-
-            // Lấy tiền thuốc và chuyển đổi sang kiểu decimal
-            string tthuoc = hdBus.tienthuoc(hd, mapkb.Text).ToString();
-
-            // Chuyển đổi tiền thuốc sang kiểu decimal và định dạng lại chuỗi
-            decimal valueTthuoc;
-            if (decimal.TryParse(tthuoc, System.Globalization.NumberStyles.AllowThousands, culture, out valueTthuoc))
-            {
-                tienthuoc.Text = String.Format(culture, "{0:N0}", valueTthuoc);
-                tienthuoc.Select(tienthuoc.Text.Length, 0);
-            }
-           
-
-            // Chuyển đổi tiền khám sang kiểu decimal và định dạng lại chuỗi
-            decimal valueTienkham;
-            if (decimal.TryParse(tienkham.Text, System.Globalization.NumberStyles.AllowThousands, culture, out valueTienkham))
-            {
-                tienkham.Text = String.Format(culture, "{0:N0}", valueTienkham);
-                tienkham.Select(tienkham.Text.Length, 0);
-            }
-          
-
-            // Tính tổng tiền và chuyển đổi sang chuỗi
-            tt = (float)valueTthuoc + (float)valueTienkham;
-            decimal valueTongtien = (decimal)tt;
-
-            // Định dạng tổng tiền
-            tongtien.Text = String.Format(culture, "{0:N0}", valueTongtien);
-            tongtien.Select(tongtien.Text.Length, 0);
-        }
-
+  
         private void btnLuu_Click(object sender, EventArgs e)
         {
             HoadonDTO hd = new HoadonDTO();
@@ -231,7 +191,7 @@ namespace GUI_QLPM
                         {
                             if (donvi.MaDonVi == th.MaDonVi)
                             {
-                                row["Đơn vị tín"] = donvi.TenDonVi;
+                                row["Đơn vị tính"] = donvi.TenDonVi;
                             }
 
                         }
@@ -302,6 +262,45 @@ namespace GUI_QLPM
         private void mapkb_SelectedIndexChanged(object sender, EventArgs e)
         {
             load_data(mapkb.Text);
+            load_TenBN();
+
+
+            tt = 0;
+            stt = 1;
+            hdBus = new HoadonBUS();
+
+            HoadonDTO hd = new HoadonDTO();
+            load_TenBN();
+            load_data(mapkb.Text);
+
+            // Lấy tiền thuốc và chuyển đổi sang kiểu decimal
+            string tthuoc = hdBus.tienthuoc(hd, mapkb.Text).ToString();
+
+            // Chuyển đổi tiền thuốc sang kiểu decimal và định dạng lại chuỗi
+            decimal valueTthuoc;
+            if (decimal.TryParse(tthuoc, System.Globalization.NumberStyles.AllowThousands, culture, out valueTthuoc))
+            {
+                tienthuoc.Text = String.Format(culture, "{0:N0}", valueTthuoc);
+                tienthuoc.Select(tienthuoc.Text.Length, 0);
+            }
+
+
+            // Chuyển đổi tiền khám sang kiểu decimal và định dạng lại chuỗi
+            decimal valueTienkham;
+            if (decimal.TryParse(tienkham.Text, System.Globalization.NumberStyles.AllowThousands, culture, out valueTienkham))
+            {
+                tienkham.Text = String.Format(culture, "{0:N0}", valueTienkham);
+                tienkham.Select(tienkham.Text.Length, 0);
+            }
+
+
+            // Tính tổng tiền và chuyển đổi sang chuỗi
+            tt = (float)valueTthuoc + (float)valueTienkham;
+            decimal valueTongtien = (decimal)tt;
+
+            // Định dạng tổng tiền
+            tongtien.Text = String.Format(culture, "{0:N0}", valueTongtien);
+            tongtien.Select(tongtien.Text.Length, 0);
         }
     }
 }
