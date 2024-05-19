@@ -162,8 +162,9 @@ namespace GUI_QLPM
         private void btnThembn_Click(object sender, EventArgs e)
         {
             ThemBenhNhanMoi tbnm = new ThemBenhNhanMoi();
+            this.Close();
             tbnm.Show();
-            load_data();
+            
 
         }
     }

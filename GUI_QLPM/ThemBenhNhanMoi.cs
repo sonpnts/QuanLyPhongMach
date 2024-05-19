@@ -62,7 +62,9 @@ namespace GUI_QLPM
                 if (kq == true)
                 { 
                     System.Windows.Forms.MessageBox.Show("Thêm Bệnh nhân thành công", "Result");
-                    load();
+                    QuanLyBN qlbn = new QuanLyBN();
+                    this.Close();
+                    qlbn.Show();
                 } 
                 else
                     System.Windows.Forms.MessageBox.Show("Thêm Bệnh nhân thất bại", "Result", System.Windows.Forms.MessageBoxButtons.OKCancel, System.Windows.Forms.MessageBoxIcon.Warning);
@@ -72,7 +74,14 @@ namespace GUI_QLPM
 
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
+            QuanLyBN qlbn = new QuanLyBN();
             this.Close();
+            qlbn.Show();
+        }
+
+        private void ThemBenhNhanMoi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          
         }
     }
 }

@@ -80,7 +80,9 @@ namespace GUI_QLPM
         private void Them_Click(object sender, EventArgs e)
         {
             ThemTaiKhoan ttk = new ThemTaiKhoan();
+            this.Close();
             ttk.Show();
+            load_data();
         }
 
         private void TimKiem_Click(object sender, EventArgs e)
