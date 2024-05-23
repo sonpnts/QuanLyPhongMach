@@ -36,15 +36,14 @@ namespace GUI_QLPM
         }
         public void load_data()
         {
-            beBus = new BenhBUS();
             List<BenhDTO> listBenh = beBus.select();
             this.loadData_Vao_GridView(listBenh);
             tenBenh.Text = " ";
+            maBenh.Text=beBus.autogenerate_mabenh().ToString(); 
 
         }
         private void loadData_Vao_GridView(List<BenhDTO> listBenh)
         {
-
             if (listBenh == null)
             {
                 System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
@@ -63,10 +62,8 @@ namespace GUI_QLPM
             }
             grid.DataSource = table.DefaultView;
         }
-
         private void TimKiem_Click(object sender, EventArgs e)
         {
-            beBus = new BenhBUS();
             string sKeyword = ma.Text;
             if (sKeyword == null || sKeyword == string.Empty || sKeyword.Length == 0) // tìm tất cả
             {
@@ -100,7 +97,6 @@ namespace GUI_QLPM
                 temp = be.MaBenh;
             }
         }
-
         private void Them_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(maBenh.Text) || string.IsNullOrEmpty(tenBenh.Text))
@@ -134,8 +130,6 @@ namespace GUI_QLPM
                 temp = row.Cells[0].Value.ToString();
             }
         }
-
-
         private void Sua_Click(object sender, EventArgs e)
         {
             be.MaBenh = maBenh.Text;
@@ -151,11 +145,8 @@ namespace GUI_QLPM
                 load();
             }
         }
-
-
         private void Xoa_Click(object sender, EventArgs e)
         {
-            be = new BenhDTO();
             be.MaBenh = temp;
             beBus = new BenhBUS();
             bool kq = beBus.xoa(be);

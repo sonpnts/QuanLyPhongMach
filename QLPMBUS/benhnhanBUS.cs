@@ -28,20 +28,11 @@ namespace QLPMBUS
             bool re = bnDAL.Sua(bn,maBNold);
             return re;
         }
-      
-
         public bool xoa(BenhNhanDTO bn)
         {
             bool re = bnDAL.Xoa(bn);
             return re;
         }
-        //public bool timkiem(string mabn)
-        //{
-        //    bool re = bnDAL.timkiem(mabn);
-        //    return true;
-        //}
-        
-
         public List<BenhNhanDTO> select()
         {
             return bnDAL.Select();

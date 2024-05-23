@@ -20,13 +20,11 @@ namespace QLPMBUS
             bool re = tkDAL.them(tk);
             return re;
         }
-
         public bool sua(taiKhoanDTO tk, string maTaiKhoanold)
         {
             bool re = tkDAL.sua(tk, maTaiKhoanold);
             return re;
         }
-
         public bool xoa(taiKhoanDTO tk)
         {
             bool re = tkDAL.xoa(tk);

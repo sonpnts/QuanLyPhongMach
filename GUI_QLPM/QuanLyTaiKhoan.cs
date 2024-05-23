@@ -12,15 +12,8 @@ using System.Windows.Forms;
 
 namespace GUI_QLPM
 {
-    public partial class DanhSachTaiKhoan : Form
-    {
-        public DanhSachTaiKhoan()
-        {
-            InitializeComponent();
-            load_data();
-            gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
+    public partial class QuanLyTaiKhoan : Form
+    {   
         public DataTable db1 = new DataTable("TaiKhoan");
         taiKhoanBUS tkBus = new taiKhoanBUS();
         taiKhoanDTO tk = new taiKhoanDTO();
@@ -29,6 +22,14 @@ namespace GUI_QLPM
         private string temp;
         private string temp_ma;
 
+        public QuanLyTaiKhoan()
+        {
+            InitializeComponent();
+            load_data();
+            gird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+     
+
         private void load()
         {
             db1.Clear();
@@ -36,7 +37,6 @@ namespace GUI_QLPM
 
         public void load_data()
         {
-            tkBus = new taiKhoanBUS();
             List<taiKhoanDTO> listTK = tkBus.select();
             List<loaiTaiKhoanDTO> listLoaiTK = loaitkBUS.select();
             this.loadData_Vao_GridView(listTK, listLoaiTK);
@@ -50,7 +50,6 @@ namespace GUI_QLPM
                 System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 return;
             }
-
             DataTable table = new DataTable();
             table.Columns.Add("Mã tài khoản", typeof(int));
             table.Columns.Add("Tên tài khoản", typeof(string));
@@ -75,6 +74,15 @@ namespace GUI_QLPM
                 table.Rows.Add(row);
             }
             gird.DataSource = table.DefaultView;
+        }
+        private void comboBoxRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadRole();
+        }
+        private void loadRole()
+        {
+            int selectedIndex = comboBoxRole.SelectedIndex;
+            List<loaiTaiKhoanDTO> listRole = loaitkBUS.select();
         }
 
         private void Them_Click(object sender, EventArgs e)
@@ -122,17 +130,7 @@ namespace GUI_QLPM
                 comboBoxRole.SelectedIndex = 0;
             }
         }
-
-        private void comboBoxRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            loadRole();
-        }
-        private void loadRole()
-        {
-            int selectedIndex = comboBoxRole.SelectedIndex;
-            List<loaiTaiKhoanDTO> listRole = loaitkBUS.select();
-        }
-
+  
         private void Sua_Click(object sender, EventArgs e)
         {
             tk.Username = username.Text;
@@ -142,14 +140,13 @@ namespace GUI_QLPM
 
             bool kq = tkBus.sua(tk, temp_ma);
             if (!kq)
-                System.Windows.Forms.MessageBox.Show("Update bênh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                System.Windows.Forms.MessageBox.Show("Update tài khoản thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             else
             {
-                System.Windows.Forms.MessageBox.Show("Update bệnh nhân thành công", "Result");
+                System.Windows.Forms.MessageBox.Show("Update tài khoản thành công", "Result");
                 load_data();
             }
         }
-
         private void gird_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < gird.Rows.Count)
@@ -167,16 +164,13 @@ namespace GUI_QLPM
                     {
                         comboBoxRole.SelectedIndex = roleIndex;
                     }
-         
                 }
             }
         }
-
         private void Xoa_Click(object sender, EventArgs e)
         {
 
         }
-
         private void QuayLai_Click(object sender, EventArgs e)
         {
             this.Close();

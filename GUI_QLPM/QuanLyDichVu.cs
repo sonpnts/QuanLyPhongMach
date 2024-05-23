@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace GUI_QLPM
 {
-    public partial class DanhSachDichVu : Form
+    public partial class QuanLyDichVu : Form
     {
         public DataTable db1 = new DataTable("DichVu");
         DichvuBUS dvBus = new DichvuBUS();
         DichvuDTO dv = new DichvuDTO();
         public int temp_ma;
 
-        public DanhSachDichVu()
+        public QuanLyDichVu()
         {
             InitializeComponent();
             load_data();
@@ -31,7 +31,6 @@ namespace GUI_QLPM
         }
         public void load_data()
         {
-            dvBus = new DichvuBUS();
             List<DichvuDTO> listDichVu = dvBus.select();
             this.loadData_Vao_GridView(listDichVu);
         }
@@ -43,7 +42,6 @@ namespace GUI_QLPM
                 System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 return;
             }
-
             DataTable table = new DataTable();
             table.Columns.Add("Mã dịch vụ", typeof(string));
             table.Columns.Add("Tên dịch vụ", typeof(string));
@@ -61,7 +59,6 @@ namespace GUI_QLPM
 
         private void TimKiem_Click(object sender, EventArgs e)
         {
-            dvBus = new DichvuBUS();
             string sKeyword = maDichVu.Text;
             if (string.IsNullOrEmpty(sKeyword)) // Tìm tất cả nếu không có từ khóa
             {
@@ -86,7 +83,6 @@ namespace GUI_QLPM
         {
             this.Close();
         }
-
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < gird.Rows.Count)
@@ -97,9 +93,7 @@ namespace GUI_QLPM
                 temp_ma = int.Parse(row.Cells[0].Value.ToString());
                 
             }
-
         }
-
         private void suadichvu_Click(object sender, EventArgs e)
         {
             dv.TenDichVu = txtTenDV.Text;
@@ -115,7 +109,6 @@ namespace GUI_QLPM
                 load_data();
             }
         }
-
         private void xoadv_Click(object sender, EventArgs e)
         {
             dv.MaDichVu = temp_ma;

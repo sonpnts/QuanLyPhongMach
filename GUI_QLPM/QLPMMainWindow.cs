@@ -146,14 +146,14 @@ namespace GUI_QLPM
 
         private void QuanLyDichVu_Click(object sender, EventArgs e)
         {
-            DanhSachDichVu dsdv = new DanhSachDichVu();
+            QuanLyDichVu dsdv = new QuanLyDichVu();
             dsdv.StartPosition = FormStartPosition.CenterParent;
             dsdv.Show();
         }
 
         private void QuanLyTaiKhoan_Click(object sender, EventArgs e)
         {
-            DanhSachTaiKhoan tk = new DanhSachTaiKhoan();
+            QuanLyTaiKhoan tk = new QuanLyTaiKhoan();
             tk.Show();
         }
 

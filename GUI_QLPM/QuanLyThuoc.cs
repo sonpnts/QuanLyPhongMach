@@ -35,7 +35,6 @@ namespace GUI_QLPM
         }
         private void load()
         {
-            ThuocBUS thBus = new ThuocBUS();
             mathuoc.Text = thBus.autogenerate_mathuoc().ToString();
             listcd = cdBUS.select();
             listdv = donViBUS.select();
@@ -45,17 +44,14 @@ namespace GUI_QLPM
             dongia.Text = "";
             cachdung.Text = "";
         }
-
         public void load_data()
         {
-            thBus = new ThuocBUS();
             List<ThuocDTO> listThuoc = thBus.select();
             this.loadData_Vao_GridView(listThuoc);
             tenthuoc.Text = "";
             donvitinh.Text = "";
             dongia.Text = "";
             cachdung.Text = "";
-
         }
         private void load_combobox(List<donViDTO> listdv, List<cachdungDTO> listcd)
         {
@@ -63,9 +59,7 @@ namespace GUI_QLPM
             {
                 System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 return;
-
             }
-
             DataTable table = new DataTable();
             DataTable table1 = new DataTable();
 
@@ -85,13 +79,10 @@ namespace GUI_QLPM
             }
             // Đặt dữ liệu vào ComboBox donvitinh từ table
             donvitinh.DataSource = table;
-
             // Đặt trường cần hiển thị trong ComboBox donvitinh là "donVi"
             donvitinh.DisplayMember = "donVi";
-
             // Đặt dữ liệu vào ComboBox cachdung từ table1
             cachdung.DataSource = table1;
-
             // Đặt trường cần hiển thị trong ComboBox cachdung là "cachDung"
             cachdung.DisplayMember = "cachDung";
 
@@ -104,7 +95,6 @@ namespace GUI_QLPM
                 System.Windows.Forms.MessageBox.Show("Có lỗi khi lấy thông tin từ DB", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 return;
             }
-
             DataTable table = new DataTable();
             table.Columns.Add("maThuoc", typeof(string));
             table.Columns.Add("tenThuoc", typeof(string));
@@ -122,9 +112,7 @@ namespace GUI_QLPM
                     {
                         row["DVT"] = donvi.TenDonVi;
                     }
-
                 }
-                
                 row["Dongia"] = th.DonGia;
                 foreach (cachdungDTO cd in listcd)
                 {
@@ -133,14 +121,26 @@ namespace GUI_QLPM
                         row["CachDung"] = cd.TenCachDung;
                     }
 
-                }
-                
+                }               
                 table.Rows.Add(row);
             }
             grid.DataSource = table.DefaultView;
         }
 
-
+        private void TimKiem_Click(object sender, EventArgs e)
+        {
+            string sKeyword = key.Text;
+            if (string.IsNullOrEmpty(sKeyword)) // Tìm tất cả nếu không có từ khóa
+            {
+                List<ThuocDTO> listthuoc = thBus.select();
+                this.loadData_Vao_GridView(listthuoc);
+            }
+            else
+            {
+                List<ThuocDTO> listthuoc = thBus.selectByKeyWord(sKeyword);
+                this.loadData_Vao_GridView(listthuoc);
+            }
+        }
         private void Them_Click(object sender, EventArgs e)
         {
             bool kt;
@@ -175,19 +175,14 @@ namespace GUI_QLPM
                     {
                         th.MaDonVi=donvi.MaDonVi;
                     }
-
                 }
-
-                
                 foreach (cachdungDTO cd in listcd)
                 {
                     if (cd.TenCachDung == cachdung.Text)
                     {
                         th.MaCachDung=cd.MaCachDung;
                     }
-
                 }
-
                 thBus = new ThuocBUS();
                 bool kq = thBus.them(th);
                 if (!kq)
@@ -200,7 +195,6 @@ namespace GUI_QLPM
                 }
             }
         }
-
         private void Sua_Click(object sender, EventArgs e)
         {
             th.TenThuoc = tenthuoc.Text;
@@ -210,21 +204,15 @@ namespace GUI_QLPM
                 {
                     th.MaDonVi = donvi.MaDonVi;
                 }
-
             }
-
-
             foreach (cachdungDTO cd in listcd)
             {
                 if (cd.TenCachDung == cachdung.Text)
                 {
                     th.MaCachDung = cd.MaCachDung;
                 }
-
             }
             th.DonGia = int.Parse(dongia.Text);
-            
-
             bool kq = thBus.sua(th, temp);
             if (!kq)
                 System.Windows.Forms.MessageBox.Show("Update thuốc thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -249,7 +237,6 @@ namespace GUI_QLPM
                 temp = row.Cells[0].Value.ToString();
             }
         }
-
         private void Xoa_Click(object sender, EventArgs e)
         {
             th.MaThuoc = mathuoc.Text;
@@ -260,21 +247,15 @@ namespace GUI_QLPM
                 {
                     th.MaDonVi = donvi.MaDonVi;
                 }
-
             }
-
-
             foreach (cachdungDTO cd in listcd)
             {
                 if (cd.TenCachDung == cachdung.Text)
                 {
                     th.MaCachDung = cd.MaCachDung;
                 }
-
             }
             th.DonGia = int.Parse(dongia.Text);
-           
-
             bool kq = thBus.xoa(th);
             if (!kq)
                 System.Windows.Forms.MessageBox.Show("Update thuốc thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -285,12 +266,10 @@ namespace GUI_QLPM
                 load();
             }
         }
-
         private void Thoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
     }
-    
 }
 

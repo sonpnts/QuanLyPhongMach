@@ -51,7 +51,7 @@ namespace GUI_QLPM
                 else
                 {
                     System.Windows.Forms.MessageBox.Show("Thêm Tài Khoản thành công", "Result");
-                    DanhSachTaiKhoan dstk=new DanhSachTaiKhoan();
+                    QuanLyTaiKhoan dstk=new QuanLyTaiKhoan();
                     dstk.Show();
                     this.Close();
                 }

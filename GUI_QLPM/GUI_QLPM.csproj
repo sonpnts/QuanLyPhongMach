@@ -60,11 +60,11 @@
     <Compile Include="BaoCaoSuDungThuoc.Designer.cs">
       <DependentUpon>BaoCaoSuDungThuoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhSachBenh.cs">
+    <Compile Include="QuanLyBenh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhSachBenh.Designer.cs">
-      <DependentUpon>DanhSachBenh.cs</DependentUpon>
+    <Compile Include="QuanLyBenh.Designer.cs">
+      <DependentUpon>QuanLyBenh.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhSachBenhNhan.cs">
       <SubType>Form</SubType>
@@ -72,11 +72,11 @@
     <Compile Include="DanhSachBenhNhan.Designer.cs">
       <DependentUpon>DanhSachBenhNhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhSachDichVu.cs">
+    <Compile Include="QuanLyDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhSachDichVu.Designer.cs">
-      <DependentUpon>DanhSachDichVu.cs</DependentUpon>
+    <Compile Include="QuanLyDichVu.Designer.cs">
+      <DependentUpon>QuanLyDichVu.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhSachHoaDon.cs">
       <SubType>Form</SubType>
@@ -84,17 +84,17 @@
     <Compile Include="DanhSachHoaDon.Designer.cs">
       <DependentUpon>DanhSachHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhSachTaiKhoan.cs">
+    <Compile Include="QuanLyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhSachTaiKhoan.Designer.cs">
-      <DependentUpon>DanhSachTaiKhoan.cs</DependentUpon>
+    <Compile Include="QuanLyTaiKhoan.Designer.cs">
+      <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhSachThuoc.cs">
+    <Compile Include="QuanLyThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhSachThuoc.Designer.cs">
-      <DependentUpon>DanhSachThuoc.cs</DependentUpon>
+    <Compile Include="QuanLyThuoc.Designer.cs">
+      <DependentUpon>QuanLyThuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="KeToa.cs">
       <SubType>Form</SubType>
@@ -164,23 +164,23 @@
     <EmbeddedResource Include="BaoCaoSuDungThuoc.resx">
       <DependentUpon>BaoCaoSuDungThuoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhSachBenh.resx">
-      <DependentUpon>DanhSachBenh.cs</DependentUpon>
+    <EmbeddedResource Include="QuanLyBenh.resx">
+      <DependentUpon>QuanLyBenh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhSachBenhNhan.resx">
       <DependentUpon>DanhSachBenhNhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhSachDichVu.resx">
-      <DependentUpon>DanhSachDichVu.cs</DependentUpon>
+    <EmbeddedResource Include="QuanLyDichVu.resx">
+      <DependentUpon>QuanLyDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhSachHoaDon.resx">
       <DependentUpon>DanhSachHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhSachTaiKhoan.resx">
-      <DependentUpon>DanhSachTaiKhoan.cs</DependentUpon>
+    <EmbeddedResource Include="QuanLyTaiKhoan.resx">
+      <DependentUpon>QuanLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhSachThuoc.resx">
-      <DependentUpon>DanhSachThuoc.cs</DependentUpon>
+    <EmbeddedResource Include="QuanLyThuoc.resx">
+      <DependentUpon>QuanLyThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeToa.resx">
       <DependentUpon>KeToa.cs</DependentUpon>

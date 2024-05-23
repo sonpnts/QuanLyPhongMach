@@ -40,6 +40,7 @@
             this.tenBenh = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.xoabenh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +85,7 @@
             this.Them.BackColor = System.Drawing.Color.RosyBrown;
             this.Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Them.ForeColor = System.Drawing.Color.Transparent;
-            this.Them.Location = new System.Drawing.Point(478, 242);
+            this.Them.Location = new System.Drawing.Point(355, 242);
             this.Them.Name = "Them";
             this.Them.Size = new System.Drawing.Size(166, 48);
             this.Them.TabIndex = 3;
@@ -98,7 +99,7 @@
             this.QuayLai.BackColor = System.Drawing.Color.RosyBrown;
             this.QuayLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuayLai.ForeColor = System.Drawing.Color.Transparent;
-            this.QuayLai.Location = new System.Drawing.Point(938, 242);
+            this.QuayLai.Location = new System.Drawing.Point(956, 242);
             this.QuayLai.Name = "QuayLai";
             this.QuayLai.Size = new System.Drawing.Size(166, 48);
             this.QuayLai.TabIndex = 4;
@@ -126,7 +127,7 @@
             this.Sua.BackColor = System.Drawing.Color.RosyBrown;
             this.Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Sua.ForeColor = System.Drawing.Color.Transparent;
-            this.Sua.Location = new System.Drawing.Point(708, 242);
+            this.Sua.Location = new System.Drawing.Point(562, 242);
             this.Sua.Name = "Sua";
             this.Sua.Size = new System.Drawing.Size(166, 48);
             this.Sua.TabIndex = 6;
@@ -176,12 +177,27 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên loại bệnh :";
             // 
+            // xoabenh
+            // 
+            this.xoabenh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.xoabenh.BackColor = System.Drawing.Color.RosyBrown;
+            this.xoabenh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xoabenh.ForeColor = System.Drawing.Color.Transparent;
+            this.xoabenh.Location = new System.Drawing.Point(763, 242);
+            this.xoabenh.Name = "xoabenh";
+            this.xoabenh.Size = new System.Drawing.Size(166, 48);
+            this.xoabenh.TabIndex = 6;
+            this.xoabenh.Text = "Xóa";
+            this.xoabenh.UseVisualStyleBackColor = false;
+            this.xoabenh.Click += new System.EventHandler(this.Xoa_Click);
+            // 
             // QuanLyBenh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1582, 653);
+            this.Controls.Add(this.xoabenh);
             this.Controls.Add(this.Sua);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.QuayLai);
@@ -215,5 +231,6 @@
         private System.Windows.Forms.TextBox tenBenh;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button xoabenh;
     }
 }

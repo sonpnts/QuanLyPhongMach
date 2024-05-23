@@ -33,7 +33,7 @@ namespace QLPMDAL
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@tenDichVu", dv.TenDichVu);
                     cmd.Parameters.AddWithValue("@tienDichVu", dv.TienDichVu);
-                    try 
+                    try
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -144,7 +144,7 @@ namespace QLPMDAL
                                 DichvuDTO dv = new DichvuDTO();
                                 dv.MaDichVu = int.Parse(reader["maDichVu"].ToString());
                                 dv.TenDichVu = reader["tenDichVu"].ToString();
-                                dv.TienDichVu= float.Parse(reader["tienDichVu"].ToString());
+                                dv.TienDichVu = float.Parse(reader["tienDichVu"].ToString());
 
                                 lsDichVu.Add(dv);
 
@@ -248,11 +248,11 @@ namespace QLPMDAL
                     catch (Exception ex)
                     {
                         con.Close();
-
                     }
                 }
             }
             return mathuoc;
+
         }
     }
 }

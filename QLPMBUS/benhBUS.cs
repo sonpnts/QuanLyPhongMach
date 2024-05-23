@@ -42,6 +42,5 @@ namespace QLPMBUS
         {
             return beDAL.autogenerate_mabenh();
         }
-
     }
 }

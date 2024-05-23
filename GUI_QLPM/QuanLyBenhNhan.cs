@@ -37,8 +37,7 @@ namespace GUI_QLPM
             db1.Columns.Add("MaHD", typeof(System.Int32));
         }
         public void load_data()
-        {
-            bnBus = new BenhNhanBUS();
+        { 
             List<BenhNhanDTO> listBenhNhan = bnBus.select();
             this.loadData_Vao_GridView(listBenhNhan);
             hoten.Text = "";
@@ -80,7 +79,6 @@ namespace GUI_QLPM
 
         private void timkiem_Click(object sender, EventArgs e)
         {
-            bnBus = new BenhNhanBUS();
             string sKeyword = nhaptukhoa.Text;
             if (sKeyword == null || sKeyword == string.Empty || sKeyword.Length == 0) // tìm tất cả
             {
@@ -93,12 +91,7 @@ namespace GUI_QLPM
                 this.loadData_Vao_GridView(listBenhNhan);
             }
         }
-
-        private void quaylai_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+    
         private void gird_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -110,10 +103,8 @@ namespace GUI_QLPM
                 diaChi.Text = row.Cells[3].Value.ToString();
                 gioiTinh.Text = row.Cells[4].Value.ToString();
                 temp_ma = row.Cells[0].Value.ToString();
-            }
-            
+            }    
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             bn.TenBN=hoten.Text;
@@ -130,7 +121,6 @@ namespace GUI_QLPM
                 load_data();
             }
         }
-
         private void xoabenhnhan_Click(object sender, EventArgs e)
         {
             List<PhieukhambenhDTO> pkb = pkbBUS.select();
@@ -142,30 +132,28 @@ namespace GUI_QLPM
                     System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thất bại. Bệnh nhân đã khám", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     return;
                 }
-             
             }
             bn.MaBN = temp_ma;
             bool kq = bnBus.xoa(bn);
             if (!kq)
             {
                 System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thất bại. Vui lòng kiểm tra lại dữ liệu", "Result", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-               
             }
             else
             {
                 System.Windows.Forms.MessageBox.Show("Xóa bệnh nhân thành công", "Result");
                 load_data();
-                
             }
         }
-
         private void btnThembn_Click(object sender, EventArgs e)
         {
             ThemBenhNhanMoi tbnm = new ThemBenhNhanMoi();
             this.Close();
             tbnm.Show();
-            
-
+        }
+        private void quaylai_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GUI_QLPM
 {
-    partial class DanhSachTaiKhoan
+    partial class QuanLyTaiKhoan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachTaiKhoan));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLyTaiKhoan));
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.hoten = new System.Windows.Forms.TextBox();
@@ -141,7 +141,7 @@
             this.Sua.BackColor = System.Drawing.Color.RosyBrown;
             this.Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Sua.ForeColor = System.Drawing.Color.Transparent;
-            this.Sua.Location = new System.Drawing.Point(720, 260);
+            this.Sua.Location = new System.Drawing.Point(718, 260);
             this.Sua.Name = "Sua";
             this.Sua.Size = new System.Drawing.Size(147, 58);
             this.Sua.TabIndex = 34;
@@ -168,7 +168,7 @@
             this.QuayLai.BackColor = System.Drawing.Color.RosyBrown;
             this.QuayLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuayLai.ForeColor = System.Drawing.Color.Transparent;
-            this.QuayLai.Location = new System.Drawing.Point(922, 260);
+            this.QuayLai.Location = new System.Drawing.Point(921, 260);
             this.QuayLai.Name = "QuayLai";
             this.QuayLai.Size = new System.Drawing.Size(147, 58);
             this.QuayLai.TabIndex = 32;
@@ -182,7 +182,7 @@
             this.Them.BackColor = System.Drawing.Color.RosyBrown;
             this.Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Them.ForeColor = System.Drawing.Color.Transparent;
-            this.Them.Location = new System.Drawing.Point(514, 265);
+            this.Them.Location = new System.Drawing.Point(515, 260);
             this.Them.Name = "Them";
             this.Them.Size = new System.Drawing.Size(147, 58);
             this.Them.TabIndex = 31;
@@ -225,7 +225,7 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Nhập từ khóa :";
             // 
-            // DanhSachTaiKhoan
+            // QuanLyTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -247,7 +247,7 @@
             this.Controls.Add(this.search);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DanhSachTaiKhoan";
+            this.Name = "QuanLyTaiKhoan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý tài khoản";
             ((System.ComponentModel.ISupportInitialize)(this.gird)).EndInit();
